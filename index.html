@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -49,13 +50,13 @@ body{font-family:var(--sf);min-height:100vh;-webkit-font-smoothing:antialiased;c
 .port-left,.port-right{min-width:0}
 
 /* ── Typography ── */
-.pg-title{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:2px;background:linear-gradient(135deg,var(--p900),var(--p600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pg-sub{font-size:13px;color:var(--text2);margin-bottom:18px}
-.section-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--p100),var(--cream3));border:1px solid var(--border2);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--p700);margin-bottom:10px;box-shadow:0 1px 4px rgba(109,40,217,.10)}
+.pg-title{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:2px;background:linear-gradient(135deg,var(–p900),var(–p600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pg-sub{font-size:13px;color:var(–text2);margin-bottom:18px}
+.section-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(–p100),var(–cream3));border:1px solid var(–border2);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(–p700);margin-bottom:10px;box-shadow:0 1px 4px rgba(109,40,217,.10)}
 
 /* ── Hero ── */
 .hero{border-radius:20px;background:linear-gradient(145deg,#4c1d95 0%,#6d28d9 45%,#8b5cf6 100%);padding:22px 22px 18px;margin-bottom:14px;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(76,29,149,.38),inset 0 1px 0 rgba(255,255,255,.15)}
-.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hero::before{content:’’;position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
 .hero-lbl{font-size:11px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.65);margin-bottom:5px;text-transform:uppercase}
 .hero-amt{font-size:38px;font-weight:800;letter-spacing:-2px;line-height:1;color:#fff}
 .hero-amt.pos{color:#a7f3d0}.hero-amt.neg{color:#fca5a5}.hero-amt.zero{color:rgba(255,255,255,.60)}
@@ -63,189 +64,190 @@ body{font-family:var(--sf);min-height:100vh;-webkit-font-smoothing:antialiased;c
 .hero-stat-val{font-size:16px;font-weight:700;color:#fff}.hero-stat-lbl{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
 
 /* ── Trade Cards ── */
-.trade-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);margin-bottom:9px;overflow:hidden;box-shadow:0 2px 14px rgba(109,40,217,.06);transition:box-shadow .18s,border-color .18s}
-.trade-card:hover{border-color:var(--border2);box-shadow:0 5px 24px rgba(109,40,217,.12)}
+.trade-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);margin-bottom:9px;overflow:hidden;box-shadow:0 2px 14px rgba(109,40,217,.06);transition:box-shadow .18s,border-color .18s}
+.trade-card:hover{border-color:var(–border2);box-shadow:0 5px 24px rgba(109,40,217,.12)}
 .trade-header{padding:13px 16px;display:flex;align-items:flex-start;justify-content:space-between;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
-.trade-header:active{background:var(--p050)}
-.t-ticker{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--p700)}
-.t-sub{font-size:12px;color:var(--text2);margin-top:2px}
+.trade-header:active{background:var(–p050)}
+.t-ticker{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(–p700)}
+.t-sub{font-size:12px;color:var(–text2);margin-top:2px}
 .t-right{text-align:right;flex-shrink:0;margin-left:10px}
-.t-pnl{font-size:15px;font-weight:700}.t-pnl.pos{color:var(--success)}.t-pnl.neg{color:var(--danger)}.t-pnl.open{color:var(--p600)}
-.t-detail{font-size:12px;color:var(--text2);margin-top:2px}
-.t-chevron{font-size:12px;color:var(--text3);margin-top:4px;transition:transform .2s}
+.t-pnl{font-size:15px;font-weight:700}.t-pnl.pos{color:var(–success)}.t-pnl.neg{color:var(–danger)}.t-pnl.open{color:var(–p600)}
+.t-detail{font-size:12px;color:var(–text2);margin-top:2px}
+.t-chevron{font-size:12px;color:var(–text3);margin-top:4px;transition:transform .2s}
 .t-chevron.open{transform:rotate(180deg)}
 .risk-bar-row{padding:0 16px 12px;display:flex;align-items:center;gap:10px}
-.risk-bg{flex:1;height:5px;background:var(--p100);border-radius:3px;overflow:hidden}
+.risk-bg{flex:1;height:5px;background:var(–p100);border-radius:3px;overflow:hidden}
 .risk-fill{height:100%;border-radius:3px;transition:width .65s cubic-bezier(.4,0,.2,1)}
-.risk-lbl{font-size:11px;color:var(--text3);white-space:nowrap}
+.risk-lbl{font-size:11px;color:var(–text3);white-space:nowrap}
 
 /* ── Trade Detail Drawer ── */
-.trade-drawer{display:none;border-top:1px solid var(--border);background:linear-gradient(135deg,var(--cream3),var(--cream2))}
+.trade-drawer{display:none;border-top:1px solid var(–border);background:linear-gradient(135deg,var(–cream3),var(–cream2))}
 .trade-drawer.open{display:block;animation:fu .18s ease}
 .drawer-body{padding:14px 16px 16px}
 .drawer-section{margin-bottom:12px}
-.drawer-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
-.drawer-value{font-size:13px;color:var(--text2);line-height:1.5}
-.drawer-thesis{border-left:3px solid var(--p200);padding-left:10px;font-size:13px;color:var(--text2);line-height:1.5}
-.drawer-lesson{border-left:3px solid var(--p500);padding-left:10px;font-size:13px;color:var(--p700);line-height:1.5;font-style:italic}
+.drawer-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(–text3);margin-bottom:4px}
+.drawer-value{font-size:13px;color:var(–text2);line-height:1.5}
+.drawer-thesis{border-left:3px solid var(–p200);padding-left:10px;font-size:13px;color:var(–text2);line-height:1.5}
+.drawer-lesson{border-left:3px solid var(–p500);padding-left:10px;font-size:13px;color:var(–p700);line-height:1.5;font-style:italic}
 .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.drawer-stat{background:var(--surface);border-radius:10px;padding:10px 12px;border:1px solid var(--border)}
-.drawer-stat-val{font-size:15px;font-weight:700;color:var(--text)}
-.drawer-stat-lbl{font-size:11px;color:var(--text2);margin-top:1px}
+.drawer-stat{background:var(–surface);border-radius:10px;padding:10px 12px;border:1px solid var(–border)}
+.drawer-stat-val{font-size:15px;font-weight:700;color:var(–text)}
+.drawer-stat-lbl{font-size:11px;color:var(–text2);margin-top:1px}
 .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
 .tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
-.tg{background:var(--success-dim);color:var(--success)}.tr{background:var(--danger-dim);color:var(--danger)}
-.ty{background:var(--warn-dim);color:var(--warn)}.tp{background:var(--p100);color:var(--p700)}
-.drawer-actions{display:flex;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
-.drawer-btn{flex:1;padding:9px 12px;border-radius:20px;border:none;font-family:var(--sf);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
-.dba-add{background:linear-gradient(135deg,var(--p700),var(--p500));color:#fff;box-shadow:0 2px 10px rgba(109,40,217,.3)}
-.dba-reduce{background:var(--warn-dim);color:var(--warn);border:1px solid var(--warn-bd)}
-.dba-close{background:var(--success-dim);color:var(--success);border:1px solid var(--success-bd)}
+.tg{background:var(–success-dim);color:var(–success)}.tr{background:var(–danger-dim);color:var(–danger)}
+.ty{background:var(–warn-dim);color:var(–warn)}.tp{background:var(–p100);color:var(–p700)}
+.drawer-actions{display:flex;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(–border)}
+.drawer-btn{flex:1;padding:9px 12px;border-radius:20px;border:none;font-family:var(–sf);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.dba-add{background:linear-gradient(135deg,var(–p700),var(–p500));color:#fff;box-shadow:0 2px 10px rgba(109,40,217,.3)}
+.dba-reduce{background:var(–warn-dim);color:var(–warn);border:1px solid var(–warn-bd)}
+.dba-close{background:var(–success-dim);color:var(–success);border:1px solid var(–success-bd)}
 
 /* ── Adjust Position Modal ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(30,10,60,.4);z-index:400;display:none;backdrop-filter:blur(3px)}
 .modal-overlay.show{display:block}
-.modal{position:fixed;bottom:0;left:0;right:0;z-index:401;background:var(--surface);border-radius:20px 20px 0 0;padding:24px 20px 40px;max-height:85vh;overflow-y:auto;display:none;transform:translateY(20px);opacity:0;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s}
+.modal{position:fixed;bottom:0;left:0;right:0;z-index:401;background:var(–surface);border-radius:20px 20px 0 0;padding:24px 20px 40px;max-height:85vh;overflow-y:auto;display:none;transform:translateY(20px);opacity:0;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s}
 .modal.show{display:block;transform:translateY(0);opacity:1}
-.modal-title{font-size:18px;font-weight:800;color:var(--p700);letter-spacing:-.4px;margin-bottom:4px}
-.modal-sub{font-size:13px;color:var(--text2);margin-bottom:18px}
-.modal-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;font-family:var(--sf)}
+.modal-title{font-size:18px;font-weight:800;color:var(–p700);letter-spacing:-.4px;margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(–text2);margin-bottom:18px}
+.modal-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;font-family:var(–sf)}
 
 /* ── Chart ── */
-.chart-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:18px;margin-bottom:10px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
+.chart-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);padding:18px;margin-bottom:10px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
 .chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.chart-title{font-size:14px;font-weight:700;color:var(--text)}
-.chart-toggle{display:flex;border:1px solid var(--border2);border-radius:20px;overflow:hidden}
-.chart-toggle-btn{padding:5px 14px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text2);font-family:var(--sf);transition:all .15s}
-.chart-toggle-btn.on{background:linear-gradient(135deg,var(--p700),var(--p500));color:#fff}
+.chart-title{font-size:14px;font-weight:700;color:var(–text)}
+.chart-toggle{display:flex;border:1px solid var(–border2);border-radius:20px;overflow:hidden}
+.chart-toggle-btn{padding:5px 14px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(–text2);font-family:var(–sf);transition:all .15s}
+.chart-toggle-btn.on{background:linear-gradient(135deg,var(–p700),var(–p500));color:#fff}
 .chart-wrap{position:relative;height:180px}
 canvas#pnlChart{width:100%!important;height:180px!important}
-.chart-empty{display:flex;align-items:center;justify-content:center;height:140px;color:var(--text3);font-size:13px;border:1px dashed var(--p200);border-radius:var(--rs);background:var(--p050)}
+.chart-empty{display:flex;align-items:center;justify-content:center;height:140px;color:var(–text3);font-size:13px;border:1px dashed var(–p200);border-radius:var(–rs);background:var(–p050)}
 
 /* ── Calendar ── */
-.cal-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:16px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
+.cal-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);padding:16px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.cal-month{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.3px}
-.cal-nav-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--p700);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.cal-nav-btn:hover{background:var(--p100)}
+.cal-month{font-size:15px;font-weight:700;color:var(–text);letter-spacing:-.3px}
+.cal-nav-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–p700);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cal-nav-btn:hover{background:var(–p100)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
-.cal-dow{font-size:10px;font-weight:700;text-align:center;color:var(--text3);padding:4px 0;letter-spacing:.05em}
+.cal-dow{font-size:10px;font-weight:700;text-align:center;color:var(–text3);padding:4px 0;letter-spacing:.05em}
 .cal-day{min-height:44px;border-radius:10px;padding:5px;transition:all .15s;border:1px solid transparent;position:relative}
-.cal-day.other-month{opacity:.3}.cal-day.today{border-color:var(--p400);background:var(--p050)}
-.cal-day.has-trades{cursor:pointer}.cal-day.has-trades:hover{border-color:var(--p300);box-shadow:0 2px 8px rgba(109,40,217,.12)}
-.cal-day-num{font-size:12px;font-weight:600;color:var(--text2);line-height:1}.cal-day.today .cal-day-num{color:var(--p700);font-weight:800}
+.cal-day.other-month{opacity:.3}.cal-day.today{border-color:var(–p400);background:var(–p050)}
+.cal-day.has-trades{cursor:pointer}.cal-day.has-trades:hover{border-color:var(–p300);box-shadow:0 2px 8px rgba(109,40,217,.12)}
+.cal-day-num{font-size:12px;font-weight:600;color:var(–text2);line-height:1}.cal-day.today .cal-day-num{color:var(–p700);font-weight:800}
 .cal-dot-row{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
-.cal-dot{width:6px;height:6px;border-radius:50%}.cal-dot.win{background:var(--success)}.cal-dot.loss{background:var(--danger)}.cal-dot.open{background:var(--p500)}
-.cal-pnl{font-size:9px;font-weight:700;margin-top:2px;letter-spacing:-.3px}.cal-pnl.pos{color:var(--success)}.cal-pnl.neg{color:var(--danger)}
-.cal-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--surface);border-radius:var(--r);border:1px solid var(--border2);padding:20px;width:320px;max-width:calc(100vw - 32px);z-index:500;box-shadow:0 20px 60px rgba(91,33,182,.25);display:none;max-height:70vh;overflow-y:auto}
+.cal-dot{width:6px;height:6px;border-radius:50%}.cal-dot.win{background:var(–success)}.cal-dot.loss{background:var(–danger)}.cal-dot.open{background:var(–p500)}
+.cal-pnl{font-size:9px;font-weight:700;margin-top:2px;letter-spacing:-.3px}.cal-pnl.pos{color:var(–success)}.cal-pnl.neg{color:var(–danger)}
+.cal-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(–surface);border-radius:var(–r);border:1px solid var(–border2);padding:20px;width:320px;max-width:calc(100vw - 32px);z-index:500;box-shadow:0 20px 60px rgba(91,33,182,.25);display:none;max-height:70vh;overflow-y:auto}
 .cal-popup.show{display:block;animation:fu .2s ease}
 .cal-popup-overlay{position:fixed;inset:0;background:rgba(30,10,60,.3);z-index:499;display:none;backdrop-filter:blur(2px)}
 .cal-popup-overlay.show{display:block}
-.cal-popup-title{font-size:16px;font-weight:800;color:var(--p700);margin-bottom:14px;letter-spacing:-.4px}
-.cal-popup-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;font-family:var(--sf)}
-.cal-trade-item{padding:10px 12px;background:var(--surface2);border-radius:var(--rs);border:1px solid var(--border);margin-bottom:8px}
+.cal-popup-title{font-size:16px;font-weight:800;color:var(–p700);margin-bottom:14px;letter-spacing:-.4px}
+.cal-popup-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;font-family:var(–sf)}
+.cal-trade-item{padding:10px 12px;background:var(–surface2);border-radius:var(–rs);border:1px solid var(–border);margin-bottom:8px}
 
 /* ── Forms ── */
 .fg{margin-bottom:18px}
-.fl{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;display:block;letter-spacing:-.1px}
-.fh{font-size:12px;color:var(--text2);margin-bottom:7px}
-input[type=text],input[type=number],textarea,select{width:100%;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--rs);padding:12px 14px;color:var(--text);font-family:var(--sf);font-size:15px;outline:none;-webkit-appearance:none;transition:border-color .15s,background .15s,box-shadow .15s;resize:none}
-input:focus,textarea:focus,select:focus{border-color:var(--p500);background:var(--surface);box-shadow:0 0 0 3px rgba(109,40,217,.10)}
-input::placeholder,textarea::placeholder{color:var(--text3)}
+.fl{font-size:13px;font-weight:700;color:var(–text);margin-bottom:5px;display:block;letter-spacing:-.1px}
+.fh{font-size:12px;color:var(–text2);margin-bottom:7px}
+input[type=text],input[type=number],textarea,select{width:100%;background:var(–surface2);border:1px solid var(–border2);border-radius:var(–rs);padding:12px 14px;color:var(–text);font-family:var(–sf);font-size:15px;outline:none;-webkit-appearance:none;transition:border-color .15s,background .15s,box-shadow .15s;resize:none}
+input:focus,textarea:focus,select:focus{border-color:var(–p500);background:var(–surface);box-shadow:0 0 0 3px rgba(109,40,217,.10)}
+input::placeholder,textarea::placeholder{color:var(–text3)}
 textarea{min-height:76px;line-height:1.5}
-select option{background:var(--surface)}
+select option{background:var(–surface)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
 /* ── Pills ── */
 .pills{display:flex;flex-wrap:wrap;gap:7px}
-.pill{padding:8px 15px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;user-select:none;text-align:center;line-height:1.3;transition:all .12s;-webkit-tap-highlight-color:transparent}
-.pill:hover{color:var(--p700);border-color:var(--p400);background:var(--p050)}
-.pill.on{border-color:var(--p600);background:linear-gradient(135deg,var(--p100),var(--cream3));color:var(--p700);font-weight:700;box-shadow:0 2px 10px rgba(109,40,217,.14)}
-.pill.on-r{border-color:var(--danger);background:var(--danger-dim);color:var(--danger);font-weight:700}
+.pill{padding:8px 15px;border-radius:20px;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);font-size:13px;font-weight:500;cursor:pointer;user-select:none;text-align:center;line-height:1.3;transition:all .12s;-webkit-tap-highlight-color:transparent}
+.pill:hover{color:var(–p700);border-color:var(–p400);background:var(–p050)}
+.pill.on{border-color:var(–p600);background:linear-gradient(135deg,var(–p100),var(–cream3));color:var(–p700);font-weight:700;box-shadow:0 2px 10px rgba(109,40,217,.14)}
+.pill.on-r{border-color:var(–danger);background:var(–danger-dim);color:var(–danger);font-weight:700}
 
 /* ── Slider ── */
 .sw{display:flex;align-items:center;gap:12px}
-input[type=range]{flex:1;-webkit-appearance:none;height:5px;border-radius:3px;outline:none;padding:0;border:none;background:linear-gradient(to right,var(--p600) 50%,var(--p200) 50%)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--p700),var(--p500));box-shadow:0 2px 8px rgba(109,40,217,.40);cursor:pointer;transition:transform .12s}
+input[type=range]{flex:1;-webkit-appearance:none;height:5px;border-radius:3px;outline:none;padding:0;border:none;background:linear-gradient(to right,var(–p600) 50%,var(–p200) 50%)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(–p700),var(–p500));box-shadow:0 2px 8px rgba(109,40,217,.40);cursor:pointer;transition:transform .12s}
 input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
-.sv{font-size:20px;font-weight:800;color:var(--p600);min-width:24px;text-align:right}
-.sl{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-top:5px}
+.sv{font-size:20px;font-weight:800;color:var(–p600);min-width:24px;text-align:right}
+.sl{display:flex;justify-content:space-between;font-size:11px;color:var(–text3);margin-top:5px}
 
 /* ── Buttons ── */
-.btn{width:100%;padding:15px;border-radius:50px;border:none;font-family:var(--sf);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:-.2px;transition:opacity .15s,transform .09s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
-.btn-p{background:linear-gradient(135deg,var(--p800),var(--p600));color:#fff;box-shadow:0 5px 22px rgba(91,33,182,.42)}
+.btn{width:100%;padding:15px;border-radius:50px;border:none;font-family:var(–sf);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:-.2px;transition:opacity .15s,transform .09s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+.btn-p{background:linear-gradient(135deg,var(–p800),var(–p600));color:#fff;box-shadow:0 5px 22px rgba(91,33,182,.42)}
 .btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.98)}
-.btn-s{background:var(--surface2);color:var(--p700);border:1px solid var(--border2);font-weight:600}
-.btn-s:hover{background:var(--p100);border-color:var(--p400)}
+.btn-s{background:var(–surface2);color:var(–p700);border:1px solid var(–border2);font-weight:600}
+.btn-s:hover{background:var(–p100);border-color:var(–p400)}
 .btn-d{background:linear-gradient(135deg,#991b1b,#dc2626);color:#fff;box-shadow:0 4px 16px rgba(220,38,38,.38)}
 .btn-row{display:flex;gap:10px;margin-top:8px}
 .btn-row .btn{flex:1}
 
 /* ── Step nav ── */
-.prog{height:3px;background:var(--p100);border-radius:2px;overflow:hidden;margin-bottom:6px}
-.prog-f{height:100%;background:linear-gradient(90deg,var(--p800),var(--p500));border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+.prog{height:3px;background:var(–p100);border-radius:2px;overflow:hidden;margin-bottom:6px}
+.prog-f{height:100%;background:linear-gradient(90deg,var(–p800),var(–p500));border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1)}
 .step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .step-dots{display:flex;gap:6px}
-.dot{height:4px;width:32px;border-radius:2px;background:var(--p200);transition:background .25s;cursor:pointer}
-.dot.done{background:linear-gradient(90deg,var(--p700),var(--p500))}.dot.now{background:var(--p400);opacity:.8}
-.back-btn{font-size:12px;font-weight:600;color:var(--text2);background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:8px;font-family:var(--sf);display:flex;align-items:center;gap:4px}
-.back-btn:hover{color:var(--p700);background:var(--p050)}
+.dot{height:4px;width:32px;border-radius:2px;background:var(–p200);transition:background .25s;cursor:pointer}
+.dot.done{background:linear-gradient(90deg,var(–p700),var(–p500))}.dot.now{background:var(–p400);opacity:.8}
+.back-btn{font-size:12px;font-weight:600;color:var(–text2);background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:8px;font-family:var(–sf);display:flex;align-items:center;gap:4px}
+.back-btn:hover{color:var(–p700);background:var(–p050)}
 .back-btn:disabled{opacity:0;pointer-events:none}
 
 /* ── Alerts ── */
-.alert{border-radius:var(--rs);padding:12px 15px;font-size:13px;line-height:1.5;margin-bottom:16px}
-.al-p{background:var(--p100);border:1px solid rgba(124,58,237,.25);color:var(--p800)}
-.al-r{background:var(--danger-dim);border:1px solid var(--danger-bd);color:var(--danger);display:none}
+.alert{border-radius:var(–rs);padding:12px 15px;font-size:13px;line-height:1.5;margin-bottom:16px}
+.al-p{background:var(–p100);border:1px solid rgba(124,58,237,.25);color:var(–p800)}
+.al-r{background:var(–danger-dim);border:1px solid var(–danger-bd);color:var(–danger);display:none}
 .al-r.show{display:block;animation:fu .2s ease}
-.al-g{background:var(--success-dim);border:1px solid var(--success-bd);color:var(--success)}
-.al-y{background:var(--warn-dim);border:1px solid var(--warn-bd);color:var(--warn)}
+.al-g{background:var(–success-dim);border:1px solid var(–success-bd);color:var(–success)}
+.al-y{background:var(–warn-dim);border:1px solid var(–warn-bd);color:var(–warn)}
 
 /* ── Hard block ── */
-.hblock{text-align:center;padding:36px 22px;background:var(--danger-dim);border:1px solid var(--danger-bd);border-radius:var(--r);display:none}
+.hblock{text-align:center;padding:36px 22px;background:var(–danger-dim);border:1px solid var(–danger-bd);border-radius:var(–r);display:none}
 .hblock.show{display:block;animation:fu .25s ease}
-.hb-icon{font-size:48px;margin-bottom:14px}.hb-title{font-size:22px;font-weight:800;color:var(--danger);letter-spacing:-.5px;margin-bottom:10px}
+.hb-icon{font-size:48px;margin-bottom:14px}.hb-title{font-size:22px;font-weight:800;color:var(–danger);letter-spacing:-.5px;margin-bottom:10px}
 .hb-text{font-size:14px;color:#b91c1c;line-height:1.6}
 
 /* ── Confluence card ── */
-.conf-card{border-radius:var(--r);background:linear-gradient(145deg,var(--p900),var(--p700) 55%,var(--p600) 100%);padding:20px;text-align:center;margin-bottom:18px;box-shadow:0 10px 32px rgba(59,7,100,.35),inset 0 1px 0 rgba(255,255,255,.12);position:relative;overflow:hidden}
-.conf-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%)}
+.conf-card{border-radius:var(–r);background:linear-gradient(145deg,var(–p900),var(–p700) 55%,var(–p600) 100%);padding:20px;text-align:center;margin-bottom:18px;box-shadow:0 10px 32px rgba(59,7,100,.35),inset 0 1px 0 rgba(255,255,255,.12);position:relative;overflow:hidden}
+.conf-card::before{content:’’;position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%)}
 .conf-num{font-size:58px;font-weight:900;letter-spacing:-4px;line-height:1}
 .conf-denom{font-size:24px;color:rgba(255,255,255,.45);font-weight:400}
 .conf-lbl{font-size:12px;color:rgba(255,255,255,.65);margin-top:6px}
 
 /* ── Stats ── */
 .sg{display:grid;gap:8px;margin-bottom:10px}.sg2{grid-template-columns:1fr 1fr}.sg3{grid-template-columns:repeat(3,1fr)}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:15px 13px;box-shadow:0 2px 12px rgba(109,40,217,.05)}
+.stat{background:var(–surface);border:1px solid var(–border);border-radius:var(–r);padding:15px 13px;box-shadow:0 2px 12px rgba(109,40,217,.05)}
 .sv2{font-size:22px;font-weight:800;letter-spacing:-.8px;line-height:1;margin-bottom:4px}
-.sv2.pos{color:var(--success)}.sv2.neg{color:var(--danger)}
-.sv2.pur{background:linear-gradient(135deg,var(--p800),var(--p500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sl2{font-size:11px;color:var(--text2);font-weight:500}
+.sv2.pos{color:var(–success)}.sv2.neg{color:var(–danger)}
+.sv2.pur{background:linear-gradient(135deg,var(–p800),var(–p500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl2{font-size:11px;color:var(–text2);font-weight:500}
 
 /* ── Behavior bars ── */
 .br{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.bl{font-size:12px;color:var(--text2);width:110px;flex-shrink:0}
-.bb{flex:1;height:6px;background:var(--p100);border-radius:3px;overflow:hidden}
+.bl{font-size:12px;color:var(–text2);width:110px;flex-shrink:0}
+.bb{flex:1;height:6px;background:var(–p100);border-radius:3px;overflow:hidden}
 .bf{height:100%;border-radius:3px;transition:width .9s cubic-bezier(.4,0,.2,1)}
-.bc{font-size:12px;font-weight:700;color:var(--text2);width:18px;text-align:right}
+.bc{font-size:12px;font-weight:700;color:var(–text2);width:18px;text-align:right}
 
 /* ── Checklist ── */
-.ci{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.4}
+.ci{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(–border);font-size:14px;color:var(–text2);line-height:1.4}
 .ci:last-child{border-bottom:none}
-.cb{font-size:22px;color:var(--p300);cursor:pointer;flex-shrink:0;margin-top:-2px;transition:color .12s;-webkit-tap-highlight-color:transparent}
-.cb.done{color:var(--success)}
+.cb{font-size:22px;color:var(–p300);cursor:pointer;flex-shrink:0;margin-top:-2px;transition:color .12s;-webkit-tap-highlight-color:transparent}
+.cb.done{color:var(–success)}
 
 /* ── Misc ── */
-hr{border:none;border-top:1px solid var(--border);margin:18px 0}
-.empty{text-align:center;padding:36px 18px;color:var(--text3);font-size:14px;border:1px dashed var(--p200);border-radius:var(--r);background:linear-gradient(135deg,var(--p050),var(--cream2))}
+hr{border:none;border-top:1px solid var(–border);margin:18px 0}
+.empty{text-align:center;padding:36px 18px;color:var(–text3);font-size:14px;border:1px dashed var(–p200);border-radius:var(–r);background:linear-gradient(135deg,var(–p050),var(–cream2))}
 .ei{font-size:30px;margin-bottom:10px;opacity:.45}
-.toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%) translateY(14px);background:linear-gradient(135deg,var(--p800),var(--p600));color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:600;opacity:0;transition:all .22s;z-index:999;pointer-events:none;white-space:nowrap;box-shadow:0 6px 28px rgba(91,33,182,.50)}
+.toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%) translateY(14px);background:linear-gradient(135deg,var(–p800),var(–p600));color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:600;opacity:0;transition:all .22s;z-index:999;pointer-events:none;white-space:nowrap;box-shadow:0 6px 28px rgba(91,33,182,.50)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.ibox{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:var(--rs);padding:16px;font-size:13px;color:var(--text2);line-height:1.75;white-space:pre-line}
+.ibox{background:linear-gradient(135deg,var(–surface),var(–surface2));border:1px solid var(–border);border-radius:var(–rs);padding:16px;font-size:13px;color:var(–text2);line-height:1.75;white-space:pre-line}
 
 @media(max-width:900px){.port-layout{grid-template-columns:1fr}.port-right{order:-1}}
 @media(max-width:480px){.pg-title{font-size:24px}.hero-amt{font-size:34px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
 </style>
+
 </head>
 <body>
 
@@ -262,26 +264,67 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 <div class="app">
 
 <!-- ═══ PORTFOLIO ═══ -->
+
 <div id="view-log" class="view on">
   <div class="pg-title">Portfolio</div>
   <div class="pg-sub">Live P&L · Risk exposure · Trade history</div>
   <div class="port-layout">
     <div class="port-left">
       <div class="hero">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px">
-          <div class="hero-lbl">Account Balance</div>
-          <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:rgba(255,255,255,.75);font-size:11px;font-weight:600;padding:3px 10px;cursor:pointer;font-family:var(--sf)">Edit Balance</button>
+        <!-- Top row: labels + edit buttons -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="hero-lbl" style="margin-bottom:0">Account Balance</div>
+            <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:rgba(255,255,255,.75);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="hero-lbl" style="margin-bottom:0" id="goal-month-lbl">Monthly Goal</div>
+            <button onclick="toggleGoalEdit()" id="goal-edit-btn" style="background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:rgba(255,255,255,.75);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
+          </div>
         </div>
-        <div class="hero-amt zero" id="hero-balance">Set starting balance</div>
+        <!-- Main numbers row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start">
+          <div>
+            <div class="hero-amt zero" id="hero-balance" style="font-size:28px">Set balance</div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;min-height:18px">
+              <div id="hero-pnl-inline" style="display:none;font-size:12px;font-weight:700;padding:1px 8px;border-radius:20px;background:rgba(255,255,255,.12)"></div>
+              <div id="hero-pnl-label" style="font-size:11px;color:rgba(255,255,255,.35);display:none">P&amp;L</div>
+            </div>
+          </div>
+          <div style="border-left:1px solid rgba(255,255,255,.15);padding-left:12px">
+            <div style="display:flex;align-items:baseline;gap:8px">
+              <div class="hero-amt zero" id="goal-display" style="font-size:28px">—</div>
+              <!-- $ / % toggle -->
+              <div style="display:flex;border:1px solid rgba(255,255,255,.25);border-radius:20px;overflow:hidden;flex-shrink:0">
+                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.22);color:#fff;font-family:var(--sf)">$</button>
+                <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.5);font-family:var(--sf)">%</button>
+              </div>
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px" id="goal-progress-label">Set a monthly target</div>
+          </div>
+        </div>
+        <!-- Inline edit rows -->
         <div id="bal-edit-row" style="display:none;margin-top:10px;gap:8px;align-items:center">
-          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);border-radius:10px;padding:9px 13px;color:#fff;font-family:var(--sf);font-size:15px;font-weight:600;outline:none;width:auto" oninput="" onkeydown="if(event.key==='Enter')saveBalInput()">
-          <button onclick="saveBalInput()" style="background:#fff;border:none;border-radius:10px;color:var(--p700);font-family:var(--sf);font-size:13px;font-weight:700;padding:9px 16px;cursor:pointer;white-space:nowrap">Save</button>
-          <button onclick="toggleBalEdit()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;color:rgba(255,255,255,.75);font-family:var(--sf);font-size:13px;font-weight:600;padding:9px 12px;cursor:pointer">✕</button>
+          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);border-radius:10px;padding:8px 12px;color:#fff;font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
+          <button onclick="saveBalInput()" style="background:#fff;border:none;border-radius:10px;color:var(--p700);font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleBalEdit()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;color:rgba(255,255,255,.75);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
-        <div style="margin-top:5px;display:flex;align-items:center;gap:8px;min-height:22px">
-          <div id="hero-pnl-inline" style="display:none;font-size:13px;font-weight:700;padding:2px 10px;border-radius:20px;background:rgba(255,255,255,.12)"></div>
-          <div id="hero-pnl-label" style="font-size:11px;color:rgba(255,255,255,.40);display:none">realized P&amp;L</div>
+        <div id="goal-edit-row" style="display:none;margin-top:8px;gap:8px;align-items:center">
+          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);border-radius:10px;padding:8px 12px;color:#fff;font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
+          <button onclick="saveGoalInput()" style="background:#fff;border:none;border-radius:10px;color:var(--p700);font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleGoalEdit()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;color:rgba(255,255,255,.75);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
+        <!-- Progress bar -->
+        <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5)">Monthly Progress</div>
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.8)" id="goal-pct-label"></div>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden">
+            <div id="goal-bar" style="height:100%;border-radius:3px;background:linear-gradient(90deg,#a7f3d0,#34d399);width:0%;transition:width .8s cubic-bezier(.4,0,.2,1)"></div>
+          </div>
+        </div>
+        <!-- Stats row -->
         <div class="hero-row">
           <div><div class="hero-stat-val" id="hero-open">0</div><div class="hero-stat-lbl">Open</div></div>
           <div><div class="hero-stat-val" id="hero-risk">$0</div><div class="hero-stat-lbl">At Risk</div></div>
@@ -305,6 +348,16 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
           <canvas id="pnlChart" style="display:none"></canvas>
         </div>
       </div>
+      <div class="chart-card" style="margin-bottom:10px">
+        <div class="chart-header">
+          <div class="chart-title">Drawdown</div>
+          <div style="font-size:11px;color:var(--text3)" id="dd-max-label"></div>
+        </div>
+        <div style="position:relative;height:100px">
+          <div class="chart-empty" id="dd-empty" style="height:80px">Close trades to see drawdown</div>
+          <canvas id="ddChart" style="display:none;width:100%!important;height:100px!important"></canvas>
+        </div>
+      </div>
       <div class="cal-card">
         <div class="cal-nav">
           <button class="cal-nav-btn" onclick="calNav(-1)">‹</button>
@@ -318,6 +371,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 </div>
 
 <!-- ═══ ENTRY ═══ -->
+
 <div id="view-entry" class="view">
   <div class="pg-title">New Trade</div>
   <div class="pg-sub" id="step-label">Step 1 of 4 — Setup</div>
@@ -343,6 +397,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
   </div>
 
   <!-- Step 1: Setup + Pre-flight -->
+
   <div id="es1">
     <div class="fg">
       <label class="fl">What are you trading?</label>
@@ -391,46 +446,51 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
   </div>
 
   <!-- Step 2: Signals (TraderXO + TD + RSI — all optional, weighted) -->
+
   <div id="es2" style="display:none">
     <div class="alert al-p" style="margin-bottom:16px">📊 <strong>Signal Check</strong> — TraderXO and TD Sequential are weighted equally. RSI adds confluence. No single signal is mandatory — but a conflict with no TD confirmation will block.</div>
 
-    <div class="fg"><label class="fl">TraderXO (12 EMA vs 25 EMA)</label>
-      <div class="fh">Current macro direction — weighted equally with TD</div>
-      <div class="pills" id="txo-g">
-        <div class="pill" data-v="LONG" onclick="sp(this,'txo-g');updateConf()">📈 LONG<br><span style="font-size:10px;opacity:.5">12 above 25</span></div>
-        <div class="pill" data-v="SHORT" onclick="sp(this,'txo-g');updateConf()">📉 SHORT<br><span style="font-size:10px;opacity:.5">12 below 25</span></div>
-        <div class="pill" data-v="NEUTRAL" onclick="sp(this,'txo-g');updateConf()">⚖️ Neutral<br><span style="font-size:10px;opacity:.5">Crossing</span></div>
-      </div>
-    </div>
+```
+<div class="fg"><label class="fl">TraderXO (12 EMA vs 25 EMA)</label>
+  <div class="fh">Current macro direction — weighted equally with TD</div>
+  <div class="pills" id="txo-g">
+    <div class="pill" data-v="LONG" onclick="sp(this,'txo-g');updateConf()">📈 LONG<br><span style="font-size:10px;opacity:.5">12 above 25</span></div>
+    <div class="pill" data-v="SHORT" onclick="sp(this,'txo-g');updateConf()">📉 SHORT<br><span style="font-size:10px;opacity:.5">12 below 25</span></div>
+    <div class="pill" data-v="NEUTRAL" onclick="sp(this,'txo-g');updateConf()">⚖️ Neutral<br><span style="font-size:10px;opacity:.5">Crossing</span></div>
+  </div>
+</div>
 
-    <div class="fg"><label class="fl">TD Sequential</label>
-      <div class="fh">8–13 = exhaustion (strong favor). 5–7 = developing. Favored over TraderXO at high counts.</div>
-      <div class="pills" id="td-g">
-        <div class="pill" data-v="9-13" onclick="sp(this,'td-g');updateConf()">✅ Count 9–13<br><span style="font-size:10px;opacity:.5">Strong exhaustion</span></div>
-        <div class="pill" data-v="5-8" onclick="sp(this,'td-g');updateConf()">⚠️ Count 5–8<br><span style="font-size:10px;opacity:.5">Developing</span></div>
-        <div class="pill" data-v="1-4" onclick="sp(this,'td-g');updateConf()">〰 Count 1–4<br><span style="font-size:10px;opacity:.5">Early / TraderXO favored</span></div>
-        <div class="pill" data-v="no" onclick="sp(this,'td-g');updateConf()">❌ No setup</div>
-      </div>
-      <div id="td-cnt-w" style="display:none;margin-top:8px"><input type="text" id="e-td-cnt" placeholder="Exact count (e.g. 9)"></div>
-    </div>
+<div class="fg"><label class="fl">TD Sequential</label>
+  <div class="fh">8–13 = exhaustion (strong favor). 5–7 = developing. Favored over TraderXO at high counts.</div>
+  <div class="pills" id="td-g">
+    <div class="pill" data-v="9-13" onclick="sp(this,'td-g');updateConf()">✅ Count 9–13<br><span style="font-size:10px;opacity:.5">Strong exhaustion</span></div>
+    <div class="pill" data-v="5-8" onclick="sp(this,'td-g');updateConf()">⚠️ Count 5–8<br><span style="font-size:10px;opacity:.5">Developing</span></div>
+    <div class="pill" data-v="1-4" onclick="sp(this,'td-g');updateConf()">〰 Count 1–4<br><span style="font-size:10px;opacity:.5">Early / TraderXO favored</span></div>
+    <div class="pill" data-v="no" onclick="sp(this,'td-g');updateConf()">❌ No setup</div>
+  </div>
+  <div id="td-cnt-w" style="display:none;margin-top:8px"><input type="text" id="e-td-cnt" placeholder="Exact count (e.g. 9)"></div>
+</div>
 
-    <div class="fg"><label class="fl">RSI — Exhaustion Confirmation</label>
-      <div class="fh">Adds confluence to your exhaustion signal. Oversold/overbought = strong confirmation.</div>
-      <div class="pills" id="rsi-g">
-        <div class="pill" data-v="oversold" onclick="sp(this,'rsi-g');updateConf()">✅ &lt;30 Oversold</div>
-        <div class="pill" data-v="cross-up" onclick="sp(this,'rsi-g');updateConf()">✅ 50 Cross ↑</div>
-        <div class="pill" data-v="cross-down" onclick="sp(this,'rsi-g');updateConf()">✅ 50 Cross ↓</div>
-        <div class="pill" data-v="overbought" onclick="sp(this,'rsi-g');updateConf()">✅ &gt;70 Overbought</div>
-        <div class="pill" data-v="neutral" onclick="sp(this,'rsi-g');updateConf()">❌ Neutral</div>
-      </div>
-      <div style="margin-top:8px"><input type="text" id="e-rsi-val" placeholder="RSI value (e.g. 28)"></div>
-    </div>
+<div class="fg"><label class="fl">RSI — Exhaustion Confirmation</label>
+  <div class="fh">Adds confluence to your exhaustion signal. Oversold/overbought = strong confirmation.</div>
+  <div class="pills" id="rsi-g">
+    <div class="pill" data-v="oversold" onclick="sp(this,'rsi-g');updateConf()">✅ &lt;30 Oversold</div>
+    <div class="pill" data-v="cross-up" onclick="sp(this,'rsi-g');updateConf()">✅ 50 Cross ↑</div>
+    <div class="pill" data-v="cross-down" onclick="sp(this,'rsi-g');updateConf()">✅ 50 Cross ↓</div>
+    <div class="pill" data-v="overbought" onclick="sp(this,'rsi-g');updateConf()">✅ &gt;70 Overbought</div>
+    <div class="pill" data-v="neutral" onclick="sp(this,'rsi-g');updateConf()">❌ Neutral</div>
+  </div>
+  <div style="margin-top:8px"><input type="text" id="e-rsi-val" placeholder="RSI value (e.g. 28)"></div>
+</div>
 
-    <div id="txo-status" style="display:none;margin-bottom:16px"></div>
-    <button class="btn btn-p" id="s2-btn" onclick="es(3)">Continue →</button>
+<div id="txo-status" style="display:none;margin-bottom:16px"></div>
+<button class="btn btn-p" id="s2-btn" onclick="es(3)">Continue →</button>
+```
+
   </div>
 
   <!-- Step 3: Confluence score display + thesis -->
+
   <div id="es3" style="display:none">
     <div class="conf-card">
       <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px">Confluence Score</div>
@@ -448,6 +508,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
   </div>
 
   <!-- Step 4: Sizing + Emotion -->
+
   <div id="es4" style="display:none">
     <div class="fg">
       <label class="fl">Risk & Position Size</label>
@@ -492,6 +553,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 </div>
 
 <!-- ═══ EXIT ═══ -->
+
 <div id="view-exit" class="view">
   <div class="pg-title">Close Position</div>
   <div class="pg-sub">Log exit · capture the lesson · review history</div>
@@ -529,26 +591,113 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 </div>
 
 <!-- ═══ PATTERNS ═══ -->
+
 <div id="view-patterns" class="view">
   <div class="pg-title">Behavioral Edge</div>
   <div class="pg-sub">Your trading fingerprint</div>
+
+  <!-- Row 1: core stats -->
+
   <div class="sg sg3" style="margin-bottom:8px">
     <div class="stat"><div class="sv2 pur" id="st-total">0</div><div class="sl2">Total Trades</div></div>
     <div class="stat"><div class="sv2" id="st-wr">—</div><div class="sl2">Win Rate</div></div>
     <div class="stat"><div class="sv2" id="st-disc">—</div><div class="sl2">Discipline</div></div>
   </div>
-  <div class="sg sg2">
+  <div class="sg sg2" style="margin-bottom:8px">
     <div class="stat"><div class="sv2 pos" id="st-gains">$0</div><div class="sl2">Total Gains</div></div>
     <div class="stat"><div class="sv2 neg" id="st-losses">$0</div><div class="sl2">Total Losses</div></div>
   </div>
-  <div class="section-badge" style="margin-bottom:10px">Behavioral Flags</div>
-  <div class="trade-card" style="padding:16px">
-    <div class="br"><div class="bl">Revenge Trades</div><div class="bb"><div class="bf" id="br-rev" style="width:0%;background:var(--danger)"></div></div><div class="bc" id="bc-rev">0</div></div>
-    <div class="br"><div class="bl">FOMO Entries</div><div class="bb"><div class="bf" id="br-fomo" style="width:0%;background:var(--warn)"></div></div><div class="bc" id="bc-fomo">0</div></div>
-    <div class="br"><div class="bl">Calm Entries</div><div class="bb"><div class="bf" id="br-calm" style="width:0%;background:var(--success)"></div></div><div class="bc" id="bc-calm">0</div></div>
-    <div class="br"><div class="bl">Panic Exits</div><div class="bb"><div class="bf" id="br-panic" style="width:0%;background:var(--danger)"></div></div><div class="bc" id="bc-panic">0</div></div>
-    <div class="br" style="margin-bottom:0"><div class="bl">Thesis Exits</div><div class="bb"><div class="bf" id="br-thesis" style="width:0%;background:var(--p600)"></div></div><div class="bc" id="bc-thesis">0</div></div>
+
+  <!-- Row 2: advanced metrics -->
+
+  <div class="sg sg3" style="margin-bottom:8px">
+    <div class="stat" style="text-align:center">
+      <div class="sv2" id="st-pf">—</div>
+      <div class="sl2">Profit Factor</div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">wins÷losses</div>
+    </div>
+    <div class="stat" style="text-align:center">
+      <div class="sv2" id="st-exp">—</div>
+      <div class="sl2">Expectancy</div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">avg $ per trade</div>
+    </div>
+    <div class="stat" style="text-align:center">
+      <div class="sv2" id="st-avgday">—</div>
+      <div class="sl2">Avg Day</div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">closed P&L/day</div>
+    </div>
   </div>
+
+  <!-- Row 3: streaks + day extremes -->
+
+  <div class="sg sg2" style="margin-bottom:8px">
+    <div class="stat" style="text-align:center">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Current Streak</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px">
+        <div>
+          <div class="sv2" id="st-streak">—</div>
+          <div class="sl2" id="st-streak-lbl">—</div>
+        </div>
+        <div style="width:1px;height:32px;background:var(--border)"></div>
+        <div>
+          <div style="font-size:11px;color:var(--text2)">Best: <span id="st-best-streak" style="font-weight:700;color:var(--success)">—</span> W</div>
+          <div style="font-size:11px;color:var(--text2);margin-top:2px">Worst: <span id="st-worst-streak" style="font-weight:700;color:var(--danger)">—</span> L</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat" style="text-align:center">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Day Extremes</div>
+      <div style="font-size:12px;color:var(--text2)">Best: <span id="st-best-day" style="font-weight:700;color:var(--success)">—</span></div>
+      <div style="font-size:12px;color:var(--text2);margin-top:4px">Worst: <span id="st-worst-day" style="font-weight:700;color:var(--danger)">—</span></div>
+    </div>
+  </div>
+
+  <!-- Daily trade limit guardrail -->
+
+  <div class="section-badge" style="margin-bottom:8px">Daily Trade Guardrail</div>
+  <div class="trade-card" style="padding:14px 16px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--text)">Max trades today</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px" id="daily-limit-status">—</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+        <div style="font-size:22px;font-weight:800;color:var(--p700);min-width:28px;text-align:center" id="daily-limit-val">2</div>
+        <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
+      </div>
+    </div>
+    <div style="height:5px;background:var(--p100);border-radius:3px;overflow:hidden">
+      <div id="daily-limit-bar" style="height:100%;border-radius:3px;background:var(--success);width:0%;transition:width .5s ease"></div>
+    </div>
+  </div>
+  <hr>
+  <div class="section-badge" style="margin-bottom:10px">Behavioral Flags</div>
+  <div class="chart-card" style="margin-bottom:10px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="chart-title">Entry Psychology</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center">
+      <div style="position:relative;height:160px"><canvas id="flagChart"></canvas></div>
+      <div id="flag-legend" style="font-size:12px;line-height:2"></div>
+    </div>
+    <div id="flag-empty" style="display:none;text-align:center;padding:24px;color:var(--text3);font-size:13px">Log trades to see behavioral breakdown</div>
+  </div>
+  <hr>
+  <div class="section-badge" style="margin-bottom:8px">Stocks vs Options</div>
+  <div class="sg sg2" style="margin-bottom:8px">
+    <div class="stat">
+      <div class="sv2 pur" id="so-stocks-wr">—</div>
+      <div class="sl2">Stocks Win Rate</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px" id="so-stocks-ct"></div>
+    </div>
+    <div class="stat">
+      <div class="sv2 pur" id="so-opts-wr">—</div>
+      <div class="sl2">Options Win Rate</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px" id="so-opts-ct"></div>
+    </div>
+  </div>
+  <div class="ibox" id="so-insight" style="margin-bottom:0">Log closed trades to compare stock vs options performance.</div>
   <hr>
   <div class="section-badge" style="margin-bottom:8px">Conviction vs Outcome</div>
   <div class="ibox" id="conv-insight">Log more closed trades to see patterns.</div>
@@ -578,6 +727,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 </div>
 
 <!-- Calendar popup -->
+
 <div class="cal-popup-overlay" id="cal-overlay" onclick="closeCalPopup()"></div>
 <div class="cal-popup" id="cal-popup">
   <button class="cal-popup-close" onclick="closeCalPopup()">×</button>
@@ -586,6 +736,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 </div>
 
 <!-- Adjust Position Modal -->
+
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
 <div class="modal" id="adj-modal">
   <button class="modal-close" onclick="closeModal()">×</button>
@@ -618,6 +769,46 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
   <button class="btn btn-p" onclick="submitAdjustment()">Save Adjustment</button>
 </div>
 
+<!-- Edit Trade Modal -->
+
+<div class="modal-overlay" id="edit-overlay" onclick="closeEditModal()"></div>
+<div class="modal" id="edit-modal">
+  <button class="modal-close" onclick="closeEditModal()">×</button>
+  <div class="modal-title">Edit Trade</div>
+  <div class="modal-sub" id="edit-sub"></div>
+  <div class="g3" style="margin-bottom:12px">
+    <div><div class="fh" style="margin-bottom:4px">Ticker</div><input type="text" id="ed-ticker" style="font-weight:800;text-transform:uppercase;color:var(--p700)"></div>
+    <div><div class="fh" style="margin-bottom:4px">Entry $</div><input type="number" id="ed-price"></div>
+    <div><div class="fh" style="margin-bottom:4px">Qty</div><input type="text" id="ed-qty"></div>
+  </div>
+  <div class="fg">
+    <div class="fh" style="margin-bottom:4px">Structure</div>
+    <select id="ed-struct">
+      <option value="">Select…</option>
+      <option>Shares</option><option>Call</option><option>Put</option><option>Spread</option>
+      <option>LEAP</option><option>Diagonal</option><option>Covered Call</option>
+      <option>Straddle</option><option>Strangle</option>
+    </select>
+  </div>
+  <div class="fg">
+    <div class="fh" style="margin-bottom:4px">Thesis</div>
+    <textarea id="ed-thesis" style="min-height:60px"></textarea>
+  </div>
+  <div class="fg">
+    <div class="fh" style="margin-bottom:4px">Invalidation</div>
+    <input type="text" id="ed-inval">
+  </div>
+  <div class="g2" style="margin-bottom:12px">
+    <div><div class="fh" style="margin-bottom:4px">$ at Risk</div><input type="number" id="ed-risk"></div>
+    <div><div class="fh" style="margin-bottom:4px">P&amp;L (closed only)</div><input type="text" id="ed-pnl" placeholder="e.g. +$320"></div>
+  </div>
+  <div class="fg">
+    <div class="fh" style="margin-bottom:4px">Lesson</div>
+    <textarea id="ed-lesson" style="min-height:50px"></textarea>
+  </div>
+  <button class="btn btn-p" onclick="submitEdit()">Save Changes</button>
+</div>
+
 <div class="bnav">
   <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon">▣</span><span class="nb-lbl">Portfolio</span></button>
   <button class="nb" id="nav-entry" onclick="sv('entry')"><span class="nb-icon">＋</span><span class="nb-lbl">Entry</span></button>
@@ -627,6 +818,7 @@ hr{border:none;border-top:1px solid var(--border);margin:18px 0}
 <div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
 <script>
 // ══════════════════════════════════════════════════════
 //  STORAGE — versioned, with robust error handling
@@ -718,7 +910,7 @@ function toggleBalEdit() {
   const isOpen = row.style.display === 'flex';
   if (isOpen) {
     row.style.display = 'none';
-    btn.textContent = 'Edit Balance';
+    btn.textContent = 'Edit';
   } else {
     row.style.display = 'flex';
     inp.value = startingBalance ? String(startingBalance) : '';
@@ -734,9 +926,124 @@ function saveBalInput() {
   startingBalance = val;
   saveStartBal(val);
   document.getElementById('bal-edit-row').style.display = 'none';
-  document.getElementById('bal-edit-btn').textContent = 'Edit Balance';
+  document.getElementById('bal-edit-btn').textContent = 'Edit';
   renderLog();
   toast('Balance saved ✓');
+}
+
+// ── Monthly Goal ──────────────────────────────────────
+const GOAL_KEY_PREFIX = 'wg_goal_';
+let goalMode = 'dollar'; // 'dollar' | 'pct'
+
+function goalMonthKey() {
+  // Tied to the calendar's current month so they stay in sync
+  return `${GOAL_KEY_PREFIX}${calYear}-${String(calMonth+1).padStart(2,'0')}`;
+}
+function loadGoal() {
+  try { const v = parseFloat(localStorage.getItem(goalMonthKey())); return isNaN(v) ? null : v; } catch(e) { return null; }
+}
+function saveGoalVal(v) {
+  try { localStorage.setItem(goalMonthKey(), String(v)); } catch(e) {}
+}
+
+function toggleGoalEdit() {
+  const row = document.getElementById('goal-edit-row');
+  const btn = document.getElementById('goal-edit-btn');
+  const inp = document.getElementById('goal-input');
+  const isOpen = row.style.display === 'flex';
+  if (isOpen) {
+    row.style.display = 'none';
+    btn.textContent = 'Edit';
+  } else {
+    const cur = loadGoal();
+    row.style.display = 'flex';
+    inp.value = cur ? String(cur) : '';
+    inp.focus();
+    btn.textContent = 'Cancel';
+  }
+}
+
+function saveGoalInput() {
+  const val = parseFloat(document.getElementById('goal-input').value);
+  if (isNaN(val) || val <= 0) { toast('Enter a valid target amount'); return; }
+  saveGoalVal(val);
+  document.getElementById('goal-edit-row').style.display = 'none';
+  document.getElementById('goal-edit-btn').textContent = 'Edit';
+  renderGoal();
+  toast('Monthly goal set ✓');
+}
+
+function setGoalMode(mode) {
+  goalMode = mode;
+  document.getElementById('goal-toggle-dollar').style.background = mode === 'dollar' ? 'rgba(255,255,255,.22)' : 'transparent';
+  document.getElementById('goal-toggle-dollar').style.color      = mode === 'dollar' ? '#fff' : 'rgba(255,255,255,.5)';
+  document.getElementById('goal-toggle-pct').style.background    = mode === 'pct'    ? 'rgba(255,255,255,.22)' : 'transparent';
+  document.getElementById('goal-toggle-pct').style.color         = mode === 'pct'    ? '#fff' : 'rgba(255,255,255,.5)';
+  renderGoal();
+}
+
+function renderGoal(monthPnl) {
+  // monthPnl is P&L for the calendar's current month — passed in from renderLog
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const goal = loadGoal();
+  const pnl  = monthPnl !== undefined ? monthPnl : 0;
+  const base = startingBalance || 0;
+
+  // Label shows which month goal applies to
+  document.getElementById('goal-month-lbl').textContent =
+    `${MONTHS[calMonth]} Goal`;
+
+  const goalDisplay = document.getElementById('goal-display');
+  const progressLabel = document.getElementById('goal-progress-label');
+  const barWrap = document.getElementById('goal-bar-wrap');
+  const bar = document.getElementById('goal-bar');
+  const pctLabel = document.getElementById('goal-pct-label');
+
+  if (!goal) {
+    goalDisplay.textContent = '—';
+    goalDisplay.className   = 'hero-amt zero';
+    progressLabel.textContent = 'Set a target above';
+    barWrap.style.display = 'none';
+    return;
+  }
+
+  // Display the goal in selected mode
+  if (goalMode === 'dollar') {
+    goalDisplay.textContent = '$' + goal.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+  } else {
+    const pctGoal = base > 0 ? (goal / base * 100).toFixed(1) : '—';
+    goalDisplay.textContent = pctGoal !== '—' ? pctGoal + '%' : '—';
+  }
+  goalDisplay.className = 'hero-amt zero';
+
+  // Progress bar
+  barWrap.style.display = 'block';
+  const progress = goal > 0 ? Math.max(0, pnl) / goal : 0;
+  const pct = Math.min(100, Math.round(progress * 100));
+  setTimeout(() => { bar.style.width = pct + '%'; }, 80);
+  bar.style.background = pct >= 100
+    ? 'linear-gradient(90deg,#fde68a,#fbbf24)'  // gold when complete
+    : pnl < 0
+      ? 'linear-gradient(90deg,#fca5a5,#ef4444)' // red when negative
+      : 'linear-gradient(90deg,#a7f3d0,#34d399)'; // green when progressing
+
+  // Progress text
+  const remaining = goal - Math.max(0, pnl);
+  if (pnl <= 0) {
+    progressLabel.textContent = goalMode === 'dollar'
+      ? `$0 of $${goal.toLocaleString()} — start trading`
+      : `0% of ${base > 0 ? (goal/base*100).toFixed(1) : '?'}% target`;
+    pctLabel.textContent = '0%';
+  } else if (pct >= 100) {
+    progressLabel.textContent = `🎯 Goal crushed! +${goalMode==='dollar'?fmtM(pnl):(base>0?(pnl/base*100).toFixed(1)+'%':'—')}`;
+    pctLabel.textContent = pct + '%';
+  } else {
+    const remainStr = goalMode === 'dollar'
+      ? `$${remaining.toLocaleString('en-US',{maximumFractionDigits:0})} to go`
+      : base > 0 ? `${((remaining/base)*100).toFixed(1)}% to go` : '';
+    progressLabel.textContent = remainStr;
+    pctLabel.textContent = pct + '%';
+  }
 }
 
 // ══════════════════════════════════════════════════════
@@ -1022,6 +1329,13 @@ function resetEntry() {
 }
 
 function submitEntry() {
+  // ── Daily limit guardrail ──
+  const lim = loadDailyLimit();
+  const todayCt = todayTradeCount();
+  if (todayCt >= lim) {
+    toast(`🚨 Daily limit hit (${todayCt}/${lim}) — change limit in Patterns if intentional`);
+    return;
+  }
   const thesis=document.getElementById('e-thesis').value.trim();
   const inval=document.getElementById('e-inval').value.trim();
   const em=gs('em-g');
@@ -1186,10 +1500,13 @@ function buildTradeCard(t, isOpen) {
   </div>` : '';
 
   const actions = isOpen ? `<div class="drawer-actions">
-    <button class="drawer-btn dba-add" onclick="event.stopPropagation();openAdjModal(${t.id},'add')">＋ Add to position</button>
+    <button class="drawer-btn dba-add" onclick="event.stopPropagation();openAdjModal(${t.id},'add')">＋ Add</button>
     <button class="drawer-btn dba-reduce" onclick="event.stopPropagation();openAdjModal(${t.id},'reduce')">− Reduce</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--p700);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
-  </div>` : '';
+  </div>` : `<div class="drawer-actions">
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--p700);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit Trade</button>
+  </div>`;
 
   return `<div class="trade-card">
     <div class="trade-header" onclick="toggleDrawer(${t.id})">
@@ -1244,6 +1561,12 @@ function renderLog() {
   const wins = closed.filter(t=>t.pnlNum!==null&&t.pnlNum>0).length;
   const wr   = closed.length>0?Math.round(wins/closed.length*100)+'%':'—';
 
+  // Month P&L — scoped to calendar's current month
+  const monthPnl = closed.filter(t => {
+    const d = new Date(t.exitDate || t.entryDate);
+    return d.getFullYear() === calYear && d.getMonth() === calMonth;
+  }).reduce((s,t) => s + (t.pnlNum||0), 0);
+
   // Account balance hero
   const balEl = document.getElementById('hero-balance');
   const pnlInline = document.getElementById('hero-pnl-inline');
@@ -1262,11 +1585,13 @@ function renderLog() {
       pnlLabel.style.display  = 'none';
     }
   } else {
-    balEl.textContent = 'Tap Edit Balance to start';
+    balEl.textContent = 'Tap Edit to start';
     balEl.className   = 'hero-amt zero';
     pnlInline.style.display = 'none';
     pnlLabel.style.display  = 'none';
   }
+
+  renderGoal(monthPnl);
 
   document.getElementById('hero-open').textContent = open.length;
   document.getElementById('hero-risk').textContent = totalRisk>0?'$'+totalRisk.toLocaleString():'$0';
@@ -1329,6 +1654,44 @@ function renderChart() {
         y:{grid:{color:'rgba(109,40,217,.08)'},ticks:{color:'#c4aee8',font:{size:10},callback:v=>chartMode==='dollar'?`$${v>=0?'':'-'}${Math.abs(v).toLocaleString()}`:`${v}%`}}
       }}
   });
+  renderDrawdown(closed);
+}
+
+let ddChartInstance = null;
+function renderDrawdown(closed) {
+  const canvas = document.getElementById('ddChart');
+  const empty  = document.getElementById('dd-empty');
+  const maxLbl = document.getElementById('dd-max-label');
+  if (!closed || closed.length < 2) {
+    canvas.style.display='none'; empty.style.display='flex'; maxLbl.textContent='';
+    if (ddChartInstance) { ddChartInstance.destroy(); ddChartInstance=null; }
+    return;
+  }
+  canvas.style.display='block'; empty.style.display='none';
+  // Build running drawdown series
+  let peak=0, cumPnl=0;
+  const ddData=[], labels=[];
+  closed.forEach(t=>{
+    cumPnl+=t.pnlNum;
+    if(cumPnl>peak) peak=cumPnl;
+    const dd = peak>0 ? ((cumPnl-peak)/peak*100) : 0;
+    ddData.push(parseFloat(dd.toFixed(2)));
+    const d=new Date(t.exitDate||t.entryDate);
+    labels.push(`${d.getMonth()+1}/${d.getDate()}`);
+  });
+  const maxDD = Math.min(...ddData);
+  maxLbl.textContent = maxDD < 0 ? `Max: ${maxDD.toFixed(1)}%` : 'No drawdown';
+  if (ddChartInstance) ddChartInstance.destroy();
+  ddChartInstance = new Chart(canvas.getContext('2d'),{
+    type:'line',
+    data:{labels,datasets:[{data:ddData,borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,.10)',borderWidth:1.5,pointRadius:0,fill:true,tension:.2}]},
+    options:{responsive:true,maintainAspectRatio:false,animation:{duration:300},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(30,10,60,.9)',titleColor:'#fca5a5',bodyColor:'#fff',callbacks:{label:ctx=>` ${ctx.raw.toFixed(2)}%`}}},
+      scales:{
+        x:{display:false},
+        y:{grid:{color:'rgba(220,38,38,.08)'},ticks:{color:'#fca5a5',font:{size:9},callback:v=>`${v}%`},max:0}
+      }}
+  });
 }
 
 // ══════════════════════════════════════════════════════
@@ -1341,6 +1704,7 @@ function calNav(dir) {
   if(calMonth>11){calMonth=0;calYear++;}
   if(calMonth<0){calMonth=11;calYear--;}
   renderCalendar();
+  renderLog(); // re-scopes month P&L and goal to new month
 }
 
 function renderCalendar() {
@@ -1369,9 +1733,10 @@ function renderCalendar() {
     const dayPnl=closedDay.reduce((s,t)=>s+t.pnlNum,0);
     const dots=dt.slice(0,4).map(t=>`<div class="cal-dot ${t.status==='open'?'open':t.pnlNum>=0?'win':'loss'}"></div>`).join('');
     const pnlStr=closedDay.length>0?`<div class="cal-pnl ${dayPnl>=0?'pos':'neg'}">${dayPnl>=0?'+':''}${Math.round(dayPnl)}</div>`:'';
+    const countBadge=dt.length>0?`<div style="position:absolute;top:3px;right:4px;font-size:9px;font-weight:700;color:var(--text3)">${dt.length}</div>`:'';
     const cls=['cal-day',isToday?'today':'',dt.length>0?'has-trades':''].filter(Boolean).join(' ');
     const onclick=dt.length>0?`onclick="openCalPopup('${key}',${d})"`:'';
-    html+=`<div class="${cls}" ${onclick}><div class="cal-day-num">${d}</div><div class="cal-dot-row">${dots}</div>${pnlStr}</div>`;
+    html+=`<div class="${cls}" ${onclick} style="position:relative">${countBadge}<div class="cal-day-num">${d}</div><div class="cal-dot-row">${dots}</div>${pnlStr}</div>`;
   }
   const rem=(firstDay+daysInMon)%7;
   for(let d=1;d<=(rem===0?0:7-rem);d++)
@@ -1486,12 +1851,76 @@ function submitExit() {
 }
 
 // ══════════════════════════════════════════════════════
+//  EDIT TRADE MODAL
+// ══════════════════════════════════════════════════════
+let activeEditId = null;
+
+function openEditModal(tradeId) {
+  const t = trades.find(x => x.id === tradeId);
+  if (!t) return;
+  activeEditId = tradeId;
+  document.getElementById('edit-sub').textContent = `${t.ticker} · ${t.structure||''} · ${fmtDS(t.entryDate)}`;
+  document.getElementById('ed-ticker').value  = t.ticker || '';
+  document.getElementById('ed-price').value   = t.entryPrice || '';
+  document.getElementById('ed-qty').value     = t.qty || '';
+  document.getElementById('ed-struct').value  = t.structure || '';
+  document.getElementById('ed-thesis').value  = t.thesis || '';
+  document.getElementById('ed-inval').value   = t.invalidation || '';
+  document.getElementById('ed-risk').value    = t.riskDollars || '';
+  document.getElementById('ed-pnl').value     = t.pnl || '';
+  document.getElementById('ed-lesson').value  = t.lesson || '';
+  document.getElementById('edit-overlay').classList.add('show');
+  document.getElementById('edit-modal').classList.add('show');
+}
+
+function closeEditModal() {
+  document.getElementById('edit-overlay').classList.remove('show');
+  document.getElementById('edit-modal').classList.remove('show');
+  activeEditId = null;
+}
+
+function submitEdit() {
+  const t = trades.find(x => x.id === activeEditId);
+  if (!t) return;
+  const ticker  = document.getElementById('ed-ticker').value.trim().toUpperCase();
+  const price   = document.getElementById('ed-price').value.trim();
+  const qty     = document.getElementById('ed-qty').value.trim();
+  const struct  = document.getElementById('ed-struct').value;
+  const thesis  = document.getElementById('ed-thesis').value.trim();
+  const inval   = document.getElementById('ed-inval').value.trim();
+  const riskD   = parseFloat(document.getElementById('ed-risk').value) || t.riskDollars || 0;
+  const pnlStr  = document.getElementById('ed-pnl').value.trim();
+  const lesson  = document.getElementById('ed-lesson').value.trim();
+  if (ticker) t.ticker = ticker;
+  if (price)  t.entryPrice = price;
+  if (qty)    t.qty = qty;
+  if (struct) t.structure = struct;
+  if (thesis) t.thesis = thesis;
+  if (inval)  t.invalidation = inval;
+  t.riskDollars = riskD;
+  t.riskPct = (startingBalance||t.accountSize) > 0
+    ? parseFloat((riskD / (startingBalance||t.accountSize) * 100).toFixed(2)) : t.riskPct;
+  if (pnlStr && t.status === 'closed') {
+    t.pnl = pnlStr;
+    t.pnlNum = parseP(pnlStr);
+  }
+  if (lesson) t.lesson = lesson;
+  save();
+  closeEditModal();
+  renderLog(); renderExit(); renderChart();
+  toast(`${t.ticker} updated ✓`);
+}
+
+// ══════════════════════════════════════════════════════
 //  PATTERNS
 // ══════════════════════════════════════════════════════
+let flagChartInstance = null;
+
 function renderPat() {
-  const all=trades,closed=trades.filter(t=>t.status==='closed'),total=all.length;
+  const all=trades, closed=trades.filter(t=>t.status==='closed'), total=all.length;
   document.getElementById('st-total').textContent=total;
   const wins=closed.filter(t=>t.pnlNum!==null&&t.pnlNum>0).length;
+  const losses_ct=closed.filter(t=>t.pnlNum!==null&&t.pnlNum<0).length;
   const wr=closed.length>0?Math.round(wins/closed.length*100):null;
   const wrEl=document.getElementById('st-wr');
   wrEl.textContent=wr!==null?wr+'%':'—';
@@ -1501,19 +1930,159 @@ function renderPat() {
   const dEl=document.getElementById('st-disc');
   dEl.textContent=disc!==null?disc+'%':'—';
   dEl.className='sv2 '+(disc!==null?(disc>=70?'pos':disc>=40?'pur':'neg'):'');
-  const gains=closed.filter(t=>t.pnlNum>0).reduce((s,t)=>s+t.pnlNum,0);
-  const losses=closed.filter(t=>t.pnlNum<0).reduce((s,t)=>s+t.pnlNum,0);
-  document.getElementById('st-gains').textContent=gains>0?fmtM(gains):'$0';
-  document.getElementById('st-losses').textContent=losses<0?fmtM(losses):'$0';
-  const revenge=all.filter(t=>t.emotion==='Revenge Mode').length;
-  const fomo=all.filter(t=>t.emotion==='FOMO').length;
-  const panic=closed.filter(t=>t.exitOutcome==='Panic exit').length;
-  const thesis=closed.filter(t=>t.exitOutcome==='Thesis played out').length;
-  const mx=Math.max(1,total);
-  [['rev',revenge],['fomo',fomo],['calm',calm],['panic',panic],['thesis',thesis]].forEach(([k,v])=>{
-    document.getElementById('bc-'+k).textContent=v;
-    setTimeout(()=>document.getElementById('br-'+k).style.width=(v/mx*100)+'%',80);
+  const gains_total=closed.filter(t=>t.pnlNum>0).reduce((s,t)=>s+t.pnlNum,0);
+  const losses_total=Math.abs(closed.filter(t=>t.pnlNum<0).reduce((s,t)=>s+t.pnlNum,0));
+  document.getElementById('st-gains').textContent=gains_total>0?fmtM(gains_total):'$0';
+  document.getElementById('st-losses').textContent=losses_total>0?fmtM(-losses_total):'$0';
+
+  // ── Profit Factor ──
+  const pfEl=document.getElementById('st-pf');
+  if(gains_total>0&&losses_total>0){
+    const pf=(gains_total/losses_total).toFixed(2);
+    pfEl.textContent=pf;
+    pfEl.className='sv2 '+(parseFloat(pf)>=1.5?'pos':parseFloat(pf)>=1?'pur':'neg');
+  } else { pfEl.textContent='—'; pfEl.className='sv2'; }
+
+  // ── Expectancy (avg $ per closed trade) ──
+  const expEl=document.getElementById('st-exp');
+  if(closed.length>0){
+    const exp=(gains_total-losses_total)/closed.length;
+    expEl.textContent=(exp>=0?'+$':'-$')+Math.abs(exp).toFixed(0);
+    expEl.className='sv2 '+(exp>=0?'pos':'neg');
+  } else { expEl.textContent='—'; expEl.className='sv2'; }
+
+  // ── Avg day P&L ──
+  const avgDayEl=document.getElementById('st-avgday');
+  const closedWithDates=closed.filter(t=>t.exitDate||t.entryDate);
+  if(closedWithDates.length>0){
+    const dayMap={};
+    closedWithDates.forEach(t=>{
+      const k=dayKey(t.exitDate||t.entryDate);
+      if(!dayMap[k])dayMap[k]=0;
+      dayMap[k]+=(t.pnlNum||0);
+    });
+    const dayVals=Object.values(dayMap);
+    const avgDay=dayVals.reduce((s,v)=>s+v,0)/dayVals.length;
+    avgDayEl.textContent=(avgDay>=0?'+$':'-$')+Math.abs(avgDay).toFixed(0);
+    avgDayEl.className='sv2 '+(avgDay>=0?'pos':'neg');
+    // Best and worst day
+    const bestDay=Math.max(...dayVals);
+    const worstDay=Math.min(...dayVals);
+    document.getElementById('st-best-day').textContent=fmtM(bestDay);
+    document.getElementById('st-worst-day').textContent=fmtM(worstDay);
+  } else {
+    avgDayEl.textContent='—'; avgDayEl.className='sv2';
+    document.getElementById('st-best-day').textContent='—';
+    document.getElementById('st-worst-day').textContent='—';
+  }
+
+  // ── Streak calculation ──
+  const sorted=closed.filter(t=>t.pnlNum!==null).sort((a,b)=>(a.exitDate||a.entryDate)-(b.exitDate||b.entryDate));
+  let curStreak=0, curType='', bestWin=0, worstLoss=0, runWin=0, runLoss=0;
+  sorted.forEach(t=>{
+    const w=t.pnlNum>0;
+    if(w){ runWin++; runLoss=0; if(runWin>bestWin) bestWin=runWin; }
+    else { runLoss++; runWin=0; if(runLoss>worstLoss) worstLoss=runLoss; }
   });
+  // Current streak from most recent
+  for(let i=sorted.length-1;i>=0;i--){
+    const w=sorted[i].pnlNum>0;
+    if(i===sorted.length-1){ curType=w?'W':'L'; curStreak=1; }
+    else if((curType==='W'&&w)||(curType==='L'&&!w)){ curStreak++; }
+    else break;
+  }
+  const streakEl=document.getElementById('st-streak');
+  const streakLbl=document.getElementById('st-streak-lbl');
+  if(sorted.length>0){
+    streakEl.textContent=curStreak;
+    streakEl.className='sv2 '+(curType==='W'?'pos':'neg');
+    streakLbl.textContent=curType==='W'?`win${curStreak!==1?'s':''}`:`loss${curStreak!==1?'es':''}`;
+  } else { streakEl.textContent='—'; streakEl.className='sv2'; streakLbl.textContent=''; }
+  document.getElementById('st-best-streak').textContent=bestWin||'—';
+  document.getElementById('st-worst-streak').textContent=worstLoss||'—';
+
+  // ── Daily limit guardrail ──
+  renderDailyLimit();
+
+  // ── Behavioral Pie Chart ──
+  const revenge  = all.filter(t=>t.emotion==='Revenge Mode').length;
+  const fomo     = all.filter(t=>t.emotion==='FOMO').length;
+  const bored    = all.filter(t=>t.emotion==='Bored').length;
+  const impatient= all.filter(t=>t.emotion==='Impatient').length;
+  const frustrated=all.filter(t=>t.emotion==='Frustrated').length;
+  const calmCt   = calm;
+  const panic    = closed.filter(t=>t.exitOutcome==='Panic exit').length;
+  const thesis   = closed.filter(t=>t.exitOutcome==='Thesis played out').length;
+
+  const pieLabels = ['Calm/Confident','Revenge','FOMO','Frustrated','Impatient','Bored'];
+  const pieData   = [calmCt, revenge, fomo, frustrated, impatient, bored];
+  const pieColors = ['#059669','#dc2626','#d97706','#7c3aed','#2563eb','#6b7280'];
+  const pieTotal  = pieData.reduce((s,v)=>s+v,0);
+
+  const canvas = document.getElementById('flagChart');
+  const emptyEl= document.getElementById('flag-empty');
+  const legendEl=document.getElementById('flag-legend');
+
+  if (pieTotal === 0) {
+    canvas.style.display='none'; emptyEl.style.display='block'; legendEl.innerHTML='';
+  } else {
+    canvas.style.display='block'; emptyEl.style.display='none';
+    if (flagChartInstance) flagChartInstance.destroy();
+    flagChartInstance = new Chart(canvas.getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: pieLabels,
+        datasets: [{ data: pieData, backgroundColor: pieColors, borderWidth: 2, borderColor: 'var(--surface)' }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '62%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(30,10,60,.9)', titleColor: '#c4b5fd', bodyColor: '#fff',
+            callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw/pieTotal*100)}%)` }
+          }
+        }
+      }
+    });
+    legendEl.innerHTML = pieLabels.map((l,i) => pieData[i] > 0
+      ? `<div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${pieColors[i]};flex-shrink:0"></span><span style="color:var(--text2)">${l}: <strong style="color:var(--text)">${pieData[i]}</strong></span></div>`
+      : ''
+    ).join('');
+    // Exit breakdown below legend
+    if (panic > 0 || thesis > 0) {
+      legendEl.innerHTML += `<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--text3)">Exits: <span style="color:var(--success)">${thesis} thesis</span> · <span style="color:var(--danger)">${panic} panic</span></div>`;
+    }
+  }
+
+  // ── Stock vs Options ──
+  const OPTION_STRUCTS = ['Call','Put','Spread','LEAP','Diagonal','Straddle','Strangle','Covered Call'];
+  const isOptions = t => OPTION_STRUCTS.includes(t.structure);
+  const isStocks  = t => t.structure === 'Shares' || (!t.structure && !isOptions(t));
+  const closedOpts   = closed.filter(isOptions);
+  const closedStocks = closed.filter(isStocks);
+  const wrOf = arr => arr.length === 0 ? null : Math.round(arr.filter(t=>t.pnlNum>0).length/arr.length*100);
+  const pnlOf= arr => arr.reduce((s,t)=>s+(t.pnlNum||0),0);
+  const stockWr = wrOf(closedStocks), optWr = wrOf(closedOpts);
+  document.getElementById('so-stocks-wr').textContent = stockWr !== null ? stockWr+'%' : '—';
+  document.getElementById('so-opts-wr').textContent   = optWr   !== null ? optWr+'%'   : '—';
+  document.getElementById('so-stocks-ct').textContent = closedStocks.length > 0 ? `${closedStocks.length} trades · ${fmtM(pnlOf(closedStocks))}` : 'No closed stock trades';
+  document.getElementById('so-opts-ct').textContent   = closedOpts.length   > 0 ? `${closedOpts.length} trades · ${fmtM(pnlOf(closedOpts))}` : 'No closed options trades';
+  // Color the win rate cells
+  ['so-stocks-wr','so-opts-wr'].forEach((id,i)=>{
+    const v = i===0?stockWr:optWr;
+    document.getElementById(id).className='sv2 '+(v===null?'pur':v>=50?'pos':'neg');
+  });
+  const soEl = document.getElementById('so-insight');
+  if (closedStocks.length >= 2 && closedOpts.length >= 2) {
+    const better = stockWr >= optWr ? 'Stocks' : 'Options';
+    const diff = Math.abs((stockWr||0)-(optWr||0));
+    soEl.textContent = `${better} have a higher win rate by ${diff}pp.\nStocks P&L: ${fmtM(pnlOf(closedStocks))} · Options P&L: ${fmtM(pnlOf(closedOpts))}\n${diff > 15 ? `→ Concentrate on ${better} — the edge difference is significant.` : '→ Both are performing similarly. Diversified approach is working.'}`;
+  } else {
+    soEl.textContent = 'Log more closed trades in both categories to compare performance.';
+  }
+
+  // ── Conviction insight ──
   const ci=document.getElementById('conv-insight');
   if(closed.length<2){ci.textContent='Log more closed trades to see patterns.';}
   else{
@@ -1527,9 +2096,11 @@ function renderPat() {
     if(hw!==null&&lw!==null)txt+=hw>lw?'\n→ Your filtering is working. Stay selective.':'\n→ Conviction not predicting outcomes — review entry criteria.';
     ci.textContent=txt;
   }
+
+  // ── Risk insight ──
   const ri=document.getElementById('risk-insight');
   const wr3=all.filter(t=>t.riskPct);
-  if(wr3.length===0){ri.textContent='Log trades with account size & risk to see sizing patterns.';}
+  if(wr3.length===0){ri.textContent='Log trades with risk sizing to see patterns.';}
   else{
     const avg=(wr3.reduce((s,t)=>s+t.riskPct,0)/wr3.length).toFixed(1);
     const over=wr3.filter(t=>t.riskPct>2).length;
@@ -1546,8 +2117,55 @@ function renderPat() {
 }
 
 // ══════════════════════════════════════════════════════
-//  EXPORT / IMPORT
+//  DAILY TRADE LIMIT GUARDRAIL
 // ══════════════════════════════════════════════════════
+const LIMIT_KEY = 'wg_daily_limit';
+
+function loadDailyLimit() {
+  try { const v = parseInt(localStorage.getItem(LIMIT_KEY)); return isNaN(v) ? 2 : v; } catch(e) { return 2; }
+}
+function saveDailyLimit(v) {
+  try { localStorage.setItem(LIMIT_KEY, String(v)); } catch(e) {}
+}
+
+function todayTradeCount() {
+  const todayKey = dayKey(Date.now());
+  return trades.filter(t => dayKey(t.entryDate) === todayKey).length;
+}
+
+function adjDailyLimit(delta) {
+  let lim = loadDailyLimit() + delta;
+  lim = Math.max(1, Math.min(10, lim));
+  saveDailyLimit(lim);
+  renderDailyLimit();
+}
+
+function renderDailyLimit() {
+  const lim   = loadDailyLimit();
+  const count = todayTradeCount();
+  const pct   = Math.min(100, Math.round(count / lim * 100));
+  const el    = document.getElementById('daily-limit-val');
+  const bar   = document.getElementById('daily-limit-bar');
+  const status= document.getElementById('daily-limit-status');
+  if (!el) return;
+  el.textContent = lim;
+  if (bar) {
+    bar.style.width = pct + '%';
+    bar.style.background = count >= lim
+      ? 'var(--danger)'
+      : count >= lim - 1
+        ? 'var(--warn)'
+        : 'var(--success)';
+  }
+  if (status) {
+    if (count === 0)      status.textContent = `No trades logged today`;
+    else if (count < lim) status.textContent = `${count} of ${lim} trades used today — ${lim - count} remaining`;
+    else                  status.textContent = `🚨 Daily limit reached (${count}/${lim}) — step away`;
+    status.style.color = count >= lim ? 'var(--danger)' : count >= lim - 1 ? 'var(--warn)' : 'var(--text2)';
+  }
+}
+
+
 function exportData() {
   if (trades.length === 0) { toast('No trades to export'); return; }
   const payload = { version: STORE_KEY, exportDate: new Date().toISOString(), trades };
@@ -1601,6 +2219,8 @@ renderLog();
 renderChart();
 renderCalendar();
 updateStorageInfo();
+renderDailyLimit();
 </script>
+
 </body>
 </html>
