@@ -8,195 +8,336 @@
 <style>
 :root {
   --sf:-apple-system,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
-  --p950:#1e0038;--p900:#3b0764;--p800:#5b21b6;--p700:#6d28d9;--p600:#7c3aed;
-  --p500:#8b5cf6;--p400:#a78bfa;--p300:#c4b5fd;--p200:#ddd6fe;--p100:#ede9fe;--p050:#f5f3ff;
-  --cream:#fefcf7;--cream2:#f9f5ff;--cream3:#f3eeff;
-  --surface:#fff;--surface2:#faf7ff;
-  --border:rgba(109,40,217,.11);--border2:rgba(109,40,217,.20);
-  --danger:#dc2626;--danger-dim:rgba(220,38,38,.07);--danger-bd:rgba(220,38,38,.22);
-  --success:#059669;--success-dim:rgba(5,150,105,.07);--success-bd:rgba(5,150,105,.22);
-  --warn:#d97706;--warn-dim:rgba(217,119,6,.08);--warn-bd:rgba(217,119,6,.25);
-  --text:#1e0a3c;--text2:#6b5e82;--text3:#c4aee8;
-  --r:16px;--rs:11px;
+
+/* ── Gold palette ── */
+–g900:#7a5400;–g800:#9a6c00;–g700:#b8860b;–g600:#c9920c;
+–g500:#d4a017;–g400:#e0b830;–g300:#ecc84a;–g200:#f5db7a;
+–g100:#faf0c0;–g050:#fdfae8;
+
+/* ── Surface palette — matte black ── */
+–bg:#0a0a0a;
+–surface:#141414;
+–surface2:#1c1c1e;
+–surface3:#242426;
+–surface4:#2c2c2e;
+
+/* ── Borders ── */
+–border:rgba(255,255,255,.07);
+–border2:rgba(212,160,23,.22);
+–border3:rgba(212,160,23,.40);
+
+/* ── Semantic ── */
+–danger:#ff453a;–danger-dim:rgba(255,69,58,.10);–danger-bd:rgba(255,69,58,.28);
+–success:#30d158;–success-dim:rgba(48,209,88,.10);–success-bd:rgba(48,209,88,.28);
+–warn:#ffd60a;–warn-dim:rgba(255,214,10,.10);–warn-bd:rgba(255,214,10,.28);
+
+/* ── Text ── */
+–text:#f5f5f7;–text2:#a1a1a6;–text3:#48484a;
+
+/* ── Radii ── */
+–r:16px;–rs:11px;
 }
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{font-family:var(--sf);min-height:100vh;-webkit-font-smoothing:antialiased;color:var(--text);
-  background-color:var(--cream);
-  background-image:radial-gradient(ellipse 90% 55% at 50% -5%,rgba(109,40,217,.10) 0%,transparent 60%),
-    radial-gradient(ellipse 55% 45% at 95% 90%,rgba(139,92,246,.07) 0%,transparent 55%),
-    radial-gradient(ellipse 50% 40% at 5% 60%,rgba(91,33,182,.06) 0%,transparent 55%);
-  background-attachment:fixed;overflow-x:hidden}
+body{
+font-family:var(–sf);min-height:100vh;
+-webkit-font-smoothing:antialiased;
+color:var(–text);
+background-color:var(–bg);
+overflow-x:hidden;
+}
 
 /* ── Topbar ── */
-.topbar{position:sticky;top:0;z-index:200;height:56px;background:linear-gradient(135deg,#4c1d95 0%,#6d28d9 55%,#7c3aed 100%);border-bottom:1px solid rgba(255,255,255,.14);display:flex;align-items:center;padding:0 20px;gap:11px;box-shadow:0 4px 28px rgba(76,29,149,.38),inset 0 1px 0 rgba(255,255,255,.10)}
-.logo-mark{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
-.logo-name{font-size:17px;font-weight:700;letter-spacing:-.5px;color:#fff}
-.logo-sub{font-size:13px;color:rgba(255,255,255,.52)}
+.topbar{
+position:sticky;top:0;z-index:200;height:56px;
+background:rgba(10,10,10,.92);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(–border);
+display:flex;align-items:center;padding:0 20px;gap:11px;
+}
+.logo-mark{
+width:32px;height:32px;border-radius:9px;
+background:linear-gradient(135deg,var(–g700),var(–g400));
+display:flex;align-items:center;justify-content:center;
+font-size:15px;font-weight:900;color:#000;
+box-shadow:0 2px 12px rgba(212,160,23,.35);
+}
+.logo-name{font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(–text)}
+.logo-sub{font-size:12px;color:var(–text2)}
 .topbar-clock{margin-left:auto;text-align:right}
-.clock-time{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
-.clock-date{font-size:11px;color:rgba(255,255,255,.60);margin-top:1px}
+.clock-time{font-size:14px;font-weight:600;color:var(–text);letter-spacing:-.2px;font-variant-numeric:tabular-nums}
+.clock-date{font-size:11px;color:var(–text2);margin-top:1px}
 
 /* ── Bottom Nav ── */
-.bnav{position:fixed;bottom:0;left:0;right:0;z-index:200;height:62px;background:linear-gradient(135deg,#4c1d95 0%,#6d28d9 55%,#7c3aed 100%);border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-around;align-items:center;padding-bottom:env(safe-area-inset-bottom,0);box-shadow:0 -4px 28px rgba(76,29,149,.32)}
-.nb{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border:none;background:none;color:rgba(255,255,255,.40);padding:6px 12px;transition:color .15s;-webkit-tap-highlight-color:transparent}
-.nb.on{color:#fff}.nb-icon{font-size:20px;line-height:1}.nb-lbl{font-size:10px;font-weight:600;letter-spacing:.02em}
+.bnav{
+position:fixed;bottom:0;left:0;right:0;z-index:200;height:62px;
+background:rgba(10,10,10,.95);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-top:1px solid var(–border);
+display:flex;justify-content:space-around;align-items:center;
+padding-bottom:env(safe-area-inset-bottom,0);
+}
+.nb{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border:none;background:none;color:var(–text3);padding:6px 12px;transition:color .15s;-webkit-tap-highlight-color:transparent}
+.nb.on{color:var(–g400)}
+.nb-icon{font-size:20px;line-height:1}
+.nb-lbl{font-size:10px;font-weight:600;letter-spacing:.02em}
 
 /* ── Layout ── */
 .app{max-width:1200px;margin:0 auto;padding:18px 16px 84px}
 .view{display:none;animation:fu .22s ease}.view.on{display:block}
-@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .port-layout{display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
 .port-left,.port-right{min-width:0}
 
 /* ── Typography ── */
-.pg-title{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:2px;background:linear-gradient(135deg,var(–p900),var(–p600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pg-title{
+font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:2px;
+background:linear-gradient(135deg,var(–g300),var(–g500));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .pg-sub{font-size:13px;color:var(–text2);margin-bottom:18px}
-.section-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(–p100),var(–cream3));border:1px solid var(–border2);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(–p700);margin-bottom:10px;box-shadow:0 1px 4px rgba(109,40,217,.10)}
+.section-badge{
+display:inline-flex;align-items:center;gap:5px;
+background:rgba(212,160,23,.08);
+border:1px solid var(–border2);
+border-radius:20px;padding:4px 13px;
+font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+color:var(–g400);margin-bottom:10px;
+}
 
 /* ── Hero ── */
-.hero{border-radius:20px;background:linear-gradient(145deg,#4c1d95 0%,#6d28d9 45%,#8b5cf6 100%);padding:22px 22px 18px;margin-bottom:14px;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(76,29,149,.38),inset 0 1px 0 rgba(255,255,255,.15)}
-.hero::before{content:’’;position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
-.hero-lbl{font-size:11px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.65);margin-bottom:5px;text-transform:uppercase}
-.hero-amt{font-size:38px;font-weight:800;letter-spacing:-2px;line-height:1;color:#fff}
-.hero-amt.pos{color:#a7f3d0}.hero-amt.neg{color:#fca5a5}.hero-amt.zero{color:rgba(255,255,255,.60)}
-.hero-row{display:grid;grid-template-columns:repeat(3,1fr);margin-top:15px;padding-top:13px;border-top:1px solid rgba(255,255,255,.15)}
-.hero-stat-val{font-size:16px;font-weight:700;color:#fff}.hero-stat-lbl{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+.hero{
+border-radius:20px;
+background:linear-gradient(145deg,#111 0%,#1a1a1a 60%,#1f1c0f 100%);
+border:1px solid rgba(212,160,23,.18);
+padding:22px 22px 18px;margin-bottom:14px;
+position:relative;overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,.6),inset 0 1px 0 rgba(212,160,23,.12);
+}
+.hero::before{
+content:’’;position:absolute;top:-60px;right:-60px;
+width:220px;height:220px;border-radius:50%;
+background:radial-gradient(circle,rgba(212,160,23,.07) 0%,transparent 70%);
+pointer-events:none;
+}
+.hero-lbl{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(–g400);margin-bottom:5px;text-transform:uppercase}
+.hero-amt{font-size:36px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:var(–text)}
+.hero-amt.pos{color:var(–success)}.hero-amt.neg{color:var(–danger)}.hero-amt.zero{color:var(–text2)}
+.hero-row{display:grid;grid-template-columns:repeat(3,1fr);margin-top:15px;padding-top:13px;border-top:1px solid rgba(255,255,255,.07)}
+.hero-stat-val{font-size:16px;font-weight:700;color:var(–text)}.hero-stat-lbl{font-size:11px;color:var(–text2);margin-top:2px}
 
 /* ── Trade Cards ── */
-.trade-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);margin-bottom:9px;overflow:hidden;box-shadow:0 2px 14px rgba(109,40,217,.06);transition:box-shadow .18s,border-color .18s}
-.trade-card:hover{border-color:var(–border2);box-shadow:0 5px 24px rgba(109,40,217,.12)}
+.trade-card{
+background:var(–surface2);border-radius:var(–r);
+border:1px solid var(–border);margin-bottom:9px;overflow:hidden;
+box-shadow:0 2px 14px rgba(0,0,0,.3);
+transition:box-shadow .18s,border-color .18s;
+}
+.trade-card:hover{border-color:var(–border2);box-shadow:0 4px 20px rgba(0,0,0,.45)}
 .trade-header{padding:13px 16px;display:flex;align-items:flex-start;justify-content:space-between;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
-.trade-header:active{background:var(–p050)}
-.t-ticker{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(–p700)}
+.trade-header:active{background:var(–surface3)}
+.t-ticker{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(–g400)}
 .t-sub{font-size:12px;color:var(–text2);margin-top:2px}
 .t-right{text-align:right;flex-shrink:0;margin-left:10px}
-.t-pnl{font-size:15px;font-weight:700}.t-pnl.pos{color:var(–success)}.t-pnl.neg{color:var(–danger)}.t-pnl.open{color:var(–p600)}
+.t-pnl{font-size:15px;font-weight:700}
+.t-pnl.pos{color:var(–success)}.t-pnl.neg{color:var(–danger)}.t-pnl.open{color:var(–g400)}
 .t-detail{font-size:12px;color:var(–text2);margin-top:2px}
 .t-chevron{font-size:12px;color:var(–text3);margin-top:4px;transition:transform .2s}
 .t-chevron.open{transform:rotate(180deg)}
 .risk-bar-row{padding:0 16px 12px;display:flex;align-items:center;gap:10px}
-.risk-bg{flex:1;height:5px;background:var(–p100);border-radius:3px;overflow:hidden}
+.risk-bg{flex:1;height:5px;background:var(–surface4);border-radius:3px;overflow:hidden}
 .risk-fill{height:100%;border-radius:3px;transition:width .65s cubic-bezier(.4,0,.2,1)}
 .risk-lbl{font-size:11px;color:var(–text3);white-space:nowrap}
 
 /* ── Trade Detail Drawer ── */
-.trade-drawer{display:none;border-top:1px solid var(–border);background:linear-gradient(135deg,var(–cream3),var(–cream2))}
+.trade-drawer{display:none;border-top:1px solid var(–border);background:var(–surface)}
 .trade-drawer.open{display:block;animation:fu .18s ease}
 .drawer-body{padding:14px 16px 16px}
 .drawer-section{margin-bottom:12px}
 .drawer-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(–text3);margin-bottom:4px}
 .drawer-value{font-size:13px;color:var(–text2);line-height:1.5}
-.drawer-thesis{border-left:3px solid var(–p200);padding-left:10px;font-size:13px;color:var(–text2);line-height:1.5}
-.drawer-lesson{border-left:3px solid var(–p500);padding-left:10px;font-size:13px;color:var(–p700);line-height:1.5;font-style:italic}
+.drawer-thesis{border-left:3px solid var(–g700);padding-left:10px;font-size:13px;color:var(–text2);line-height:1.5}
+.drawer-lesson{border-left:3px solid var(–g400);padding-left:10px;font-size:13px;color:var(–g300);line-height:1.5;font-style:italic}
 .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.drawer-stat{background:var(–surface);border-radius:10px;padding:10px 12px;border:1px solid var(–border)}
+.drawer-stat{background:var(–surface3);border-radius:10px;padding:10px 12px;border:1px solid var(–border)}
 .drawer-stat-val{font-size:15px;font-weight:700;color:var(–text)}
 .drawer-stat-lbl{font-size:11px;color:var(–text2);margin-top:1px}
 .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
 .tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
-.tg{background:var(–success-dim);color:var(–success)}.tr{background:var(–danger-dim);color:var(–danger)}
-.ty{background:var(–warn-dim);color:var(–warn)}.tp{background:var(–p100);color:var(–p700)}
+.tg{background:var(–success-dim);color:var(–success)}
+.tr{background:var(–danger-dim);color:var(–danger)}
+.ty{background:var(–warn-dim);color:var(–warn)}
+.tp{background:rgba(212,160,23,.12);color:var(–g400)}
 .drawer-actions{display:flex;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(–border)}
 .drawer-btn{flex:1;padding:9px 12px;border-radius:20px;border:none;font-family:var(–sf);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
-.dba-add{background:linear-gradient(135deg,var(–p700),var(–p500));color:#fff;box-shadow:0 2px 10px rgba(109,40,217,.3)}
+.dba-add{background:linear-gradient(135deg,var(–g700),var(–g400));color:#000;box-shadow:0 2px 10px rgba(212,160,23,.3)}
 .dba-reduce{background:var(–warn-dim);color:var(–warn);border:1px solid var(–warn-bd)}
 .dba-close{background:var(–success-dim);color:var(–success);border:1px solid var(–success-bd)}
 
-/* ── Adjust Position Modal ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(30,10,60,.4);z-index:400;display:none;backdrop-filter:blur(3px)}
+/* ── Modals ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:400;display:none;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .modal-overlay.show{display:block}
-.modal{position:fixed;bottom:0;left:0;right:0;z-index:401;background:var(–surface);border-radius:20px 20px 0 0;padding:24px 20px 40px;max-height:85vh;overflow-y:auto;display:none;transform:translateY(20px);opacity:0;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s}
+.modal{
+position:fixed;bottom:0;left:0;right:0;z-index:401;
+background:var(–surface2);border-radius:20px 20px 0 0;
+border-top:1px solid var(–border2);
+padding:24px 20px 40px;max-height:88vh;overflow-y:auto;
+display:none;transform:translateY(20px);opacity:0;
+transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s;
+}
 .modal.show{display:block;transform:translateY(0);opacity:1}
-.modal-title{font-size:18px;font-weight:800;color:var(–p700);letter-spacing:-.4px;margin-bottom:4px}
+.modal-title{font-size:18px;font-weight:800;color:var(–g400);letter-spacing:-.4px;margin-bottom:4px}
 .modal-sub{font-size:13px;color:var(–text2);margin-bottom:18px}
-.modal-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;font-family:var(–sf)}
+.modal-close{
+position:absolute;top:18px;right:18px;width:30px;height:30px;
+border-radius:50%;border:1px solid var(–border);
+background:var(–surface3);color:var(–text2);
+cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;font-family:var(–sf);
+}
 
-/* ── Chart ── */
-.chart-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);padding:18px;margin-bottom:10px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
+/* ── Chart cards ── */
+.chart-card{background:var(–surface2);border-radius:var(–r);border:1px solid var(–border);padding:18px;margin-bottom:10px;box-shadow:0 2px 14px rgba(0,0,0,.3)}
 .chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .chart-title{font-size:14px;font-weight:700;color:var(–text)}
 .chart-toggle{display:flex;border:1px solid var(–border2);border-radius:20px;overflow:hidden}
 .chart-toggle-btn{padding:5px 14px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(–text2);font-family:var(–sf);transition:all .15s}
-.chart-toggle-btn.on{background:linear-gradient(135deg,var(–p700),var(–p500));color:#fff}
+.chart-toggle-btn.on{background:linear-gradient(135deg,var(–g700),var(–g500));color:#000}
 .chart-wrap{position:relative;height:180px}
 canvas#pnlChart{width:100%!important;height:180px!important}
-.chart-empty{display:flex;align-items:center;justify-content:center;height:140px;color:var(–text3);font-size:13px;border:1px dashed var(–p200);border-radius:var(–rs);background:var(–p050)}
+.chart-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(–text3);font-size:13px;border:1px dashed var(–border2);border-radius:var(–rs);background:var(–surface3)}
 
 /* ── Calendar ── */
-.cal-card{background:var(–surface);border-radius:var(–r);border:1px solid var(–border);padding:16px;box-shadow:0 2px 14px rgba(109,40,217,.06)}
+.cal-card{background:var(–surface2);border-radius:var(–r);border:1px solid var(–border);padding:16px;box-shadow:0 2px 14px rgba(0,0,0,.3)}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .cal-month{font-size:15px;font-weight:700;color:var(–text);letter-spacing:-.3px}
-.cal-nav-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–p700);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.cal-nav-btn:hover{background:var(–p100)}
+.cal-nav-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(–border2);background:var(–surface3);color:var(–g400);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cal-nav-btn:hover{background:rgba(212,160,23,.15)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
 .cal-dow{font-size:10px;font-weight:700;text-align:center;color:var(–text3);padding:4px 0;letter-spacing:.05em}
 .cal-day{min-height:44px;border-radius:10px;padding:5px;transition:all .15s;border:1px solid transparent;position:relative}
-.cal-day.other-month{opacity:.3}.cal-day.today{border-color:var(–p400);background:var(–p050)}
-.cal-day.has-trades{cursor:pointer}.cal-day.has-trades:hover{border-color:var(–p300);box-shadow:0 2px 8px rgba(109,40,217,.12)}
-.cal-day-num{font-size:12px;font-weight:600;color:var(–text2);line-height:1}.cal-day.today .cal-day-num{color:var(–p700);font-weight:800}
+.cal-day.other-month{opacity:.25}
+.cal-day.today{border-color:var(–g600);background:rgba(212,160,23,.06)}
+.cal-day.has-trades{cursor:pointer}
+.cal-day.has-trades:hover{border-color:var(–g600);box-shadow:0 2px 8px rgba(212,160,23,.15)}
+.cal-day-num{font-size:12px;font-weight:600;color:var(–text2);line-height:1}
+.cal-day.today .cal-day-num{color:var(–g400);font-weight:800}
 .cal-dot-row{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
-.cal-dot{width:6px;height:6px;border-radius:50%}.cal-dot.win{background:var(–success)}.cal-dot.loss{background:var(–danger)}.cal-dot.open{background:var(–p500)}
-.cal-pnl{font-size:9px;font-weight:700;margin-top:2px;letter-spacing:-.3px}.cal-pnl.pos{color:var(–success)}.cal-pnl.neg{color:var(–danger)}
-.cal-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(–surface);border-radius:var(–r);border:1px solid var(–border2);padding:20px;width:320px;max-width:calc(100vw - 32px);z-index:500;box-shadow:0 20px 60px rgba(91,33,182,.25);display:none;max-height:70vh;overflow-y:auto}
+.cal-dot{width:6px;height:6px;border-radius:50%}
+.cal-dot.win{background:var(–success)}.cal-dot.loss{background:var(–danger)}.cal-dot.open{background:var(–g400)}
+.cal-pnl{font-size:9px;font-weight:700;margin-top:2px;letter-spacing:-.3px}
+.cal-pnl.pos{color:var(–success)}.cal-pnl.neg{color:var(–danger)}
+.cal-popup{
+position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+background:var(–surface2);border-radius:var(–r);
+border:1px solid var(–border2);padding:20px;
+width:320px;max-width:calc(100vw - 32px);z-index:500;
+box-shadow:0 20px 60px rgba(0,0,0,.7);
+display:none;max-height:70vh;overflow-y:auto;
+}
 .cal-popup.show{display:block;animation:fu .2s ease}
-.cal-popup-overlay{position:fixed;inset:0;background:rgba(30,10,60,.3);z-index:499;display:none;backdrop-filter:blur(2px)}
+.cal-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:499;display:none;backdrop-filter:blur(3px)}
 .cal-popup-overlay.show{display:block}
-.cal-popup-title{font-size:16px;font-weight:800;color:var(–p700);margin-bottom:14px;letter-spacing:-.4px}
-.cal-popup-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;font-family:var(–sf)}
-.cal-trade-item{padding:10px 12px;background:var(–surface2);border-radius:var(–rs);border:1px solid var(–border);margin-bottom:8px}
+.cal-popup-title{font-size:16px;font-weight:800;color:var(–g400);margin-bottom:14px;letter-spacing:-.4px}
+.cal-popup-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(–border);background:var(–surface3);color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;font-family:var(–sf)}
+.cal-trade-item{padding:10px 12px;background:var(–surface3);border-radius:var(–rs);border:1px solid var(–border);margin-bottom:8px}
 
 /* ── Forms ── */
 .fg{margin-bottom:18px}
-.fl{font-size:13px;font-weight:700;color:var(–text);margin-bottom:5px;display:block;letter-spacing:-.1px}
+.fl{font-size:13px;font-weight:600;color:var(–text);margin-bottom:5px;display:block;letter-spacing:-.1px}
 .fh{font-size:12px;color:var(–text2);margin-bottom:7px}
-input[type=text],input[type=number],textarea,select{width:100%;background:var(–surface2);border:1px solid var(–border2);border-radius:var(–rs);padding:12px 14px;color:var(–text);font-family:var(–sf);font-size:15px;outline:none;-webkit-appearance:none;transition:border-color .15s,background .15s,box-shadow .15s;resize:none}
-input:focus,textarea:focus,select:focus{border-color:var(–p500);background:var(–surface);box-shadow:0 0 0 3px rgba(109,40,217,.10)}
+input[type=text],input[type=number],textarea,select{
+width:100%;
+background:var(–surface3);border:1px solid var(–border);
+border-radius:var(–rs);padding:12px 14px;
+color:var(–text);font-family:var(–sf);font-size:15px;
+outline:none;-webkit-appearance:none;
+transition:border-color .15s,background .15s,box-shadow .15s;resize:none;
+}
+input:focus,textarea:focus,select:focus{
+border-color:var(–g600);
+background:var(–surface4);
+box-shadow:0 0 0 3px rgba(212,160,23,.12);
+}
 input::placeholder,textarea::placeholder{color:var(–text3)}
 textarea{min-height:76px;line-height:1.5}
-select option{background:var(–surface)}
+select option{background:var(–surface2);color:var(–text)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
 /* ── Pills ── */
 .pills{display:flex;flex-wrap:wrap;gap:7px}
-.pill{padding:8px 15px;border-radius:20px;border:1px solid var(–border2);background:var(–surface2);color:var(–text2);font-size:13px;font-weight:500;cursor:pointer;user-select:none;text-align:center;line-height:1.3;transition:all .12s;-webkit-tap-highlight-color:transparent}
-.pill:hover{color:var(–p700);border-color:var(–p400);background:var(–p050)}
-.pill.on{border-color:var(–p600);background:linear-gradient(135deg,var(–p100),var(–cream3));color:var(–p700);font-weight:700;box-shadow:0 2px 10px rgba(109,40,217,.14)}
+.pill{
+padding:8px 15px;border-radius:20px;
+border:1px solid var(–border);
+background:var(–surface3);color:var(–text2);
+font-size:13px;font-weight:500;cursor:pointer;
+user-select:none;text-align:center;line-height:1.3;
+transition:all .12s;-webkit-tap-highlight-color:transparent;
+}
+.pill:hover{color:var(–g400);border-color:var(–g700);background:rgba(212,160,23,.06)}
+.pill.on{
+border-color:var(–g500);
+background:linear-gradient(135deg,rgba(212,160,23,.15),rgba(212,160,23,.08));
+color:var(–g300);font-weight:700;
+box-shadow:0 2px 10px rgba(212,160,23,.15);
+}
 .pill.on-r{border-color:var(–danger);background:var(–danger-dim);color:var(–danger);font-weight:700}
 
 /* ── Slider ── */
 .sw{display:flex;align-items:center;gap:12px}
-input[type=range]{flex:1;-webkit-appearance:none;height:5px;border-radius:3px;outline:none;padding:0;border:none;background:linear-gradient(to right,var(–p600) 50%,var(–p200) 50%)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(–p700),var(–p500));box-shadow:0 2px 8px rgba(109,40,217,.40);cursor:pointer;transition:transform .12s}
+input[type=range]{
+flex:1;-webkit-appearance:none;height:5px;border-radius:3px;outline:none;padding:0;border:none;
+background:linear-gradient(to right,var(–g600) 50%,var(–surface4) 50%);
+}
+input[type=range]::-webkit-slider-thumb{
+-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+background:linear-gradient(135deg,var(–g600),var(–g400));
+box-shadow:0 2px 8px rgba(212,160,23,.40);cursor:pointer;transition:transform .12s;
+}
 input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
-.sv{font-size:20px;font-weight:800;color:var(–p600);min-width:24px;text-align:right}
+.sv{font-size:20px;font-weight:800;color:var(–g400);min-width:24px;text-align:right}
 .sl{display:flex;justify-content:space-between;font-size:11px;color:var(–text3);margin-top:5px}
 
 /* ── Buttons ── */
-.btn{width:100%;padding:15px;border-radius:50px;border:none;font-family:var(–sf);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:-.2px;transition:opacity .15s,transform .09s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
-.btn-p{background:linear-gradient(135deg,var(–p800),var(–p600));color:#fff;box-shadow:0 5px 22px rgba(91,33,182,.42)}
+.btn{
+width:100%;padding:15px;border-radius:50px;border:none;
+font-family:var(–sf);font-size:15px;font-weight:700;cursor:pointer;
+letter-spacing:-.2px;transition:opacity .15s,transform .09s,box-shadow .15s;
+-webkit-tap-highlight-color:transparent;
+}
+.btn-p{
+background:linear-gradient(135deg,var(–g700),var(–g400));
+color:#000;
+box-shadow:0 5px 22px rgba(212,160,23,.35);
+}
 .btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.98)}
-.btn-s{background:var(–surface2);color:var(–p700);border:1px solid var(–border2);font-weight:600}
-.btn-s:hover{background:var(–p100);border-color:var(–p400)}
-.btn-d{background:linear-gradient(135deg,#991b1b,#dc2626);color:#fff;box-shadow:0 4px 16px rgba(220,38,38,.38)}
+.btn-s{
+background:var(–surface3);color:var(–g400);
+border:1px solid var(–border2);font-weight:600;
+}
+.btn-s:hover{background:rgba(212,160,23,.08);border-color:var(–g500)}
+.btn-d{
+background:linear-gradient(135deg,#7f1d1d,var(–danger));
+color:#fff;box-shadow:0 4px 16px rgba(255,69,58,.3);
+}
 .btn-row{display:flex;gap:10px;margin-top:8px}
 .btn-row .btn{flex:1}
 
 /* ── Step nav ── */
-.prog{height:3px;background:var(–p100);border-radius:2px;overflow:hidden;margin-bottom:6px}
-.prog-f{height:100%;background:linear-gradient(90deg,var(–p800),var(–p500));border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+.prog{height:3px;background:var(–surface4);border-radius:2px;overflow:hidden;margin-bottom:6px}
+.prog-f{height:100%;background:linear-gradient(90deg,var(–g700),var(–g400));border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1)}
 .step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .step-dots{display:flex;gap:6px}
-.dot{height:4px;width:32px;border-radius:2px;background:var(–p200);transition:background .25s;cursor:pointer}
-.dot.done{background:linear-gradient(90deg,var(–p700),var(–p500))}.dot.now{background:var(–p400);opacity:.8}
+.dot{height:4px;width:32px;border-radius:2px;background:var(–surface4);transition:background .25s;cursor:pointer}
+.dot.done{background:linear-gradient(90deg,var(–g700),var(–g400))}.dot.now{background:var(–g600);opacity:.8}
 .back-btn{font-size:12px;font-weight:600;color:var(–text2);background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:8px;font-family:var(–sf);display:flex;align-items:center;gap:4px}
-.back-btn:hover{color:var(–p700);background:var(–p050)}
+.back-btn:hover{color:var(–g400);background:rgba(212,160,23,.06)}
 .back-btn:disabled{opacity:0;pointer-events:none}
 
 /* ── Alerts ── */
 .alert{border-radius:var(–rs);padding:12px 15px;font-size:13px;line-height:1.5;margin-bottom:16px}
-.al-p{background:var(–p100);border:1px solid rgba(124,58,237,.25);color:var(–p800)}
+.al-p{background:rgba(212,160,23,.08);border:1px solid var(–border2);color:var(–g300)}
 .al-r{background:var(–danger-dim);border:1px solid var(–danger-bd);color:var(–danger);display:none}
 .al-r.show{display:block;animation:fu .2s ease}
 .al-g{background:var(–success-dim);border:1px solid var(–success-bd);color:var(–success)}
@@ -205,47 +346,81 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
 /* ── Hard block ── */
 .hblock{text-align:center;padding:36px 22px;background:var(–danger-dim);border:1px solid var(–danger-bd);border-radius:var(–r);display:none}
 .hblock.show{display:block;animation:fu .25s ease}
-.hb-icon{font-size:48px;margin-bottom:14px}.hb-title{font-size:22px;font-weight:800;color:var(–danger);letter-spacing:-.5px;margin-bottom:10px}
-.hb-text{font-size:14px;color:#b91c1c;line-height:1.6}
+.hb-icon{font-size:48px;margin-bottom:14px}
+.hb-title{font-size:22px;font-weight:800;color:var(–danger);letter-spacing:-.5px;margin-bottom:10px}
+.hb-text{font-size:14px;color:rgba(255,69,58,.8);line-height:1.6}
 
 /* ── Confluence card ── */
-.conf-card{border-radius:var(–r);background:linear-gradient(145deg,var(–p900),var(–p700) 55%,var(–p600) 100%);padding:20px;text-align:center;margin-bottom:18px;box-shadow:0 10px 32px rgba(59,7,100,.35),inset 0 1px 0 rgba(255,255,255,.12);position:relative;overflow:hidden}
-.conf-card::before{content:’’;position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%)}
+.conf-card{
+border-radius:var(–r);
+background:linear-gradient(145deg,#111 0%,#181408 55%,#1f1c0f 100%);
+border:1px solid var(–border2);
+padding:20px;text-align:center;margin-bottom:18px;
+box-shadow:0 10px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(212,160,23,.10);
+position:relative;overflow:hidden;
+}
+.conf-card::before{content:’’;position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.06) 0%,transparent 70%)}
 .conf-num{font-size:58px;font-weight:900;letter-spacing:-4px;line-height:1}
-.conf-denom{font-size:24px;color:rgba(255,255,255,.45);font-weight:400}
-.conf-lbl{font-size:12px;color:rgba(255,255,255,.65);margin-top:6px}
+.conf-denom{font-size:24px;color:rgba(255,255,255,.25);font-weight:400}
+.conf-lbl{font-size:12px;color:var(–text2);margin-top:6px}
 
 /* ── Stats ── */
 .sg{display:grid;gap:8px;margin-bottom:10px}.sg2{grid-template-columns:1fr 1fr}.sg3{grid-template-columns:repeat(3,1fr)}
-.stat{background:var(–surface);border:1px solid var(–border);border-radius:var(–r);padding:15px 13px;box-shadow:0 2px 12px rgba(109,40,217,.05)}
+.stat{
+background:var(–surface2);border:1px solid var(–border);
+border-radius:var(–r);padding:15px 13px;
+box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
 .sv2{font-size:22px;font-weight:800;letter-spacing:-.8px;line-height:1;margin-bottom:4px}
 .sv2.pos{color:var(–success)}.sv2.neg{color:var(–danger)}
-.sv2.pur{background:linear-gradient(135deg,var(–p800),var(–p500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sv2.pur{
+background:linear-gradient(135deg,var(–g600),var(–g300));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .sl2{font-size:11px;color:var(–text2);font-weight:500}
 
 /* ── Behavior bars ── */
 .br{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .bl{font-size:12px;color:var(–text2);width:110px;flex-shrink:0}
-.bb{flex:1;height:6px;background:var(–p100);border-radius:3px;overflow:hidden}
+.bb{flex:1;height:6px;background:var(–surface4);border-radius:3px;overflow:hidden}
 .bf{height:100%;border-radius:3px;transition:width .9s cubic-bezier(.4,0,.2,1)}
 .bc{font-size:12px;font-weight:700;color:var(–text2);width:18px;text-align:right}
 
 /* ── Checklist ── */
 .ci{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(–border);font-size:14px;color:var(–text2);line-height:1.4}
 .ci:last-child{border-bottom:none}
-.cb{font-size:22px;color:var(–p300);cursor:pointer;flex-shrink:0;margin-top:-2px;transition:color .12s;-webkit-tap-highlight-color:transparent}
+.cb{font-size:22px;color:var(–text3);cursor:pointer;flex-shrink:0;margin-top:-2px;transition:color .12s;-webkit-tap-highlight-color:transparent}
 .cb.done{color:var(–success)}
 
 /* ── Misc ── */
 hr{border:none;border-top:1px solid var(–border);margin:18px 0}
-.empty{text-align:center;padding:36px 18px;color:var(–text3);font-size:14px;border:1px dashed var(–p200);border-radius:var(–r);background:linear-gradient(135deg,var(–p050),var(–cream2))}
-.ei{font-size:30px;margin-bottom:10px;opacity:.45}
-.toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%) translateY(14px);background:linear-gradient(135deg,var(–p800),var(–p600));color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:600;opacity:0;transition:all .22s;z-index:999;pointer-events:none;white-space:nowrap;box-shadow:0 6px 28px rgba(91,33,182,.50)}
+.empty{
+text-align:center;padding:36px 18px;color:var(–text3);font-size:14px;
+border:1px dashed rgba(212,160,23,.15);border-radius:var(–r);
+background:var(–surface2);
+}
+.ei{font-size:30px;margin-bottom:10px;opacity:.35}
+.toast{
+position:fixed;bottom:74px;left:50%;
+transform:translateX(-50%) translateY(14px);
+background:linear-gradient(135deg,var(–g700),var(–g500));
+color:#000;padding:11px 22px;border-radius:50px;
+font-size:13px;font-weight:700;opacity:0;
+transition:all .22s;z-index:999;pointer-events:none;white-space:nowrap;
+box-shadow:0 6px 28px rgba(212,160,23,.40);
+}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.ibox{background:linear-gradient(135deg,var(–surface),var(–surface2));border:1px solid var(–border);border-radius:var(–rs);padding:16px;font-size:13px;color:var(–text2);line-height:1.75;white-space:pre-line}
+.ibox{
+background:var(–surface2);border:1px solid var(–border);
+border-radius:var(–rs);padding:16px;
+font-size:13px;color:var(–text2);line-height:1.75;white-space:pre-line;
+}
+
+/* ── Step 4 sizing display ── */
+#s4-acct-display{background:rgba(212,160,23,.06);border:1px solid var(–border2);border-radius:var(–rs);padding:10px 14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 
 @media(max-width:900px){.port-layout{grid-template-columns:1fr}.port-right{order:-1}}
-@media(max-width:480px){.pg-title{font-size:24px}.hero-amt{font-size:34px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.pg-title{font-size:24px}.hero-amt{font-size:30px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
 </style>
 
 </head>
@@ -275,11 +450,11 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div class="hero-lbl" style="margin-bottom:0">Account Balance</div>
-            <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:rgba(255,255,255,.75);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
+            <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:rgba(212,160,23,.12);border:1px solid rgba(212,160,23,.30);border-radius:20px;color:var(--g400);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div class="hero-lbl" style="margin-bottom:0" id="goal-month-lbl">Monthly Goal</div>
-            <button onclick="toggleGoalEdit()" id="goal-edit-btn" style="background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:rgba(255,255,255,.75);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
+            <button onclick="toggleGoalEdit()" id="goal-edit-btn" style="background:rgba(212,160,23,.12);border:1px solid rgba(212,160,23,.30);border-radius:20px;color:var(--g400);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--sf)">Edit</button>
           </div>
         </div>
         <!-- Main numbers row -->
@@ -287,17 +462,17 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
           <div>
             <div class="hero-amt zero" id="hero-balance" style="font-size:28px">Set balance</div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;min-height:18px">
-              <div id="hero-pnl-inline" style="display:none;font-size:12px;font-weight:700;padding:1px 8px;border-radius:20px;background:rgba(255,255,255,.12)"></div>
+              <div id="hero-pnl-inline" style="display:none;font-size:12px;font-weight:700;padding:1px 8px;border-radius:20px;background:rgba(255,255,255,.07)"></div>
               <div id="hero-pnl-label" style="font-size:11px;color:rgba(255,255,255,.35);display:none">P&amp;L</div>
             </div>
           </div>
-          <div style="border-left:1px solid rgba(255,255,255,.15);padding-left:12px">
+          <div style="border-left:1px solid rgba(255,255,255,.08);padding-left:12px">
             <div style="display:flex;align-items:baseline;gap:8px">
               <div class="hero-amt zero" id="goal-display" style="font-size:28px">—</div>
               <!-- $ / % toggle -->
               <div style="display:flex;border:1px solid rgba(255,255,255,.25);border-radius:20px;overflow:hidden;flex-shrink:0">
-                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.22);color:#fff;font-family:var(--sf)">$</button>
-                <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.5);font-family:var(--sf)">%</button>
+                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:rgba(212,160,23,.25);color:var(--g300);font-family:var(--sf)">$</button>
+                <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text3);font-family:var(--sf)">%</button>
               </div>
             </div>
             <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px" id="goal-progress-label">Set a monthly target</div>
@@ -305,17 +480,17 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
         </div>
         <!-- Inline edit rows -->
         <div id="bal-edit-row" style="display:none;margin-top:10px;gap:8px;align-items:center">
-          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);border-radius:10px;padding:8px 12px;color:#fff;font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
-          <button onclick="saveBalInput()" style="background:#fff;border:none;border-radius:10px;color:var(--p700);font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
-          <button onclick="toggleBalEdit()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;color:rgba(255,255,255,.75);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
+          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(212,160,23,.35);border-radius:10px;padding:8px 12px;color:var(--text);font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
+          <button onclick="saveBalInput()" style="background:var(--g500);border:none;border-radius:10px;color:#000;font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleBalEdit()" style="background:var(--surface4);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <div id="goal-edit-row" style="display:none;margin-top:8px;gap:8px;align-items:center">
-          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);border-radius:10px;padding:8px 12px;color:#fff;font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
-          <button onclick="saveGoalInput()" style="background:#fff;border:none;border-radius:10px;color:var(--p700);font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
-          <button onclick="toggleGoalEdit()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;color:rgba(255,255,255,.75);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
+          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(212,160,23,.35);border-radius:10px;padding:8px 12px;color:var(--text);font-family:var(--sf);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
+          <button onclick="saveGoalInput()" style="background:var(--g500);border:none;border-radius:10px;color:#000;font-family:var(--sf);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleGoalEdit()" style="background:var(--surface4);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--sf);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <!-- Progress bar -->
-        <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)">
+        <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
             <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5)">Monthly Progress</div>
             <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.8)" id="goal-pct-label"></div>
@@ -331,7 +506,7 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
           <div><div class="hero-stat-val" id="hero-wr">—</div><div class="hero-stat-lbl">Win Rate</div></div>
         </div>
       </div>
-      <div class="section-badge" style="color:var(--p600);margin-top:6px;">◈ Open Positions</div>
+      <div class="section-badge" style="color:var(--g400);margin-top:6px;">◈ Open Positions</div>
       <div id="open-list"></div>
     </div>
     <div class="port-right">
@@ -402,7 +577,7 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
     <div class="fg">
       <label class="fl">What are you trading?</label>
       <div class="g3" style="margin-bottom:8px">
-        <input type="text" id="e-ticker" placeholder="TICKER" style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--p700);text-align:center" oninput="this.value=this.value.toUpperCase()">
+        <input type="text" id="e-ticker" placeholder="TICKER" style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);text-align:center" oninput="this.value=this.value.toUpperCase()">
         <input type="number" id="e-price" placeholder="Entry $" oninput="calcRisk()" style="text-align:center">
         <input type="text" id="e-qty" placeholder="Qty / Shares" style="text-align:center">
       </div>
@@ -513,9 +688,9 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
     <div class="fg">
       <label class="fl">Risk & Position Size</label>
       <div class="fh">Pulling from your account balance on the Portfolio page.</div>
-      <div id="s4-acct-display" style="background:var(--p050);border:1px solid var(--border2);border-radius:var(--rs);padding:10px 14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+      <div id="s4-acct-display" style="background:rgba(212,160,23,.06);border:1px solid var(--border2);border-radius:var(--rs);padding:10px 14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:13px;color:var(--text2)">Account Balance</span>
-        <span style="font-size:15px;font-weight:700;color:var(--p700)" id="s4-acct-val">—</span>
+        <span style="font-size:15px;font-weight:700;color:var(--g400)" id="s4-acct-val">—</span>
       </div>
       <div class="g2" style="margin-bottom:8px">
         <div>
@@ -524,7 +699,7 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
         </div>
         <div>
           <div class="fh" style="margin-bottom:4px">% of Account</div>
-          <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:var(--p050);color:var(--p700);font-weight:700">
+          <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:var(--surface3);color:var(--g400);font-weight:700">
         </div>
       </div>
       <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);margin-bottom:4px"></div>
@@ -638,7 +813,7 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
           <div class="sv2" id="st-streak">—</div>
           <div class="sl2" id="st-streak-lbl">—</div>
         </div>
-        <div style="width:1px;height:32px;background:var(--border)"></div>
+        <div style="width:1px;height:32px;background:rgba(255,255,255,.08)"></div>
         <div>
           <div style="font-size:11px;color:var(--text2)">Best: <span id="st-best-streak" style="font-weight:700;color:var(--success)">—</span> W</div>
           <div style="font-size:11px;color:var(--text2);margin-top:2px">Worst: <span id="st-worst-streak" style="font-weight:700;color:var(--danger)">—</span> L</div>
@@ -662,12 +837,12 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
         <div style="font-size:12px;color:var(--text2);margin-top:2px" id="daily-limit-status">—</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px">
-        <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
-        <div style="font-size:22px;font-weight:800;color:var(--p700);min-width:28px;text-align:center" id="daily-limit-val">2</div>
-        <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
+        <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface3);color:var(--g400);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+        <div style="font-size:22px;font-weight:800;color:var(--g400);min-width:28px;text-align:center" id="daily-limit-val">2</div>
+        <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--surface3);color:var(--g400);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
       </div>
     </div>
-    <div style="height:5px;background:var(--p100);border-radius:3px;overflow:hidden">
+    <div style="height:5px;background:var(--surface4);border-radius:3px;overflow:hidden">
       <div id="daily-limit-bar" style="height:100%;border-radius:3px;background:var(--success);width:0%;transition:width .5s ease"></div>
     </div>
   </div>
@@ -777,7 +952,7 @@ hr{border:none;border-top:1px solid var(–border);margin:18px 0}
   <div class="modal-title">Edit Trade</div>
   <div class="modal-sub" id="edit-sub"></div>
   <div class="g3" style="margin-bottom:12px">
-    <div><div class="fh" style="margin-bottom:4px">Ticker</div><input type="text" id="ed-ticker" style="font-weight:800;text-transform:uppercase;color:var(--p700)"></div>
+    <div><div class="fh" style="margin-bottom:4px">Ticker</div><input type="text" id="ed-ticker" style="font-weight:800;text-transform:uppercase;color:var(--g400)"></div>
     <div><div class="fh" style="margin-bottom:4px">Entry $</div><input type="number" id="ed-price"></div>
     <div><div class="fh" style="margin-bottom:4px">Qty</div><input type="text" id="ed-qty"></div>
   </div>
@@ -1137,7 +1312,7 @@ function calcRisk() {
     s4val.textContent = a > 0
       ? '$' + a.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})
       : 'Not set — tap Edit Balance on Portfolio';
-    s4val.style.color = a > 0 ? 'var(--p700)' : 'var(--warn)';
+    s4val.style.color = a > 0 ? 'var(--g400)' : 'var(--warn)';
   }
 
   if (a > 0 && r > 0) {
@@ -1493,7 +1668,7 @@ function buildTradeCard(t, isOpen) {
   ).join('');
 
   const riskBar = isOpen ? `<div style="padding:0 16px 12px;display:flex;align-items:center;gap:10px">
-    <div style="flex:1;height:5px;background:var(--p100);border-radius:3px;overflow:hidden">
+    <div style="flex:1;height:5px;background:var(--surface4);border-radius:3px;overflow:hidden">
       <div style="height:100%;border-radius:3px;width:${rw}%;background:${rc};transition:width .65s cubic-bezier(.4,0,.2,1)"></div>
     </div>
     <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=30?'🚨 ':rp>2?'⚠ ':''}${rp||'—'}% at risk</div>
@@ -1502,10 +1677,10 @@ function buildTradeCard(t, isOpen) {
   const actions = isOpen ? `<div class="drawer-actions">
     <button class="drawer-btn dba-add" onclick="event.stopPropagation();openAdjModal(${t.id},'add')">＋ Add</button>
     <button class="drawer-btn dba-reduce" onclick="event.stopPropagation();openAdjModal(${t.id},'reduce')">− Reduce</button>
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--p700);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface3);color:var(--g400);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
   </div>` : `<div class="drawer-actions">
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--p700);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit Trade</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--surface3);color:var(--g400);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit Trade</button>
   </div>`;
 
   return `<div class="trade-card">
@@ -1650,8 +1825,8 @@ function renderChart() {
       plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(30,10,60,.9)',titleColor:'#c4b5fd',bodyColor:'#fff',borderColor:'rgba(124,58,237,.3)',borderWidth:1,padding:10,
         callbacks:{label:ctx=>{const v=ctx.raw;return chartMode==='dollar'?` ${v>=0?'+':''}$${Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2})}`:` ${v>=0?'+':''}${v.toFixed(2)}%`;}}}},
       scales:{
-        x:{grid:{color:'rgba(109,40,217,.06)'},ticks:{color:'#c4aee8',font:{size:10},maxTicksLimit:8}},
-        y:{grid:{color:'rgba(109,40,217,.08)'},ticks:{color:'#c4aee8',font:{size:10},callback:v=>chartMode==='dollar'?`$${v>=0?'':'-'}${Math.abs(v).toLocaleString()}`:`${v}%`}}
+        x:{grid:{color:'rgba(212,160,23,.05)'},ticks:{color:'#6b6b6b',font:{size:10},maxTicksLimit:8}},
+        y:{grid:{color:'rgba(212,160,23,.07)'},ticks:{color:'#6b6b6b',font:{size:10},callback:v=>chartMode==='dollar'?`$${v>=0?'':'-'}${Math.abs(v).toLocaleString()}`:`${v}%`}}
       }}
   });
   renderDrawdown(closed);
@@ -1756,17 +1931,17 @@ function openCalPopup(key,dayNum) {
     const pS=pN!==null?fmtM(pN):'';
     return `<div class="cal-trade-item">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div><div style="font-size:15px;font-weight:800;color:var(--p700)">${t.ticker}</div>
+        <div><div style="font-size:15px;font-weight:800;color:var(--g400)">${t.ticker}</div>
         <div style="font-size:12px;color:var(--text2);margin-top:2px">${t.structure||'—'} · ${t.direction||'—'}</div>
         <div style="font-size:12px;color:var(--text2)">${t.status==='closed'?'Closed':'Opened'}: ${fmtD(t.status==='closed'?(t.exitDate||t.entryDate):t.entryDate)}</div></div>
         <div style="text-align:right">${t.status==='open'
-          ?`<span style="font-size:11px;color:var(--p600);font-weight:700;background:var(--p100);padding:2px 8px;border-radius:20px">OPEN</span>`
+          ?`<span style="font-size:11px;color:var(--g400);font-weight:700;background:rgba(212,160,23,.10);padding:2px 8px;border-radius:20px">OPEN</span>`
           :`<span style="font-size:13px;font-weight:700;color:${pN>=0?'var(--success)':'var(--danger)'}">${pS}</span>`}
         </div>
       </div>
       ${t.exitOutcome?`<div style="font-size:12px;color:var(--text2);margin-top:6px">Outcome: ${t.exitOutcome}</div>`:''}
-      ${t.lesson?`<div style="font-size:12px;color:var(--p600);margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
-      ${t.thesis?`<div style="font-size:11px;color:var(--text3);margin-top:4px;border-left:2px solid var(--p200);padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
+      ${t.lesson?`<div style="font-size:12px;color:var(--g300);margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
+      ${t.thesis?`<div style="font-size:11px;color:var(--text3);margin-top:4px;border-left:2px solid rgba(212,160,23,.25);padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
     </div>`;
   }).join('') || '<div style="color:var(--text3);font-size:13px">No trades this day.</div>';
   document.getElementById('cal-overlay').classList.add('show');
@@ -2016,7 +2191,7 @@ function renderPat() {
 
   const pieLabels = ['Calm/Confident','Revenge','FOMO','Frustrated','Impatient','Bored'];
   const pieData   = [calmCt, revenge, fomo, frustrated, impatient, bored];
-  const pieColors = ['#059669','#dc2626','#d97706','#7c3aed','#2563eb','#6b7280'];
+  const pieColors = ['#30d158','#ff453a','#ffd60a','#d4a017','#2563eb','#6b7280'];
   const pieTotal  = pieData.reduce((s,v)=>s+v,0);
 
   const canvas = document.getElementById('flagChart');
