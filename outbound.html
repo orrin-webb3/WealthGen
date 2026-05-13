@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0f1115">
+<title>Engage — Autonomous Account Revenue Engine</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ══════════════════════════════════════════════════════
+   ENGAGE — ONE-CLICK OUTBOUND ENGINE
+   Dark steel · Electric blue · Single-decision surface
+   ══════════════════════════════════════════════════════ */
+:root{
+  --font:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+
+  --bg:#0f1115;
+  --s1:#16191f;
+  --s2:#1c2026;
+  --s3:#23282f;
+  --s4:#2c323b;
+  --s5:#363d47;
+
+  --b500:#2563b0;--b400:#3b82f6;--b300:#60a5fa;--b200:#93c5fd;--b100:#dbeafe;
+  --accent:#00c2ff;
+  --accent-dim:rgba(0,194,255,.12);
+  --accent-bd:rgba(0,194,255,.32);
+
+  --warn:#f59e0b;
+  --warn-dim:rgba(245,158,11,.10);
+  --warn-bd:rgba(245,158,11,.28);
+
+  --green:#00d47e;
+  --green-dim:rgba(0,212,126,.10);
+  --green-bd:rgba(0,212,126,.28);
+
+  --danger:#ff453a;
+  --danger-dim:rgba(255,69,58,.10);
+
+  --bd:rgba(255,255,255,.06);
+  --bd2:rgba(59,130,246,.22);
+
+  --t1:#ffffff;
+  --t2:#9aa1ac;
+  --t3:#5a6068;
+  --t4:#3a3f47;
+
+  --r:14px;--rs:10px;--rxs:8px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--bg);color-scheme:dark}
+body{
+  font-family:var(--font);min-height:100vh;color:#fff;
+  background:
+    radial-gradient(ellipse 110% 60% at 50% 0%, rgba(20,40,80,.45) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(0,80,140,.25) 0%, transparent 60%),
+    linear-gradient(160deg,#0d1014 0%,#11151b 30%,#0f1318 60%,#0c0f14 100%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+button{font-family:inherit}
+
+/* ── Topbar ── */
+.topbar{
+  position:sticky;top:0;z-index:200;height:54px;
+  background:rgba(15,17,21,.88);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;padding:0 22px;gap:12px;
+}
+.logo-mark{
+  width:30px;height:30px;border-radius:8px;
+  background:linear-gradient(135deg,var(--b400),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;letter-spacing:-.5px;
+  box-shadow:0 0 22px rgba(0,194,255,.35);
+}
+.logo-name{font-size:16px;font-weight:700;letter-spacing:-.4px;color:#fff}
+.logo-sub{font-size:11px;color:var(--t2);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:18px}
+.top-stat{display:flex;flex-direction:column;align-items:flex-end}
+.top-stat-val{font-size:13px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.top-stat-lbl{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em}
+
+/* ── Layout ── */
+.app{max-width:1180px;margin:0 auto;padding:28px 22px 80px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent-dim);border:1px solid var(--accent-bd);
+  color:var(--accent);border-radius:20px;padding:4px 12px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+.hero-h1{font-size:34px;font-weight:800;letter-spacing:-1.1px;line-height:1.05;margin-bottom:8px}
+.hero-h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--b300));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:15px;color:var(--t2);max-width:640px;line-height:1.5;margin-bottom:28px}
+
+/* ── Engage card ── */
+.engage{
+  background:linear-gradient(180deg,#1a1f27 0%,#161a21 100%);
+  border:1px solid var(--bd);
+  border-radius:var(--r);
+  padding:24px;margin-bottom:22px;position:relative;overflow:hidden;
+}
+.engage::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.engage-label{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--t2);margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.engage-label span.step{color:var(--accent)}
+.account-row{display:flex;gap:10px;align-items:stretch;margin-bottom:14px;flex-wrap:wrap}
+.account-input-wrap{flex:1;min-width:260px;position:relative}
+.account-input{
+  width:100%;padding:14px 16px;border-radius:var(--rs);
+  background:var(--s1);border:1px solid var(--bd);color:#fff;
+  font-size:15px;font-weight:600;letter-spacing:-.2px;
+  font-family:inherit;outline:none;transition:border-color .15s;
+}
+.account-input:focus{border-color:var(--accent-bd);box-shadow:0 0 0 3px rgba(0,194,255,.08)}
+.account-input::placeholder{color:var(--t3);font-weight:500}
+.suggest{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rs);
+  max-height:280px;overflow-y:auto;display:none;z-index:50;
+  box-shadow:0 18px 60px rgba(0,0,0,.5);
+}
+.suggest.on{display:block}
+.suggest-item{
+  padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;gap:10px;
+}
+.suggest-item:last-child{border-bottom:none}
+.suggest-item:hover{background:var(--s3)}
+.suggest-logo{
+  width:28px;height:28px;border-radius:7px;background:var(--s4);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;
+}
+.suggest-meta{flex:1;min-width:0}
+.suggest-name{font-size:13px;font-weight:700;color:#fff}
+.suggest-sub{font-size:11px;color:var(--t2);margin-top:1px}
+
+.btn-launch{
+  background:linear-gradient(135deg,var(--b400) 0%,var(--accent) 100%);
+  color:#fff;border:none;cursor:pointer;
+  border-radius:var(--rs);padding:0 22px;height:48px;min-width:200px;
+  font-size:15px;font-weight:800;letter-spacing:-.2px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:transform .12s, box-shadow .2s, opacity .15s;
+  box-shadow:0 6px 22px rgba(0,194,255,.28), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.btn-launch:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(0,194,255,.38), inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-launch:active{transform:translateY(0)}
+.btn-launch:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-launch .bolt{font-size:16px;line-height:1}
+
+.mode-row{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-top:14px;border-top:1px solid var(--bd);
+}
+.mode-label{font-size:11px;color:var(--t2);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.mode-toggle{display:flex;background:var(--s1);border:1px solid var(--bd);border-radius:999px;padding:3px}
+.mode-toggle button{
+  background:none;border:none;cursor:pointer;color:var(--t2);
+  font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;
+  letter-spacing:.02em;transition:background .15s, color .15s;
+}
+.mode-toggle button.on{background:var(--accent);color:#06121a}
+.mode-help{font-size:11px;color:var(--t3);margin-left:auto}
+
+/* ── Pipeline ── */
+.pipeline{display:none;margin-bottom:22px}
+.pipeline.on{display:block;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.pipeline-card{
+  background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);
+  padding:20px;
+}
+.pipe-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.pipe-spinner{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(0,194,255,.2);border-top-color:var(--accent);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pipe-title{font-size:14px;font-weight:700;color:#fff}
+.pipe-elapsed{margin-left:auto;font-size:12px;color:var(--t2);font-variant-numeric:tabular-nums}
+.pipe-steps{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.pipe-step{
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rxs);
+  padding:10px;display:flex;flex-direction:column;gap:6px;
+  position:relative;overflow:hidden;transition:border-color .2s, background .2s;
+}
+.pipe-step .ix{font-size:10px;color:var(--t3);font-weight:700;letter-spacing:.06em}
+.pipe-step .lbl{font-size:11px;color:var(--t2);font-weight:600;line-height:1.25}
+.pipe-step .bar{
+  position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--accent);
+  transition:width .35s ease;
+}
+.pipe-step.active{border-color:var(--accent-bd);background:rgba(0,194,255,.06)}
+.pipe-step.active .lbl{color:#fff}
+.pipe-step.done{border-color:var(--green-bd);background:rgba(0,212,126,.05)}
+.pipe-step.done .ix{color:var(--green)}
+.pipe-step.done .lbl{color:#fff}
+.pipe-step.done .bar{width:100% !important;background:var(--green)}
+.pipe-ticker{
+  margin-top:14px;padding:10px 12px;background:var(--s2);
+  border:1px solid var(--bd);border-radius:var(--rxs);
+  font-size:12px;color:var(--t2);font-family:'JetBrains Mono',ui-monospace,monospace;
+  min-height:34px;line-height:1.4;
+}
+.pipe-ticker .ok{color:var(--green)}
+.pipe-ticker .acc{color:var(--accent)}
+
+/* ── Packet ── */
+.packet{display:none}
+.packet.on{display:block;animation:fadeUp .3s ease}
+.packet-head{display:flex;align-items:center;gap:14px;margin:6px 0 16px;flex-wrap:wrap}
+.packet-name{font-size:24px;font-weight:800;letter-spacing:-.6px}
+.packet-meta{font-size:12px;color:var(--t2)}
+.packet-tag{
+  background:var(--accent-dim);color:var(--accent);
+  border:1px solid var(--accent-bd);border-radius:20px;
+  padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+}
+.packet-actions{margin-left:auto;display:flex;gap:8px}
+.btn-ghost{
+  background:var(--s2);border:1px solid var(--bd);color:#fff;
+  border-radius:var(--rxs);padding:8px 14px;font-size:12px;font-weight:700;
+  cursor:pointer;transition:border-color .15s;
+}
+.btn-ghost:hover{border-color:var(--accent-bd)}
+.btn-approve{
+  background:var(--accent);color:#06121a;
+  border:none;border-radius:var(--rxs);padding:9px 16px;
+  font-size:12px;font-weight:800;cursor:pointer;letter-spacing:.02em;
+  box-shadow:0 4px 14px rgba(0,194,255,.28);
+}
+.btn-approve:hover{filter:brightness(1.1)}
+.btn-approve.sent{background:var(--green);color:#072014;cursor:default}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+.card{
+  background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);
+  padding:16px;
+}
+.card h3{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--t2);margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.card h3 .num{
+  background:var(--accent-dim);color:var(--accent);
+  border:1px solid var(--accent-bd);border-radius:6px;
+  padding:1px 6px;font-size:10px;font-weight:700;
+}
+.signal{
+  display:flex;align-items:flex-start;gap:10px;padding:9px 0;
+  border-bottom:1px solid var(--bd);
+}
+.signal:last-child{border-bottom:none}
+.signal-icon{
+  width:24px;height:24px;border-radius:6px;background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;
+}
+.signal-icon.warn{background:var(--warn-dim);color:var(--warn)}
+.signal-icon.acc{background:var(--accent-dim);color:var(--accent)}
+.signal-icon.grn{background:var(--green-dim);color:var(--green)}
+.signal-body{flex:1;min-width:0}
+.signal-t{font-size:13px;font-weight:600;color:#fff}
+.signal-d{font-size:11px;color:var(--t2);margin-top:1px;line-height:1.4}
+
+.icp-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--bd);
+}
+.icp-row:last-child{border-bottom:none}
+.icp-rank{
+  width:22px;height:22px;border-radius:6px;background:var(--s3);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--t2);
+}
+.icp-rank.top{background:var(--accent);color:#06121a}
+.icp-role{flex:1;font-size:13px;color:#fff;font-weight:600}
+.icp-tag{font-size:10px;color:var(--t2);text-transform:uppercase;font-weight:700;letter-spacing:.06em}
+
+/* ── Contacts ── */
+.contacts-card{margin-bottom:14px}
+.contact-tabs{
+  display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px;
+  border-bottom:1px solid var(--bd);
+}
+.contact-tab{
+  flex-shrink:0;background:var(--s2);border:1px solid var(--bd);
+  border-radius:var(--rxs);padding:10px 12px;cursor:pointer;min-width:200px;
+  transition:border-color .15s, background .15s;
+}
+.contact-tab:hover{border-color:var(--accent-bd)}
+.contact-tab.on{background:var(--accent-dim);border-color:var(--accent-bd)}
+.ct-name{font-size:13px;font-weight:700;color:#fff;letter-spacing:-.2px}
+.ct-role{font-size:11px;color:var(--t2);margin-top:1px}
+.ct-score{
+  display:inline-block;margin-top:6px;font-size:10px;font-weight:700;
+  color:var(--accent);text-transform:uppercase;letter-spacing:.04em;
+}
+.ct-score .bar-wrap{
+  display:inline-block;width:46px;height:5px;background:var(--s4);
+  border-radius:3px;margin-left:6px;vertical-align:middle;overflow:hidden;
+}
+.ct-score .bar-fill{height:100%;background:var(--accent);border-radius:3px}
+
+.contact-detail{padding:4px 2px 2px}
+.cd-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.cd-avatar{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--b400),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:15px;color:#fff;
+}
+.cd-name{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.cd-role{font-size:12px;color:var(--t2);margin-top:1px}
+.cd-prob{margin-left:auto;text-align:right}
+.cd-prob-val{font-size:18px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.cd-prob-lbl{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media (max-width:640px){.why-grid{grid-template-columns:1fr}}
+.why{
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rxs);padding:10px 12px;
+}
+.why-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);margin-bottom:4px}
+.why-v{font-size:12px;color:#fff;line-height:1.45}
+
+.msg-pack{display:flex;flex-direction:column;gap:10px}
+.msg{
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rxs);
+  overflow:hidden;
+}
+.msg-head{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border-bottom:1px solid var(--bd);background:var(--s1);
+}
+.msg-channel{
+  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  padding:3px 9px;border-radius:20px;
+}
+.msg-channel.email{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-bd)}
+.msg-channel.linkedin{background:rgba(59,130,246,.12);color:var(--b300);border:1px solid rgba(59,130,246,.3)}
+.msg-channel.followup{background:var(--warn-dim);color:var(--warn);border:1px solid var(--warn-bd)}
+.msg-channel.skip{background:var(--s3);color:var(--t3);border:1px solid var(--bd)}
+.msg-status{margin-left:auto;font-size:11px;color:var(--t2);display:flex;align-items:center;gap:6px;font-weight:600}
+.msg-status .dot{width:7px;height:7px;border-radius:50%;background:var(--t3)}
+.msg-status.queued .dot{background:var(--warn)}
+.msg-status.sent .dot{background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.msg-status.delivered .dot{background:var(--green);box-shadow:0 0 8px var(--green)}
+.msg-status.opened{color:var(--green)}
+.msg-status.opened .dot{background:var(--green);box-shadow:0 0 10px var(--green)}
+.msg-status.replied{color:var(--accent);font-weight:800}
+.msg-body{padding:14px 14px 12px;font-size:13px;line-height:1.55;color:var(--t1)}
+.msg-subj{font-size:12px;color:var(--t2);margin-bottom:8px;font-weight:600}
+.msg-subj span{color:#fff}
+.msg-skip{padding:14px;font-size:12px;color:var(--t3);font-style:italic}
+
+/* ── Execution panel ── */
+.exec-card{margin-bottom:14px}
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+@media (max-width:720px){.exec-grid{grid-template-columns:repeat(2,1fr)}}
+.exec-stat{
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rxs);
+  padding:12px;display:flex;flex-direction:column;gap:3px;
+}
+.exec-v{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.exec-l{font-size:11px;color:var(--t2);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.exec-v.acc{color:var(--accent)}
+.exec-v.grn{color:var(--green)}
+.exec-feed{
+  background:var(--s2);border:1px solid var(--bd);border-radius:var(--rxs);
+  padding:12px;max-height:200px;overflow-y:auto;
+}
+.exec-feed-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:7px 0;border-bottom:1px dashed var(--bd);font-size:12px;
+}
+.exec-feed-item:last-child{border-bottom:none}
+.exec-feed-time{color:var(--t3);font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0;width:60px}
+.exec-feed-t{color:var(--t1);flex:1;line-height:1.4}
+.exec-feed-t b{color:var(--accent);font-weight:700}
+
+/* ── Compounding strip ── */
+.compound{
+  background:linear-gradient(135deg,rgba(0,194,255,.08),rgba(59,130,246,.04));
+  border:1px solid var(--accent-bd);border-radius:var(--r);
+  padding:16px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  margin-top:8px;
+}
+.compound-icon{
+  width:36px;height:36px;border-radius:10px;background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.compound-text{flex:1;min-width:200px}
+.compound-t{font-size:13px;font-weight:700;color:#fff}
+.compound-s{font-size:11px;color:var(--t2);margin-top:2px;line-height:1.45}
+.compound-stats{display:flex;gap:18px}
+.compound-stat{text-align:right}
+.compound-stat-v{font-size:16px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.compound-stat-l{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+
+/* ── Empty state ── */
+.empty{
+  background:var(--s1);border:1px dashed var(--bd);border-radius:var(--r);
+  padding:32px;text-align:center;color:var(--t2);font-size:13px;line-height:1.6;
+}
+.empty b{color:#fff;font-weight:700}
+.empty .kbd{
+  display:inline-block;padding:1px 7px;border-radius:5px;
+  background:var(--s3);border:1px solid var(--bd);font-size:11px;font-weight:700;color:#fff;
+  margin:0 2px;
+}
+
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--s3);border:1px solid var(--accent-bd);
+  color:#fff;padding:11px 18px;border-radius:999px;
+  font-size:13px;font-weight:600;z-index:300;opacity:0;pointer-events:none;
+  transition:opacity .2s, transform .2s;box-shadow:0 12px 32px rgba(0,0,0,.5);
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Small screens */
+@media (max-width:760px){
+  .pipe-steps{grid-template-columns:repeat(4,1fr)}
+  .hero-h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Topbar ── -->
+<header class="topbar">
+  <div class="logo-mark">E</div>
+  <div>
+    <div class="logo-name">Engage</div>
+    <div class="logo-sub">Autonomous Account Revenue Engine</div>
+  </div>
+  <div class="top-right">
+    <div class="top-stat">
+      <div class="top-stat-val" id="t-clicks">0</div>
+      <div class="top-stat-lbl">Clicks</div>
+    </div>
+    <div class="top-stat">
+      <div class="top-stat-val" id="t-touches">0</div>
+      <div class="top-stat-lbl">Touches</div>
+    </div>
+    <div class="top-stat">
+      <div class="top-stat-val" id="t-reply">—</div>
+      <div class="top-stat-lbl">Reply rate</div>
+    </div>
+  </div>
+</header>
+
+<main class="app">
+
+  <!-- ── Hero / Engage card ── -->
+  <div class="eyebrow"><span class="dot"></span>One-Click Outbound</div>
+  <h1 class="hero-h1">Pick the account. <em>We do the selling.</em></h1>
+  <p class="hero-sub">No lists. No sequences. No cadences. One decision triggers the full pipeline: signal sweep → ICP mapping → contact discovery → message generation → channel selection → outbound execution.</p>
+
+  <section class="engage">
+    <div class="engage-label">
+      <span class="step">01</span>
+      <span>Select an account</span>
+    </div>
+    <div class="account-row">
+      <div class="account-input-wrap">
+        <input id="acc-input" class="account-input" type="text" autocomplete="off"
+               placeholder="Search company name… (try Gartner, Stripe, Datadog, Notion, Snowflake)">
+        <div id="suggest" class="suggest"></div>
+      </div>
+      <button id="btn-launch" class="btn-launch" disabled onclick="launch()">
+        <span class="bolt">⚡</span><span id="launch-label">Engage Account</span>
+      </button>
+    </div>
+    <div class="mode-row">
+      <span class="mode-label">Mode</span>
+      <div class="mode-toggle" id="mode-toggle">
+        <button class="on" data-mode="auto" onclick="setMode('auto')">Auto</button>
+        <button data-mode="control" onclick="setMode('control')">Control</button>
+      </div>
+      <span class="mode-help" id="mode-help">Auto-sends across selected channels the moment the packet is ready.</span>
+    </div>
+  </section>
+
+  <!-- ── Pipeline (during execution) ── -->
+  <section class="pipeline" id="pipeline">
+    <div class="pipeline-card">
+      <div class="pipe-head">
+        <div class="pipe-spinner"></div>
+        <div class="pipe-title" id="pipe-title">Engaging account…</div>
+        <div class="pipe-elapsed" id="pipe-elapsed">0.0s</div>
+      </div>
+      <div class="pipe-steps" id="pipe-steps"></div>
+      <div class="pipe-ticker" id="pipe-ticker">Preparing orchestration…</div>
+    </div>
+  </section>
+
+  <!-- ── Output packet ── -->
+  <section class="packet" id="packet">
+    <div class="packet-head">
+      <span class="packet-tag">Outreach Packet</span>
+      <div>
+        <div class="packet-name" id="pkt-name">—</div>
+        <div class="packet-meta" id="pkt-meta">—</div>
+      </div>
+      <div class="packet-actions" id="pkt-actions">
+        <button class="btn-ghost" onclick="reset()">↺ New account</button>
+        <button id="approve-btn" class="btn-approve" onclick="approveAll()">Approve all & send</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3><span class="num">A</span> ICP Snapshot</h3>
+        <div id="icp-list"></div>
+      </div>
+      <div class="card">
+        <h3><span class="num">B</span> Buying Signals</h3>
+        <div id="signal-list"></div>
+      </div>
+    </div>
+
+    <div class="card contacts-card">
+      <h3><span class="num">C</span> Top Contacts <span style="color:var(--t3);font-weight:600;text-transform:none;letter-spacing:0;margin-left:6px" id="contacts-count"></span></h3>
+      <div class="contact-tabs" id="contact-tabs"></div>
+      <div class="contact-detail" id="contact-detail"></div>
+    </div>
+
+    <div class="card exec-card">
+      <h3><span class="num">D</span> Execution Status</h3>
+      <div class="exec-grid">
+        <div class="exec-stat"><div class="exec-v acc" id="ex-queued">0</div><div class="exec-l">Queued</div></div>
+        <div class="exec-stat"><div class="exec-v" id="ex-sent">0</div><div class="exec-l">Sent</div></div>
+        <div class="exec-stat"><div class="exec-v grn" id="ex-opened">0</div><div class="exec-l">Opened</div></div>
+        <div class="exec-stat"><div class="exec-v grn" id="ex-replied">0</div><div class="exec-l">Replied</div></div>
+      </div>
+      <div class="exec-feed" id="exec-feed">
+        <div class="exec-feed-item"><div class="exec-feed-time">—</div><div class="exec-feed-t" style="color:var(--t3)">Awaiting first touch…</div></div>
+      </div>
+    </div>
+
+    <div class="compound">
+      <div class="compound-icon">📈</div>
+      <div class="compound-text">
+        <div class="compound-t">Each click compounds.</div>
+        <div class="compound-s" id="compound-sub">Replies, opens, and converted personas feed back into ranking — next click is more accurate than this one.</div>
+      </div>
+      <div class="compound-stats">
+        <div class="compound-stat">
+          <div class="compound-stat-v" id="cs-persona">—</div>
+          <div class="compound-stat-l">Top persona</div>
+        </div>
+        <div class="compound-stat">
+          <div class="compound-stat-v" id="cs-signal">—</div>
+          <div class="compound-stat-l">Best signal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Empty state (before first click) ── -->
+  <section class="empty" id="empty">
+    <b>Type a company above</b> and press <span class="kbd">⏎</span> or hit <span class="kbd">Engage Account</span>.<br>
+    Within ~10 seconds you'll have ranked buyers, drafted messages, channel decisions, and the first touch in motion.
+  </section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  SEED DATA — 5 accounts including the Deque/Gartner case
+// ══════════════════════════════════════════════════════
+const ACCOUNTS = {
+  gartner: {
+    name:'Gartner',
+    short:'GT',
+    industry:'Research & Advisory',
+    employees:'21,000+',
+    location:'Stamford, CT',
+    why:'Accessibility hiring spike + WCAG audit risk + enterprise modernization initiative',
+    signals:[
+      {icon:'🧑‍💼',type:'acc',t:'Accessibility hiring spike',d:'7 open roles tagged WCAG / a11y across product & engineering in last 30 days.'},
+      {icon:'⚖️',type:'warn',t:'Regulatory exposure',d:'ADA-related litigation up 23% YoY in advisory sector; EAA deadline live in EU.'},
+      {icon:'🏗️',type:'acc',t:'Legacy modernization',d:'Public RFP for digital experience platform consolidation across 3 product lines.'},
+      {icon:'📰',type:'grn',t:'Press signal',d:'CEO town hall: "accessible by default" called out as a 2026 product principle.'}
+    ],
+    icp:[
+      {role:'VP Digital Product',tag:'Buyer'},
+      {role:'Head of Accessibility / UX Compliance',tag:'Champion'},
+      {role:'VP Engineering — Web Platform',tag:'Influencer'},
+      {role:'Chief Legal / Compliance Officer',tag:'Approver'},
+      {role:'Director, QA & Release',tag:'Influencer'}
+    ],
+    contacts:[
+      {
+        id:'g1', initials:'MR', name:'Maya Renton', role:'VP Digital Product',
+        probability:82, why:'Owns roadmap consolidation across 3 product lines flagged in RFP; posts publicly about "ship velocity without regression."',
+        now:'Posted last week: "Audit prep is eating two-week sprints." Direct match to remediation drag thesis.',
+        channels:{email:'send', linkedin:'send', followup:'queue'},
+        email:{
+          subject:'WCAG drag on the consolidation rollout',
+          body:`Hi Maya — saw your team is scaling accessibility across the consolidated product suite. Teams at Gartner's scale usually hit audit + remediation bottlenecks the moment WCAG requirements expand into legacy surfaces.\n\nDeque is typically brought in at exactly that inflection — to remove the compliance drag without slowing release velocity. We've done this with 4 of the top 10 advisory firms.\n\nOpen to a 15-min walkthrough of how teams your size structure this?`
+        },
+        linkedin:{ body:`Hi Maya — your recent note on audit prep eating sprints hit a nerve. We work with product orgs at your scale to take that overhead to near-zero. Worth a 15-min look?` },
+        followup:{ subject:'Re: WCAG drag on the consolidation rollout', body:`Bumping this in case it slipped — happy to send a 90-second Loom of the remediation flow if easier than a call.` }
+      },
+      {
+        id:'g2', initials:'DC', name:'Daniel Chen', role:'Head of Accessibility & UX Compliance',
+        probability:91, why:'Directly responsible for WCAG posture. Two of his open reqs are remediation engineers — a clear "build vs buy" signal.',
+        now:'Recently spoke at a11yCamp on "auditing at advisory scale." Strong indicator he is shopping tooling.',
+        channels:{email:'send', linkedin:'send', followup:'queue'},
+        email:{
+          subject:'Saw your a11yCamp talk — quick thought',
+          body:`Hi Daniel — your a11yCamp talk on auditing at advisory scale resonated. The "build vs buy" tension you flagged is exactly where most teams we work with land.\n\nDeque's axe DevTools cuts the manual audit load by ~70% for orgs running multi-product compliance. Worth a 20-min look?`
+        },
+        linkedin:{ body:`Daniel — really enjoyed the a11yCamp talk. We've helped a few advisory firms turn the "build vs buy" call into a one-week pilot. Open to a quick chat?` },
+        followup:{ subject:'Re: Saw your a11yCamp talk', body:`No pressure — if a call isn't useful, I can drop a one-page comparison of in-house vs axe tooling at Gartner-scale. Want it?` }
+      },
+      {
+        id:'g3', initials:'PS', name:'Priya Shah', role:'VP Engineering, Web Platform',
+        probability:64, why:'Owns the platform legacy modernization initiative the public RFP described.',
+        now:'Team just shipped a design-system v2 — natural insertion point for automated a11y testing.',
+        channels:{email:'send', linkedin:'skip', followup:'queue'},
+        email:{
+          subject:'Design-system v2 → automated a11y in the same CI pass',
+          body:`Hi Priya — congrats on the v2 design system rollout. Teams that hit that milestone usually wire automated accessibility checks into the same CI pass within a quarter — it's where ROI is cleanest.\n\nDeque slots into existing CI without rework. 15-min walkthrough?`
+        },
+        linkedin:{ body:'' },
+        followup:{ subject:'Re: Design-system v2', body:`Following up — happy to share how 2 other advisory firms wired axe into their CI in under 5 days.` }
+      },
+      {
+        id:'g4', initials:'JW', name:'Jordan Wells', role:'Director, QA & Release',
+        probability:48, why:'Inferred role from org gaps + release-engineering posts.',
+        now:'Lower-tier influence; useful for a multi-thread, not lead conversion.',
+        channels:{email:'skip', linkedin:'send', followup:'skip'},
+        email:{subject:'',body:''},
+        linkedin:{ body:`Hi Jordan — working with Maya & Daniel's teams on accessibility automation at Gartner scale. Worth keeping you in the loop on the release-side workflow? Happy to share a one-pager.` },
+        followup:{ subject:'',body:'' }
+      }
+    ]
+  },
+
+  stripe: {
+    name:'Stripe', short:'ST', industry:'Payments / Fintech', employees:'8,500+', location:'San Francisco, CA',
+    why:'Compliance scaling + EU regulatory pressure + design-system migration',
+    signals:[
+      {icon:'⚖️',type:'warn',t:'EAA deadline',d:'European Accessibility Act enforcement begins this quarter — payments dashboards are in scope.'},
+      {icon:'🧑‍💼',type:'acc',t:'Accessibility lead opened',d:'New "Head of Accessibility" req posted 11 days ago — buying mode.'},
+      {icon:'🏗️',type:'acc',t:'Dashboard rebuild',d:'Dashboard v3 GA in 2 quarters — natural moment to bake in compliance.'},
+      {icon:'📰',type:'grn',t:'Public commitment',d:'Annual report referenced "inclusive merchant experience" as a 2026 KPI.'}
+    ],
+    icp:[
+      {role:'Head of Accessibility',tag:'Champion'},
+      {role:'Director, Dashboard Eng',tag:'Buyer'},
+      {role:'VP Product — Merchant',tag:'Approver'},
+      {role:'Compliance Lead, EU',tag:'Influencer'}
+    ],
+    contacts:[
+      {id:'s1', initials:'AK', name:'Amara Kone', role:'Director, Dashboard Engineering', probability:78,
+        why:'Owns the Dashboard v3 rebuild — direct conversion path.',
+        now:'Public roadmap post mentioned "regulated regions" as a v3 unlock — EAA fingerprint.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'Dashboard v3 + EAA, in one pass',
+          body:`Hi Amara — Dashboard v3 is the cleanest moment to absorb EAA compliance instead of bolting it on later. Teams that do it inline ship ~6 weeks faster than those who retrofit. Worth 15 minutes?`},
+        linkedin:{body:`Hi Amara — saw v3 hits regulated regions. Happy to share how 3 fintechs absorbed EAA inside the rebuild rather than after. 15 min?`},
+        followup:{subject:'Re: Dashboard v3 + EAA',body:`Bumping — also happy to just send the retrofit-cost benchmark if a call isn't useful.`}
+      },
+      {id:'s2', initials:'LM', name:'Lukas Meier', role:'Compliance Lead, EU', probability:71,
+        why:'Direct EAA accountability — pain owner.',
+        now:'Posted EAA explainer last week; clearly in active research mode.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'EAA scope on Stripe dashboards',
+          body:`Hi Lukas — your EAA explainer was sharp. Most fintechs we work with discover dashboard scope is ~3× what their initial audit suggested. We help teams stop discovering that in production. 15-min walkthrough?`},
+        linkedin:{body:`Hi Lukas — great EAA writeup. Curious whether Stripe's scope has settled? We see most teams expand by ~3× post-audit.`},
+        followup:{subject:'Re: EAA scope',body:`Quick bump — happy to send our EAA scope-mapping template if useful.`}
+      },
+      {id:'s3', initials:'RN', name:'Rina Naidu', role:'Head of Accessibility (incoming)', probability:55,
+        why:'Role just opened — likely incoming hire will own this stack.',
+        now:'Defer outreach until role is filled; flag for warm-intro post-hire.',
+        channels:{email:'skip',linkedin:'skip',followup:'skip'},
+        email:{subject:'',body:''}, linkedin:{body:''}, followup:{subject:'',body:''}
+      }
+    ]
+  },
+
+  datadog: {
+    name:'Datadog', short:'DD', industry:'Observability / DevTools', employees:'7,000+', location:'New York, NY',
+    why:'Public-sector push + FedRAMP expansion + accessibility hiring',
+    signals:[
+      {icon:'🏛️',type:'warn',t:'Public-sector contracts',d:'New DoD pursuit confirmed; Section 508 compliance is gating.'},
+      {icon:'🧑‍💼',type:'acc',t:'a11y eng req',d:'Senior Accessibility Engineer role open 18 days.'},
+      {icon:'🏗️',type:'acc',t:'Platform refresh',d:'Q3 dashboard refresh in active design review.'}
+    ],
+    icp:[
+      {role:'Director, Public Sector Eng',tag:'Buyer'},
+      {role:'Accessibility Engineer (lead)',tag:'Champion'},
+      {role:'VP Platform UI',tag:'Approver'}
+    ],
+    contacts:[
+      {id:'d1', initials:'TC', name:'Tomas Castillo', role:'Director, Public Sector Engineering', probability:74,
+        why:'Owns 508 compliance for DoD pursuit.',
+        now:'Public RFP response window closes in 6 weeks — high time-pressure.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'508 gating on the DoD pursuit',
+          body:`Hi Tomas — Section 508 is usually the gate that slips fastest in public-sector pursuits. We help teams compress 508 audit cycles from quarters to weeks. Worth 15 min before the RFP closes?`},
+        linkedin:{body:`Hi Tomas — RFP timing matters. Happy to share our 508 fast-path with two DoD pursuits this year.`},
+        followup:{subject:'Re: 508 gating',body:`Bump — RFP deadline gets closer fast. Worth a quick call?`}
+      },
+      {id:'d2', initials:'EB', name:'Elena Brooks', role:'Senior Accessibility Engineer (lead)', probability:69,
+        why:'Solo a11y owner — natural champion who needs leverage.',
+        now:'Active conference speaker; influences tooling decisions.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'Leverage for the solo a11y owner',
+          body:`Hi Elena — solo a11y leads at Datadog scale tend to plateau without automation leverage. axe DevTools lifts ~70% of manual review off your plate. 20 min?`},
+        linkedin:{body:`Hi Elena — your KubeCon talk was great. Happy to show how solo a11y owners scale with axe automation.`},
+        followup:{subject:'Re: Leverage for the solo a11y owner',body:`Following up — also happy to ship a free trial-setup script if easier.`}
+      }
+    ]
+  },
+
+  notion: {
+    name:'Notion', short:'NO', industry:'Productivity SaaS', employees:'700+', location:'San Francisco, CA',
+    why:'Enterprise expansion + EU rollout + complex editor surfaces',
+    signals:[
+      {icon:'🌍',type:'warn',t:'EU GTM',d:'Recent EU expansion press; EAA brings dashboards & editor in scope.'},
+      {icon:'🧑‍💼',type:'acc',t:'Enterprise hiring',d:'4 enterprise eng roles opened — moving upmarket fast.'},
+      {icon:'📰',type:'grn',t:'Press signal',d:'Featured in TechCrunch as "AI-first productivity stack" — enterprise procurement reads it.'}
+    ],
+    icp:[
+      {role:'VP Engineering',tag:'Buyer'},
+      {role:'Head of Enterprise',tag:'Approver'},
+      {role:'Design Systems Lead',tag:'Champion'}
+    ],
+    contacts:[
+      {id:'n1', initials:'KH', name:'Kenji Harada', role:'Design Systems Lead', probability:80,
+        why:'Owns the surfaces with the highest a11y risk (editor + database views).',
+        now:'Recent talk: "shipping editor accessibility at scale" — already shopping.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'Editor accessibility at Notion scale',
+          body:`Hi Kenji — caught your editor-a11y talk. The pattern you described (drift between database views and editor) is exactly where axe Linter prevents the most regressions. 15 min?`},
+        linkedin:{body:`Hi Kenji — loved the editor-a11y talk. Quick thought to share if you're open.`},
+        followup:{subject:'Re: Editor accessibility',body:`Bump — also happy to send a Notion-style comparison table of axe vs in-house checks.`}
+      },
+      {id:'n2', initials:'AL', name:'Aisha Laurent', role:'Head of Enterprise', probability:62,
+        why:'Sells into procurement teams who demand VPAT — a11y is a deal-cycle issue, not eng issue, for her.',
+        now:'Public commentary on "enterprise readiness" — VPAT-shaped pain.',
+        channels:{email:'send',linkedin:'skip',followup:'queue'},
+        email:{subject:'VPAT-as-a-deal-blocker',
+          body:`Hi Aisha — enterprise procurement now treats VPAT as table stakes. We help productivity tools ship a credible VPAT in weeks not quarters. Worth 15 min?`},
+        linkedin:{body:''},
+        followup:{subject:'Re: VPAT-as-a-deal-blocker',body:`Bump — also happy to share two VPATs we co-authored with similar-stage SaaS.`}
+      }
+    ]
+  },
+
+  snowflake: {
+    name:'Snowflake', short:'SF', industry:'Cloud Data Platform', employees:'7,000+', location:'Bozeman, MT',
+    why:'Public-sector expansion + dashboard a11y debt + design-system migration',
+    signals:[
+      {icon:'🏛️',type:'warn',t:'GovCloud push',d:'Newly active in federal data marketplace; 508 in scope.'},
+      {icon:'🧑‍💼',type:'acc',t:'UX Compliance role',d:'New "UX Compliance Lead" req opened 9 days ago.'},
+      {icon:'🏗️',type:'acc',t:'Console v4',d:'Console v4 in active design — clean integration point.'}
+    ],
+    icp:[
+      {role:'VP Console & UX',tag:'Buyer'},
+      {role:'UX Compliance Lead',tag:'Champion'},
+      {role:'Director, FedRAMP',tag:'Approver'}
+    ],
+    contacts:[
+      {id:'sf1', initials:'GP', name:'Gabriel Park', role:'VP Console & UX', probability:75,
+        why:'Owns Console v4 — direct decision-maker on tooling.',
+        now:'Console v4 designs leaked on a public Figma community link.',
+        channels:{email:'send',linkedin:'send',followup:'queue'},
+        email:{subject:'Console v4 — a11y baked in, not bolted',
+          body:`Hi Gabriel — Console v4 is the cleanest moment to absorb 508 + WCAG inside the build rather than retrofitting. Worth 15 min?`},
+        linkedin:{body:`Hi Gabriel — v4 looks great. Happy to share how 2 data platforms wired axe into the same design pass.`},
+        followup:{subject:'Re: Console v4',body:`Bump — also happy to send a v3→v4 retrofit-cost benchmark if a call isn't useful.`}
+      }
+    ]
+  }
+};
+
+// ══════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════
+const LS_KEY = 'engage_state_v1';
+let mode = 'auto';          // 'auto' | 'control'
+let selectedKey = null;
+let currentPacket = null;
+let activeContactId = null;
+let pipelineRunning = false;
+let execTimer = null;
+let stats = loadStats();
+
+function loadStats(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(!raw) return defaults();
+    const s = JSON.parse(raw);
+    return { ...defaults(), ...s };
+  }catch(e){ return defaults(); }
+}
+function defaults(){
+  return {
+    clicks:0, touches:0, sent:0, opened:0, replied:0,
+    personaTally:{}, signalTally:{}
+  };
+}
+function saveStats(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(stats)); }catch(e){} }
+function renderTopStats(){
+  document.getElementById('t-clicks').textContent = stats.clicks;
+  document.getElementById('t-touches').textContent = stats.touches;
+  const rr = stats.sent ? Math.round((stats.replied / stats.sent) * 100) : null;
+  document.getElementById('t-reply').textContent = rr===null ? '—' : (rr + '%');
+  // top persona / signal
+  const topP = topKey(stats.personaTally);
+  const topS = topKey(stats.signalTally);
+  document.getElementById('cs-persona').textContent = topP || '—';
+  document.getElementById('cs-signal').textContent = topS || '—';
+}
+function topKey(o){
+  let best=null, n=-1;
+  for(const k in o){ if(o[k]>n){ n=o[k]; best=k; } }
+  return best;
+}
+
+// ══════════════════════════════════════════════════════
+//  ACCOUNT PICKER
+// ══════════════════════════════════════════════════════
+const accInput = document.getElementById('acc-input');
+const suggest = document.getElementById('suggest');
+const launchBtn = document.getElementById('btn-launch');
+
+function renderSuggest(query){
+  const q = (query||'').toLowerCase().trim();
+  const matches = Object.entries(ACCOUNTS).filter(([k,a])=>{
+    if(!q) return true;
+    return a.name.toLowerCase().includes(q) || a.industry.toLowerCase().includes(q);
+  });
+  if(!matches.length){ suggest.classList.remove('on'); return; }
+  suggest.innerHTML = matches.map(([k,a])=>`
+    <div class="suggest-item" data-k="${k}">
+      <div class="suggest-logo">${a.short}</div>
+      <div class="suggest-meta">
+        <div class="suggest-name">${a.name}</div>
+        <div class="suggest-sub">${a.industry} · ${a.employees} · ${a.location}</div>
+      </div>
+    </div>
+  `).join('');
+  suggest.classList.add('on');
+  suggest.querySelectorAll('.suggest-item').forEach(el=>{
+    el.addEventListener('click', ()=> pick(el.dataset.k));
+  });
+}
+function pick(key){
+  selectedKey = key;
+  const a = ACCOUNTS[key];
+  accInput.value = a.name;
+  suggest.classList.remove('on');
+  launchBtn.disabled = false;
+  document.getElementById('launch-label').textContent = `Engage ${a.name}`;
+}
+accInput.addEventListener('focus', ()=> renderSuggest(accInput.value));
+accInput.addEventListener('input', ()=>{
+  selectedKey = null;
+  launchBtn.disabled = true;
+  document.getElementById('launch-label').textContent = 'Engage Account';
+  // try exact-match auto-pick
+  const v = accInput.value.toLowerCase().trim();
+  for(const k in ACCOUNTS){ if(ACCOUNTS[k].name.toLowerCase()===v){ pick(k); break; } }
+  renderSuggest(accInput.value);
+});
+accInput.addEventListener('keydown', e=>{
+  if(e.key==='Enter'){
+    if(!selectedKey){
+      // pick first suggestion if any
+      const first = suggest.querySelector('.suggest-item');
+      if(first) pick(first.dataset.k);
+    }
+    if(selectedKey) launch();
+  }
+  if(e.key==='Escape'){ suggest.classList.remove('on'); }
+});
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.account-input-wrap')) suggest.classList.remove('on');
+});
+
+// ══════════════════════════════════════════════════════
+//  MODE TOGGLE
+// ══════════════════════════════════════════════════════
+function setMode(m){
+  mode = m;
+  document.querySelectorAll('#mode-toggle button').forEach(b=>{
+    b.classList.toggle('on', b.dataset.mode===m);
+  });
+  document.getElementById('mode-help').textContent =
+    m==='auto'
+      ? 'Auto-sends across selected channels the moment the packet is ready.'
+      : 'Shows pre-filled outbound pack. You hit Approve all & send.';
+}
+
+// ══════════════════════════════════════════════════════
+//  LAUNCH — the one click
+// ══════════════════════════════════════════════════════
+const PIPE_STEPS = [
+  { ix:'01', lbl:'Account ingestion',     dur:400, ticker:'→ Pulling firmographics, structure baseline…' },
+  { ix:'02', lbl:'Signal sweep',          dur:900, ticker:'→ Scanning hiring, tech-stack, press, regulatory, growth triggers in parallel…' },
+  { ix:'03', lbl:'ICP auto-mapping',      dur:700, ticker:'→ Inferring buyer / influencer / blocker roles…' },
+  { ix:'04', lbl:'Contact discovery',     dur:900, ticker:'→ Enriching known contacts, inferring org gaps, scoring response probability…' },
+  { ix:'05', lbl:'Message generation',    dur:1100, ticker:'→ Drafting email + LinkedIn + follow-up per contact…' },
+  { ix:'06', lbl:'Channel decision',      dur:500, ticker:'→ Selecting channels by engagement probability…' },
+  { ix:'07', lbl:'Outreach execution',    dur:600, ticker:'→ Queuing first touch…' }
+];
+
+function launch(){
+  if(pipelineRunning) return;
+  if(!selectedKey) return;
+  pipelineRunning = true;
+  launchBtn.disabled = true;
+  document.getElementById('empty').style.display = 'none';
+  document.getElementById('packet').classList.remove('on');
+  document.getElementById('pipeline').classList.add('on');
+
+  // reset pipeline ui
+  const stepsEl = document.getElementById('pipe-steps');
+  stepsEl.innerHTML = PIPE_STEPS.map((s,i)=>`
+    <div class="pipe-step" data-i="${i}">
+      <div class="ix">${s.ix}</div>
+      <div class="lbl">${s.lbl}</div>
+      <div class="bar"></div>
+    </div>
+  `).join('');
+  document.getElementById('pipe-elapsed').textContent = '0.0s';
+  document.getElementById('pipe-ticker').textContent = 'Preparing orchestration…';
+  document.getElementById('pipe-title').textContent = `Engaging ${ACCOUNTS[selectedKey].name}…`;
+
+  const t0 = performance.now();
+  const elapsedTimer = setInterval(()=>{
+    document.getElementById('pipe-elapsed').textContent =
+      ((performance.now()-t0)/1000).toFixed(1) + 's';
+  }, 60);
+
+  runStep(0, ()=>{
+    clearInterval(elapsedTimer);
+    document.getElementById('pipe-elapsed').textContent =
+      ((performance.now()-t0)/1000).toFixed(1) + 's';
+    setTimeout(()=> renderPacket(), 200);
+  });
+}
+
+function runStep(i, done){
+  if(i>=PIPE_STEPS.length){ done(); return; }
+  const s = PIPE_STEPS[i];
+  const stepEl = document.querySelector(`.pipe-step[data-i="${i}"]`);
+  stepEl.classList.add('active');
+  document.getElementById('pipe-ticker').innerHTML =
+    `<span class="acc">[${s.ix}]</span> ${s.ticker}`;
+  // animate the progress bar
+  requestAnimationFrame(()=>{
+    stepEl.querySelector('.bar').style.transition = `width ${s.dur}ms linear`;
+    stepEl.querySelector('.bar').style.width = '100%';
+  });
+  setTimeout(()=>{
+    stepEl.classList.remove('active');
+    stepEl.classList.add('done');
+    document.getElementById('pipe-ticker').innerHTML =
+      `<span class="ok">✓</span> ${s.lbl} — complete`;
+    runStep(i+1, done);
+  }, s.dur);
+}
+
+// ══════════════════════════════════════════════════════
+//  PACKET RENDER
+// ══════════════════════════════════════════════════════
+function renderPacket(){
+  const acc = ACCOUNTS[selectedKey];
+  currentPacket = JSON.parse(JSON.stringify(acc)); // deep clone so we can mutate state per-engagement
+
+  // tally stats
+  stats.clicks += 1;
+  saveStats();
+  renderTopStats();
+
+  document.getElementById('pkt-name').textContent = acc.name;
+  document.getElementById('pkt-meta').textContent =
+    `${acc.industry} · ${acc.employees} · ${acc.location} · ${acc.why}`;
+
+  // ICP
+  document.getElementById('icp-list').innerHTML =
+    acc.icp.map((p,i)=>`
+      <div class="icp-row">
+        <div class="icp-rank ${i===0?'top':''}">${i+1}</div>
+        <div class="icp-role">${p.role}</div>
+        <div class="icp-tag">${p.tag}</div>
+      </div>
+    `).join('');
+
+  // Signals
+  document.getElementById('signal-list').innerHTML =
+    acc.signals.map(s=>`
+      <div class="signal">
+        <div class="signal-icon ${s.type}">${s.icon}</div>
+        <div class="signal-body">
+          <div class="signal-t">${s.t}</div>
+          <div class="signal-d">${s.d}</div>
+        </div>
+      </div>
+    `).join('');
+
+  // Contacts (active = top 3 with channels not all-skip)
+  const tabs = currentPacket.contacts.sort((a,b)=>b.probability-a.probability);
+  document.getElementById('contacts-count').textContent =
+    `· ${tabs.length} ranked · ${countTouches(tabs)} touches queued`;
+  document.getElementById('contact-tabs').innerHTML = tabs.map(c=>`
+    <div class="contact-tab" data-id="${c.id}" onclick="selectContact('${c.id}')">
+      <div class="ct-name">${c.name}</div>
+      <div class="ct-role">${c.role}</div>
+      <div class="ct-score">${c.probability}%
+        <span class="bar-wrap"><span class="bar-fill" style="width:${c.probability}%"></span></span>
+      </div>
+    </div>
+  `).join('');
+  selectContact(tabs[0].id);
+
+  // Execution panel reset
+  document.getElementById('ex-queued').textContent = countByStatus('queued');
+  document.getElementById('ex-sent').textContent = 0;
+  document.getElementById('ex-opened').textContent = 0;
+  document.getElementById('ex-replied').textContent = 0;
+  document.getElementById('exec-feed').innerHTML =
+    `<div class="exec-feed-item"><div class="exec-feed-time">${nowStr()}</div><div class="exec-feed-t">Outreach packet ready · <b>${countTouches(tabs)}</b> touches staged across ${tabs.length} contacts.</div></div>`;
+
+  // Approve button state
+  const approveBtn = document.getElementById('approve-btn');
+  approveBtn.classList.remove('sent');
+  approveBtn.textContent = mode==='auto' ? 'Sending…' : 'Approve all & send';
+  approveBtn.disabled = mode==='auto';
+
+  // Show packet
+  document.getElementById('packet').classList.add('on');
+  document.getElementById('pipeline').classList.remove('on');
+  pipelineRunning = false;
+  launchBtn.disabled = false;
+  document.getElementById('launch-label').textContent = `Engage ${acc.name}`;
+
+  // mode behavior
+  if(mode==='auto'){
+    setTimeout(()=> approveAll(true), 600);
+  }
+}
+
+function countTouches(contacts){
+  let n = 0;
+  contacts.forEach(c=>{
+    if(c.channels.email!=='skip') n++;
+    if(c.channels.linkedin!=='skip') n++;
+    if(c.channels.followup!=='skip') n++;
+  });
+  return n;
+}
+function countByStatus(status){
+  // 'queued' before any send
+  return countTouches(currentPacket.contacts);
+}
+
+function selectContact(id){
+  activeContactId = id;
+  document.querySelectorAll('.contact-tab').forEach(t=>{
+    t.classList.toggle('on', t.dataset.id===id);
+  });
+  const c = currentPacket.contacts.find(x=>x.id===id);
+  if(!c){ document.getElementById('contact-detail').innerHTML=''; return; }
+
+  const channels = c.channels;
+  const blocks = [];
+  blocks.push(channelBlock('email', 'Cold Email', c.email, channels.email, c.id));
+  blocks.push(channelBlock('linkedin', 'LinkedIn Touch', c.linkedin, channels.linkedin, c.id));
+  blocks.push(channelBlock('followup', 'Follow-up (T+3d)', c.followup, channels.followup, c.id));
+
+  document.getElementById('contact-detail').innerHTML = `
+    <div class="cd-head">
+      <div class="cd-avatar">${c.initials}</div>
+      <div style="min-width:0;flex:1">
+        <div class="cd-name">${c.name}</div>
+        <div class="cd-role">${c.role}</div>
+      </div>
+      <div class="cd-prob">
+        <div class="cd-prob-val">${c.probability}%</div>
+        <div class="cd-prob-lbl">Reach probability</div>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why"><div class="why-l">Why them</div><div class="why-v">${c.why}</div></div>
+      <div class="why"><div class="why-l">Why now</div><div class="why-v">${c.now}</div></div>
+    </div>
+    <div class="msg-pack">${blocks.join('')}</div>
+  `;
+}
+
+function channelBlock(kind, label, content, action, cid){
+  if(action==='skip'){
+    return `<div class="msg">
+      <div class="msg-head">
+        <div class="msg-channel skip">${label}</div>
+        <div class="msg-status"><div class="dot"></div>Skipped — low probability</div>
+      </div>
+      <div class="msg-skip">Channel suppressed: signal strength below threshold for ${label.toLowerCase()}.</div>
+    </div>`;
+  }
+  const statusId = `st-${cid}-${kind}`;
+  const subject = content.subject || '';
+  const body = (content.body||'').replace(/\n/g,'<br>');
+  return `<div class="msg">
+    <div class="msg-head">
+      <div class="msg-channel ${kind}">${label}</div>
+      <div id="${statusId}" class="msg-status queued"><div class="dot"></div>Queued</div>
+    </div>
+    ${subject ? `<div class="msg-body"><div class="msg-subj">Subject: <span>${subject}</span></div>${body}</div>` : `<div class="msg-body">${body}</div>`}
+  </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  APPROVE / SEND
+// ══════════════════════════════════════════════════════
+function approveAll(silent){
+  const btn = document.getElementById('approve-btn');
+  btn.disabled = true;
+  btn.classList.add('sent');
+  btn.textContent = 'Sending across channels…';
+  if(!silent) toast('Outreach launched.');
+
+  // build queue of (contactId, channel, kind)
+  const queue = [];
+  currentPacket.contacts.forEach(c=>{
+    ['email','linkedin','followup'].forEach(k=>{
+      if(c.channels[k]!=='skip') queue.push({cid:c.id, kind:k, name:c.name});
+    });
+  });
+
+  // simulate execution
+  let sent = 0, opened = 0, replied = 0;
+  document.getElementById('ex-queued').textContent = queue.length;
+  pushFeed(`Launching <b>${queue.length}</b> touches across ${currentPacket.contacts.length} contacts…`);
+
+  queue.forEach((q,i)=>{
+    setTimeout(()=>{
+      updateMsgStatus(q.cid, q.kind, 'sent', 'Sent');
+      sent++;
+      stats.sent++; stats.touches++;
+      bumpPersonaTally(q.cid);
+      document.getElementById('ex-sent').textContent = sent;
+      document.getElementById('ex-queued').textContent = queue.length - sent;
+      pushFeed(`<b>${labelFor(q.kind)}</b> sent to <b>${q.name}</b>.`);
+      saveStats(); renderTopStats();
+    }, 400 + i*350);
+
+    // simulate delivery + open after a small delay (email + linkedin)
+    if(q.kind !== 'followup'){
+      setTimeout(()=>{
+        updateMsgStatus(q.cid, q.kind, 'delivered', 'Delivered');
+      }, 400 + i*350 + 600);
+      // ~50% open rate
+      if(Math.random() < 0.55){
+        setTimeout(()=>{
+          updateMsgStatus(q.cid, q.kind, 'opened', 'Opened');
+          opened++; stats.opened++;
+          document.getElementById('ex-opened').textContent = opened;
+          pushFeed(`<b>${labelFor(q.kind)}</b> opened by <b>${q.name}</b>.`);
+          saveStats(); renderTopStats();
+        }, 400 + i*350 + 1400);
+      }
+      // ~18% reply rate
+      if(Math.random() < 0.20){
+        setTimeout(()=>{
+          updateMsgStatus(q.cid, q.kind, 'replied', 'Replied ✓');
+          replied++; stats.replied++;
+          document.getElementById('ex-replied').textContent = replied;
+          pushFeed(`<b>${q.name}</b> replied on <b>${labelFor(q.kind)}</b> — routed to inbox.`);
+          bumpSignalTally();
+          saveStats(); renderTopStats();
+        }, 400 + i*350 + 2400);
+      }
+    }
+  });
+
+  // finalize button
+  setTimeout(()=>{
+    btn.textContent = 'Sent ✓';
+  }, 400 + queue.length*350 + 200);
+}
+
+function labelFor(k){ return k==='email' ? 'Email' : k==='linkedin' ? 'LinkedIn' : 'Follow-up'; }
+
+function updateMsgStatus(cid, kind, cls, text){
+  // only update if this contact is currently rendered
+  const el = document.getElementById(`st-${cid}-${kind}`);
+  if(el){
+    el.className = `msg-status ${cls}`;
+    el.innerHTML = `<div class="dot"></div>${text}`;
+  }
+}
+
+function pushFeed(html){
+  const feed = document.getElementById('exec-feed');
+  const item = document.createElement('div');
+  item.className = 'exec-feed-item';
+  item.innerHTML = `<div class="exec-feed-time">${nowStr()}</div><div class="exec-feed-t">${html}</div>`;
+  feed.prepend(item);
+  // cap to ~40 items
+  while(feed.children.length > 40) feed.removeChild(feed.lastChild);
+}
+function nowStr(){
+  const d = new Date();
+  return d.toTimeString().slice(0,8);
+}
+
+function bumpPersonaTally(cid){
+  const c = currentPacket.contacts.find(x=>x.id===cid);
+  if(!c) return;
+  // collapse to short persona label
+  const short = c.role.split('—')[0].split(',')[0].trim().slice(0,18);
+  stats.personaTally[short] = (stats.personaTally[short]||0) + 1;
+}
+function bumpSignalTally(){
+  // attribute reply to top signal of current account
+  if(!currentPacket || !currentPacket.signals.length) return;
+  const top = currentPacket.signals[0].t.slice(0,18);
+  stats.signalTally[top] = (stats.signalTally[top]||0) + 1;
+}
+
+// ══════════════════════════════════════════════════════
+//  RESET
+// ══════════════════════════════════════════════════════
+function reset(){
+  document.getElementById('packet').classList.remove('on');
+  document.getElementById('pipeline').classList.remove('on');
+  document.getElementById('empty').style.display = 'block';
+  accInput.value = '';
+  selectedKey = null;
+  launchBtn.disabled = true;
+  document.getElementById('launch-label').textContent = 'Engage Account';
+  accInput.focus();
+}
+
+// ══════════════════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════════════════
+let toastT;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('on');
+  clearTimeout(toastT);
+  toastT = setTimeout(()=> el.classList.remove('on'), 2200);
+}
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+renderTopStats();
+setTimeout(()=> accInput.focus(), 200);
+</script>
+</body>
+</html>
