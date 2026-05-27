@@ -862,7 +862,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
         </div>
       </div>
       <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#272b31;border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:4px"></div>
-      <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 30% of your account. Enter in 5% increments — build the position as the thesis confirms.</div>
+      <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 10% of your account. Consider entering in increments — build the position as the thesis confirms.</div>
     </div>
     <div class="fg"><label class="fl">Emotional state — be honest</label>
       <div class="pills" id="em-g">
@@ -1125,7 +1125,29 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   </div>
   <div class="g2" style="margin-bottom:12px">
     <div><div class="fh" style="margin-bottom:4px">$ at Risk</div><input type="number" id="ed-risk"></div>
-    <div><div class="fh" style="margin-bottom:4px">P&amp;L (closed only)</div><input type="text" id="ed-pnl" placeholder="e.g. +$320"></div>
+    <div><div class="fh" style="margin-bottom:4px">Realized P&amp;L</div><input type="text" id="ed-pnl" placeholder="e.g. +$320"></div>
+  </div>
+  <!-- Closed trade exit fields — shown only when editing a closed trade -->
+  <div id="ed-exit-section" style="display:none">
+    <hr style="margin:4px 0 14px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--b300);margin-bottom:12px">Exit Details</div>
+    <div class="g2" style="margin-bottom:12px">
+      <div><div class="fh" style="margin-bottom:4px">Exit Price</div><input type="number" id="ed-exit-price" placeholder="e.g. 24.50"></div>
+      <div><div class="fh" style="margin-bottom:4px">Exit Date</div><input type="date" id="ed-exit-date"></div>
+    </div>
+    <div class="fg">
+      <div class="fh" style="margin-bottom:4px">Exit Outcome</div>
+      <select id="ed-exit-outcome">
+        <option value="">Select outcome…</option>
+        <option>Thesis played out</option>
+        <option>Partial thesis</option>
+        <option>Thesis failed</option>
+        <option>Stop hit</option>
+        <option>Panic exit</option>
+        <option>Got impatient</option>
+        <option>Took profit early</option>
+      </select>
+    </div>
   </div>
   <div class="fg">
     <div class="fh" style="margin-bottom:4px">Lesson</div>
@@ -1744,7 +1766,7 @@ function calcAdjRisk() {
   const p = (r/t.accountSize*100).toFixed(1);
   const el = document.getElementById('adj-risk-pct');
   el.textContent = p+'% of account';
-  el.style.color = parseFloat(p)>=30 ? 'var(--danger)' : parseFloat(p)>2 ? 'var(--warn)' : 'var(--success)';
+  el.style.color = parseFloat(p)>=10 ? 'var(--danger)' : parseFloat(p)>2 ? 'var(--warn)' : 'var(--success)';
 }
 
 function updateAdjLabel() {}
@@ -1801,7 +1823,7 @@ function buildTradeCard(t, isOpen) {
   const pS = isOpen ? 'OPEN' : (pN!==null?fmtM(pN):(t.pnl||'—'));
   const rp = t.riskPct||0;
   const rw = Math.min(100,rp*50);
-  const rc = rp>=30?'var(--danger)':rp>2?'var(--warn)':'var(--success)';
+  const rc = rp>=10?'var(--warn)':'var(--success)';
 
   const tags=[];
   if(['Revenge Mode','FOMO'].includes(t.emotion))     tags.push(`<span class="tag tr">⚠ ${t.emotion}</span>`);
@@ -1809,8 +1831,8 @@ function buildTradeCard(t, isOpen) {
   if(t.exitOutcome==='Thesis played out')              tags.push(`<span class="tag tp">◎ Thesis exit</span>`);
   if(t.exitOutcome==='Panic exit')                     tags.push(`<span class="tag tr">⚡ Panic</span>`);
   if(t.confluenceScore>=3)                             tags.push(`<span class="tag tp">🎯 Full confluence</span>`);
-  if(rp>=30)                                           tags.push(`<span class="tag tr">🚨 ${rp}% portfolio</span>`);
-  else if(rp>2)                                        tags.push(`<span class="tag ty">⚠ Oversized ${rp}%</span>`);
+  if(rp>=10)                                           tags.push(`<span class="tag tr">🚨 ${rp}% portfolio</span>`);
+  
 
   const adjustHistory = (t.adjustments||[]).map(a=>
     `<div style="font-size:11px;color:var(--text3);padding:3px 0;border-bottom:1px dashed var(--border)">${a.type||'adj'} · ${a.qty||''} ${a.price?'@ $'+a.price:''} ${a.note?'— '+a.note:''} <span style="color:var(--text3)">${fmtDS(a.date||0)}</span></div>`
@@ -1820,7 +1842,7 @@ function buildTradeCard(t, isOpen) {
     <div style="flex:1;height:5px;background:#2c2c2e;border-radius:3px;overflow:hidden">
       <div style="height:100%;border-radius:3px;width:${rw}%;background:${rc};transition:width .65s cubic-bezier(.4,0,.2,1)"></div>
     </div>
-    <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=30?'🚨 ':rp>2?'⚠ ':''}${rp||'—'}% at risk</div>
+    <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=10?'⚠ ':''}${rp||'—'}% at risk</div>
   </div>` : '';
 
   const actions = isOpen ? `<div class="drawer-actions">
@@ -1829,10 +1851,11 @@ function buildTradeCard(t, isOpen) {
     <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
   </div>` : `<div class="drawer-actions">
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit Trade</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#272b31;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--danger-bd);background:var(--danger-dim);color:var(--danger);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();deleteTrade(${t.id})">✕ Delete</button>
   </div>`;
 
-  return `<div class="trade-card">
+  return `<div class="trade-card" data-trade-id="${t.id}">
     <div class="trade-header" onclick="toggleDrawer(${t.id})">
       <div>
         <div class="t-ticker">${t.ticker}</div>
@@ -2183,16 +2206,33 @@ function openEditModal(tradeId) {
   const t = trades.find(x => x.id === tradeId);
   if (!t) return;
   activeEditId = tradeId;
-  document.getElementById('edit-sub').textContent = `${t.ticker} · ${t.structure||''} · ${fmtDS(t.entryDate)}`;
-  document.getElementById('ed-ticker').value  = t.ticker || '';
-  document.getElementById('ed-price').value   = t.entryPrice || '';
-  document.getElementById('ed-qty').value     = t.qty || '';
-  document.getElementById('ed-struct').value  = t.structure || '';
-  document.getElementById('ed-thesis').value  = t.thesis || '';
-  document.getElementById('ed-inval').value   = t.invalidation || '';
-  document.getElementById('ed-risk').value    = t.riskDollars || '';
-  document.getElementById('ed-pnl').value     = t.pnl || '';
-  document.getElementById('ed-lesson').value  = t.lesson || '';
+  const isClosed = t.status === 'closed';
+  document.getElementById('edit-sub').textContent = `${t.ticker} · ${t.structure||''} · ${fmtDS(t.entryDate)} · ${isClosed ? 'CLOSED' : 'OPEN'}`;
+  document.getElementById('ed-ticker').value       = t.ticker || '';
+  document.getElementById('ed-price').value        = t.entryPrice || '';
+  document.getElementById('ed-qty').value          = t.qty || '';
+  document.getElementById('ed-struct').value       = t.structure || '';
+  document.getElementById('ed-thesis').value       = t.thesis || '';
+  document.getElementById('ed-inval').value        = t.invalidation || '';
+  document.getElementById('ed-risk').value         = t.riskDollars || '';
+  document.getElementById('ed-pnl').value          = t.pnl || '';
+  document.getElementById('ed-lesson').value       = t.lesson || '';
+  // Exit fields — only for closed trades
+  const exitSection = document.getElementById('ed-exit-section');
+  exitSection.style.display = isClosed ? 'block' : 'none';
+  if (isClosed) {
+    document.getElementById('ed-exit-price').value   = t.exitPrice || '';
+    document.getElementById('ed-exit-outcome').value = t.exitOutcome || '';
+    if (t.exitDate) {
+      const d = new Date(t.exitDate);
+      const yyyy = d.getFullYear();
+      const mm   = String(d.getMonth()+1).padStart(2,'0');
+      const dd   = String(d.getDate()).padStart(2,'0');
+      document.getElementById('ed-exit-date').value = `${yyyy}-${mm}-${dd}`;
+    } else {
+      document.getElementById('ed-exit-date').value = '';
+    }
+  }
   document.getElementById('edit-overlay').classList.add('show');
   document.getElementById('edit-modal').classList.add('show');
 }
@@ -2206,15 +2246,15 @@ function closeEditModal() {
 function submitEdit() {
   const t = trades.find(x => x.id === activeEditId);
   if (!t) return;
-  const ticker  = document.getElementById('ed-ticker').value.trim().toUpperCase();
-  const price   = document.getElementById('ed-price').value.trim();
-  const qty     = document.getElementById('ed-qty').value.trim();
-  const struct  = document.getElementById('ed-struct').value;
-  const thesis  = document.getElementById('ed-thesis').value.trim();
-  const inval   = document.getElementById('ed-inval').value.trim();
-  const riskD   = parseFloat(document.getElementById('ed-risk').value) || t.riskDollars || 0;
-  const pnlStr  = document.getElementById('ed-pnl').value.trim();
-  const lesson  = document.getElementById('ed-lesson').value.trim();
+  const ticker   = document.getElementById('ed-ticker').value.trim().toUpperCase();
+  const price    = document.getElementById('ed-price').value.trim();
+  const qty      = document.getElementById('ed-qty').value.trim();
+  const struct   = document.getElementById('ed-struct').value;
+  const thesis   = document.getElementById('ed-thesis').value.trim();
+  const inval    = document.getElementById('ed-inval').value.trim();
+  const riskD    = parseFloat(document.getElementById('ed-risk').value) || t.riskDollars || 0;
+  const pnlStr   = document.getElementById('ed-pnl').value.trim();
+  const lesson   = document.getElementById('ed-lesson').value.trim();
   if (ticker) t.ticker = ticker;
   if (price)  t.entryPrice = price;
   if (qty)    t.qty = qty;
@@ -2224,15 +2264,53 @@ function submitEdit() {
   t.riskDollars = riskD;
   t.riskPct = (startingBalance||t.accountSize) > 0
     ? parseFloat((riskD / (startingBalance||t.accountSize) * 100).toFixed(2)) : t.riskPct;
-  if (pnlStr && t.status === 'closed') {
-    t.pnl = pnlStr;
-    t.pnlNum = parseP(pnlStr);
-  }
+  if (pnlStr) { t.pnl = pnlStr; t.pnlNum = parseP(pnlStr); }
   if (lesson) t.lesson = lesson;
+  // Save exit fields for closed trades
+  if (t.status === 'closed') {
+    const exitPrice   = document.getElementById('ed-exit-price').value.trim();
+    const exitOutcome = document.getElementById('ed-exit-outcome').value;
+    const exitDateVal = document.getElementById('ed-exit-date').value;
+    if (exitPrice)   t.exitPrice   = exitPrice;
+    if (exitOutcome) t.exitOutcome = exitOutcome;
+    if (exitDateVal) t.exitDate    = new Date(exitDateVal).getTime();
+  }
   save();
   closeEditModal();
-  renderLog(); renderExit(); renderChart();
+  renderLog(); renderExit(); renderChart(); renderCalendar();
   toast(`${t.ticker} updated ✓`);
+}
+
+// ══════════════════════════════════════════════════════
+//  DELETE TRADE
+// ══════════════════════════════════════════════════════
+function deleteTrade(tradeId) {
+  const t = trades.find(x => x.id === tradeId);
+  if (!t) return;
+  // Inline confirmation — no confirm() dialog
+  const card = document.querySelector(`[data-trade-id="${tradeId}"]`);
+  if (card) {
+    // Check if confirmation row already showing
+    const existing = card.querySelector('.delete-confirm-row');
+    if (existing) { existing.remove(); return; }
+    const row = document.createElement('div');
+    row.className = 'delete-confirm-row';
+    row.style.cssText = 'padding:10px 16px;background:var(--danger-dim);border-top:1px solid var(--danger-bd);display:flex;align-items:center;justify-content:space-between;gap:10px';
+    row.innerHTML = `
+      <span style="font-size:13px;color:var(--danger);font-weight:600">Delete ${t.ticker}? This cannot be undone.</span>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:8px;border:none;background:var(--danger);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">Delete</button>
+        <button onclick="this.closest('.delete-confirm-row').remove()" style="padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#272b31;color:var(--t2);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">Cancel</button>
+      </div>`;
+    card.appendChild(row);
+  }
+}
+
+function confirmDeleteTrade(tradeId) {
+  trades = trades.filter(x => x.id !== tradeId);
+  save();
+  renderLog(); renderExit(); renderChart(); renderCalendar();
+  toast('Trade deleted');
 }
 
 // ══════════════════════════════════════════════════════
@@ -2427,12 +2505,12 @@ function renderPat() {
   if(wr3.length===0){ri.textContent='Log trades with risk sizing to see patterns.';}
   else{
     const avg=(wr3.reduce((s,t)=>s+t.riskPct,0)/wr3.length).toFixed(1);
-    const over=wr3.filter(t=>t.riskPct>2).length;
-    const extreme=wr3.filter(t=>t.riskPct>=30).length;
-    const overC=closed.filter(t=>t.riskPct>2);
+    const over=wr3.filter(t=>t.riskPct>10).length;
+    const extreme=wr3.filter(t=>t.riskPct>=10).length;
+    const overC=closed.filter(t=>t.riskPct>10);
     const overW=overC.filter(t=>t.pnlNum>0).length;
-    let txt=`Average risk per trade: ${avg}% of account\nOversized trades (>2%): ${over} of ${wr3.length}`;
-    if(extreme>0) txt+=`\nConcentration risk (≥30%): ${extreme} trade${extreme>1?'s':''}`;
+    let txt=`Average risk per trade: ${avg}% of account\nOversized trades (>10%): ${over} of ${wr3.length}`;
+    if(extreme>0) txt+=`\nOversized (≥10%): ${extreme} trade${extreme>1?'s':''}`;
     if(overC.length>0)txt+=`\nOversized win rate: ${Math.round(overW/overC.length*100)}%`;
     if(overC.length>=3)txt+=overW/overC.length<0.5?'\n→ Oversizing is hurting you. Reduce size.':'\n→ Sizing holds up, but concentration risk remains.';
     ri.textContent=txt;
