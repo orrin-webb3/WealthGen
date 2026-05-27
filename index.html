@@ -16,13 +16,13 @@
 :root {
   --font:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
 
-  /* ── Base surfaces — dark steel ── */
-  --bg:#1c1f23;
-  --s1:#21252a;
-  --s2:#272b31;
-  --s3:#2e333a;
-  --s4:#363b43;
-  --s5:#3e444d;
+  /* ── Base surfaces ── */
+  --bg:#000000;
+  --s1:#0f0f0f;
+  --s2:#151515;
+  --s3:#1a1a1a;
+  --s4:#222222;
+  --s5:#2a2a2a;
 
   /* ── Blue accent palette ── */
   --b900:#0a1628;--b800:#0d2040;--b700:#0f3460;
@@ -71,17 +71,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{
   -webkit-text-size-adjust:100%;
-  background:#1c1f23;
+  background:#000000;
   color-scheme:dark;
 }
 body{
   font-family:var(--font);
   min-height:100vh;
-  background:
-    radial-gradient(ellipse 110% 60% at 50% 0%, rgba(30,40,60,.55) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(20,35,55,.35) 0%, transparent 60%),
-    linear-gradient(160deg, #1a1e26 0%, #1e2229 30%, #1c2028 60%, #1a1e24 100%);
-  background-attachment:fixed;
+  background:#000000;
   color:#ffffff;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -93,7 +89,7 @@ body{
 .topbar{
   position:sticky;top:0;z-index:200;
   height:52px;
-  background:rgba(26,30,38,.92);
+  background:rgba(0,0,0,.88);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid rgba(255,255,255,.06);
@@ -117,7 +113,7 @@ body{
 .bnav{
   position:fixed;bottom:0;left:0;right:0;z-index:200;
   height:60px;
-  background:rgba(26,30,38,.95);
+  background:rgba(0,0,0,.92);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-top:1px solid rgba(255,255,255,.06);
@@ -160,8 +156,8 @@ body{
 /* ── Hero ── */
 .hero{
   border-radius:var(--r);
-  background:#21252a;
-  border:1px solid rgba(255,255,255,.07);
+  background:#0f0f0f;
+  border:1px solid rgba(255,255,255,.06);
   padding:20px;margin-bottom:12px;
   position:relative;overflow:hidden;
 }
@@ -191,9 +187,9 @@ body{
 
 /* ── Cards ── */
 .trade-card{
-  background:#21252a;
+  background:#0f0f0f;
   border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.06);
   margin-bottom:8px;overflow:hidden;
   transition:border-color .15s;
 }
@@ -203,7 +199,7 @@ body{
   justify-content:space-between;cursor:pointer;
   user-select:none;-webkit-tap-highlight-color:transparent;
 }
-.trade-header:active{background:rgba(255,255,255,.03)}
+.trade-header:active{background:rgba(255,255,255,.02)}
 .t-ticker{font-size:15px;font-weight:700;letter-spacing:-.2px;color:#fff}
 .t-sub{font-size:12px;color:var(--t2);margin-top:2px;font-weight:400}
 .t-right{text-align:right;flex-shrink:0;margin-left:12px}
@@ -216,7 +212,7 @@ body{
 .t-chevron.open{transform:rotate(180deg)}
 
 /* ── Trade drawer ── */
-.trade-drawer{display:none;border-top:1px solid rgba(255,255,255,.05);background:#1a1e26}
+.trade-drawer{display:none;border-top:1px solid rgba(255,255,255,.05);background:#0a0a0a}
 .trade-drawer.open{display:block;animation:fadeUp .15s ease}
 .drawer-body{padding:12px 16px 16px}
 .drawer-section{margin-bottom:10px}
@@ -235,7 +231,7 @@ body{
   line-height:1.5;font-style:italic;
 }
 .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.drawer-stat{background:#272b31;border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.05)}
+.drawer-stat{background:#151515;border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.05)}
 .drawer-stat-val{font-size:14px;font-weight:700;color:#fff}
 .drawer-stat-lbl{font-size:11px;color:var(--t2);margin-top:1px}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
@@ -264,7 +260,7 @@ body{
 .modal-overlay.show{display:block}
 .modal{
   position:fixed;bottom:0;left:0;right:0;z-index:401;
-  background:#21252a;
+  background:#111111;
   border-radius:14px 14px 0 0;
   border-top:1px solid rgba(255,255,255,.05);
   padding:24px 20px calc(env(safe-area-inset-bottom,0px) + 24px);
@@ -278,23 +274,23 @@ body{
 .modal-close{
   position:absolute;top:18px;right:18px;
   width:28px;height:28px;border-radius:50%;
-  border:none;background:#2e333a;color:var(--t2);
+  border:none;background:#222;color:var(--t2);
   cursor:pointer;display:flex;align-items:center;
   justify-content:center;font-size:15px;font-family:var(--font);
 }
 
 /* ── Charts ── */
 .chart-card{
-  background:#21252a;border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);
+  background:#0f0f0f;border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.06);
   padding:16px;margin-bottom:8px;
 }
 .chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .chart-title{font-size:13px;font-weight:600;color:#fff;letter-spacing:-.2px}
 .chart-toggle{
   display:flex;
-  background:#2e333a;
-  border:1px solid rgba(255,255,255,.07);
+  background:#1a1a1a;
+  border:1px solid rgba(255,255,255,.06);
   border-radius:8px;overflow:hidden;padding:2px;gap:2px;
 }
 .chart-toggle-btn{
@@ -309,25 +305,25 @@ canvas#pnlChart{width:100%!important;height:160px!important}
 .chart-empty{
   display:flex;align-items:center;justify-content:center;
   height:100%;color:var(--t3);font-size:13px;
-  border:1px dashed rgba(255,255,255,.07);
-  border-radius:8px;background:#1c1f23;
+  border:1px dashed rgba(255,255,255,.06);
+  border-radius:8px;background:#0a0a0a;
 }
 
 /* ── Calendar ── */
 .cal-card{
-  background:#21252a;border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);padding:16px;
+  background:#0f0f0f;border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.06);padding:16px;
 }
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .cal-month{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.3px}
 .cal-nav-btn{
   width:28px;height:28px;border-radius:50%;
   border:1px solid rgba(255,255,255,.08);
-  background:#2e333a;color:#fff;font-size:13px;
+  background:#1a1a1a;color:#fff;font-size:13px;
   cursor:pointer;display:flex;align-items:center;
   justify-content:center;transition:background .15s;
 }
-.cal-nav-btn:hover{background:#363b43}
+.cal-nav-btn:hover{background:#222}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
 .cal-dow{font-size:10px;font-weight:600;text-align:center;color:var(--t3);padding:4px 0;letter-spacing:.04em}
 .cal-day{
@@ -335,9 +331,9 @@ canvas#pnlChart{width:100%!important;height:160px!important}
   transition:background .12s;border:1px solid transparent;position:relative;
 }
 .cal-day.other-month{opacity:.2}
-.cal-day.today{border-color:var(--b400);background:rgba(59,130,246,.08)}
+.cal-day.today{border-color:var(--b400);background:rgba(59,130,246,.06)}
 .cal-day.has-trades{cursor:pointer}
-.cal-day.has-trades:hover{background:#272b31}
+.cal-day.has-trades:hover{background:#1a1a1a}
 .cal-day-num{font-size:11px;font-weight:600;color:var(--t2);line-height:1}
 .cal-day.today .cal-day-num{color:var(--b400);font-weight:700}
 .cal-dot-row{display:flex;gap:2px;flex-wrap:wrap;margin-top:3px}
@@ -350,7 +346,7 @@ canvas#pnlChart{width:100%!important;height:160px!important}
 .cal-popup{
   position:fixed;top:50%;left:50%;
   transform:translate(-50%,-50%);
-  background:#21252a;border-radius:var(--r);
+  background:#111;border-radius:var(--r);
   border:1px solid rgba(255,255,255,.08);
   padding:20px;width:320px;
   max-width:calc(100vw - 32px);z-index:500;
@@ -368,13 +364,13 @@ canvas#pnlChart{width:100%!important;height:160px!important}
 .cal-popup-close{
   position:absolute;top:14px;right:14px;
   width:26px;height:26px;border-radius:50%;
-  border:none;background:#2e333a;color:var(--t2);
+  border:none;background:#222;color:var(--t2);
   cursor:pointer;display:flex;align-items:center;
   justify-content:center;font-size:13px;font-family:var(--font);
 }
 .cal-trade-item{
-  padding:10px 12px;background:#272b31;
-  border-radius:8px;border:1px solid rgba(255,255,255,.06);
+  padding:10px 12px;background:#1a1a1a;
+  border-radius:8px;border:1px solid rgba(255,255,255,.05);
   margin-bottom:8px;
 }
 
@@ -384,7 +380,7 @@ canvas#pnlChart{width:100%!important;height:160px!important}
 .fh{font-size:12px;color:var(--t2);margin-bottom:6px;font-weight:400}
 input[type=text],input[type=number],textarea,select{
   width:100%;
-  background:#272b31;
+  background:#1a1a1a;
   border:1px solid rgba(255,255,255,.08);
   border-radius:8px;
   padding:12px 14px;
@@ -399,12 +395,12 @@ input[type=text],input[type=number],textarea,select{
 }
 input:focus,textarea:focus,select:focus{
   border-color:var(--b400);
-  background:#2e333a;
+  background:#1f1f1f;
   box-shadow:0 0 0 3px rgba(59,130,246,.12);
 }
 input::placeholder,textarea::placeholder{color:var(--t3)}
 textarea{min-height:72px;line-height:1.5}
-select option{background:#2e333a;color:#fff}
+select option{background:#1a1a1a;color:#fff}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
@@ -413,7 +409,7 @@ select option{background:#2e333a;color:#fff}
 .pill{
   padding:8px 14px;border-radius:8px;
   border:1px solid rgba(255,255,255,.08);
-  background:#272b31;color:var(--t2);
+  background:#1a1a1a;color:var(--t2);
   font-size:13px;font-weight:500;
   cursor:pointer;user-select:none;
   text-align:center;line-height:1.3;
@@ -456,20 +452,20 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .btn-p{background:var(--b400);color:#fff}
 .btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.98)}
 .btn-s{
-  background:#272b31;color:var(--b300);
+  background:#1a1a1a;color:var(--b300);
   border:1px solid rgba(255,255,255,.08);
 }
-.btn-s:hover{background:#2e333a;border-color:var(--bd2)}
+.btn-s:hover{background:#222;border-color:var(--bd2)}
 .btn-d{background:var(--danger);color:#fff}
 .btn-row{display:flex;gap:8px;margin-top:8px}
 .btn-row .btn{flex:1}
 
 /* ── Step nav ── */
-.prog{height:2px;background:#2e333a;border-radius:1px;overflow:hidden;margin-bottom:8px}
+.prog{height:2px;background:#1a1a1a;border-radius:1px;overflow:hidden;margin-bottom:8px}
 .prog-f{height:100%;background:var(--b400);border-radius:1px;transition:width .35s cubic-bezier(.4,0,.2,1)}
 .step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .step-dots{display:flex;gap:6px}
-.dot{height:3px;width:28px;border-radius:2px;background:#2e333a;transition:background .2s;cursor:pointer}
+.dot{height:3px;width:28px;border-radius:2px;background:#222;transition:background .2s;cursor:pointer}
 .dot.done{background:var(--b400)}.dot.now{background:var(--b300)}
 .back-btn{
   font-size:12px;font-weight:600;color:var(--t2);
@@ -502,7 +498,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 /* ── Confluence card ── */
 .conf-card{
   border-radius:var(--r);
-  background:#21252a;
+  background:#0f0f0f;
   border:1px solid var(--bd2);
   padding:20px;text-align:center;margin-bottom:16px;
   position:relative;overflow:hidden;
@@ -519,8 +515,8 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .sg{display:grid;gap:8px;margin-bottom:8px}
 .sg2{grid-template-columns:1fr 1fr}.sg3{grid-template-columns:repeat(3,1fr)}
 .stat{
-  background:#21252a;
-  border:1px solid rgba(255,255,255,.07);
+  background:#0f0f0f;
+  border:1px solid rgba(255,255,255,.06);
   border-radius:var(--r);padding:14px 12px;
 }
 .sv2{font-size:20px;font-weight:800;letter-spacing:-.6px;line-height:1;margin-bottom:3px}
@@ -534,14 +530,14 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 /* ── Behavior bars ── */
 .br{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .bl{font-size:12px;color:var(--t2);width:100px;flex-shrink:0}
-.bb{flex:1;height:4px;background:#2e333a;border-radius:2px;overflow:hidden}
+.bb{flex:1;height:4px;background:#1a1a1a;border-radius:2px;overflow:hidden}
 .bf{height:100%;border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1)}
 .bc{font-size:12px;font-weight:600;color:var(--t2);width:18px;text-align:right}
 
 /* ── Checklist ── */
 .ci{
   display:flex;align-items:flex-start;gap:12px;
-  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);
   font-size:14px;color:var(--t2);line-height:1.4;font-weight:400;
 }
 .ci:last-child{border-bottom:none}
@@ -553,12 +549,12 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .cb.done{color:var(--green)}
 
 /* ── Misc ── */
-hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
+hr{border:none;border-top:1px solid rgba(255,255,255,.05);margin:16px 0}
 .empty{
   text-align:center;padding:32px 16px;
   color:var(--t3);font-size:13px;
   border:1px dashed rgba(255,255,255,.06);
-  border-radius:var(--r);background:#1c1f23;
+  border-radius:var(--r);background:#0a0a0a;
 }
 .ei{font-size:28px;margin-bottom:8px;opacity:.3}
 .toast{
@@ -573,7 +569,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .ibox{
-  background:#21252a;border:1px solid rgba(255,255,255,.07);
+  background:#0f0f0f;border:1px solid rgba(255,255,255,.06);
   border-radius:8px;padding:14px;
   font-size:13px;color:var(--t2);
   line-height:1.75;white-space:pre-line;font-weight:400;
@@ -581,7 +577,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
 
 /* ── Sizing display ── */
 #s4-acct-display{
-  background:rgba(59,130,246,.08);
+  background:rgba(59,130,246,.06);
   border:1px solid var(--bd2);
   border-radius:8px;padding:10px 14px;
   margin-bottom:8px;
@@ -647,12 +643,12 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
         </div>
         <!-- Inline edit rows -->
         <div id="bal-edit-row" style="display:none;margin-top:10px;gap:8px;align-items:center">
-          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:#272b31;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
+          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:#1a1a1a;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
           <button onclick="saveBalInput()" style="background:var(--b400);border:none;border-radius:8px;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
           <button onclick="toggleBalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <div id="goal-edit-row" style="display:none;margin-top:8px;gap:8px;align-items:center">
-          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:#272b31;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
+          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:#1a1a1a;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
           <button onclick="saveGoalInput()" style="background:var(--b400);border:none;border-radius:8px;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
           <button onclick="toggleGoalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
@@ -861,8 +857,8 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
           <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:#242426;color:var(--b300);font-weight:700">
         </div>
       </div>
-      <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#272b31;border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:4px"></div>
-      <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 10% of your account. Consider entering in increments — build the position as the thesis confirms.</div>
+      <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#1a1a1a;border-radius:8px;border:1px solid rgba(255,255,255,.06);margin-bottom:4px"></div>
+      <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 30% of your account. Enter in 5% increments — build the position as the thesis confirms.</div>
     </div>
     <div class="fg"><label class="fl">Emotional state — be honest</label>
       <div class="pills" id="em-g">
@@ -1125,29 +1121,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   </div>
   <div class="g2" style="margin-bottom:12px">
     <div><div class="fh" style="margin-bottom:4px">$ at Risk</div><input type="number" id="ed-risk"></div>
-    <div><div class="fh" style="margin-bottom:4px">Realized P&amp;L</div><input type="text" id="ed-pnl" placeholder="e.g. +$320"></div>
-  </div>
-  <!-- Closed trade exit fields — shown only when editing a closed trade -->
-  <div id="ed-exit-section" style="display:none">
-    <hr style="margin:4px 0 14px">
-    <div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--b300);margin-bottom:12px">Exit Details</div>
-    <div class="g2" style="margin-bottom:12px">
-      <div><div class="fh" style="margin-bottom:4px">Exit Price</div><input type="number" id="ed-exit-price" placeholder="e.g. 24.50"></div>
-      <div><div class="fh" style="margin-bottom:4px">Exit Date</div><input type="date" id="ed-exit-date"></div>
-    </div>
-    <div class="fg">
-      <div class="fh" style="margin-bottom:4px">Exit Outcome</div>
-      <select id="ed-exit-outcome">
-        <option value="">Select outcome…</option>
-        <option>Thesis played out</option>
-        <option>Partial thesis</option>
-        <option>Thesis failed</option>
-        <option>Stop hit</option>
-        <option>Panic exit</option>
-        <option>Got impatient</option>
-        <option>Took profit early</option>
-      </select>
-    </div>
+    <div><div class="fh" style="margin-bottom:4px">P&amp;L (closed only)</div><input type="text" id="ed-pnl" placeholder="e.g. +$320"></div>
   </div>
   <div class="fg">
     <div class="fh" style="margin-bottom:4px">Lesson</div>
@@ -1766,7 +1740,7 @@ function calcAdjRisk() {
   const p = (r/t.accountSize*100).toFixed(1);
   const el = document.getElementById('adj-risk-pct');
   el.textContent = p+'% of account';
-  el.style.color = parseFloat(p)>=10 ? 'var(--danger)' : parseFloat(p)>2 ? 'var(--warn)' : 'var(--success)';
+  el.style.color = parseFloat(p)>=30 ? 'var(--danger)' : parseFloat(p)>2 ? 'var(--warn)' : 'var(--success)';
 }
 
 function updateAdjLabel() {}
@@ -1823,7 +1797,7 @@ function buildTradeCard(t, isOpen) {
   const pS = isOpen ? 'OPEN' : (pN!==null?fmtM(pN):(t.pnl||'—'));
   const rp = t.riskPct||0;
   const rw = Math.min(100,rp*50);
-  const rc = rp>=10?'var(--warn)':'var(--success)';
+  const rc = rp>=30?'var(--danger)':rp>2?'var(--warn)':'var(--success)';
 
   const tags=[];
   if(['Revenge Mode','FOMO'].includes(t.emotion))     tags.push(`<span class="tag tr">⚠ ${t.emotion}</span>`);
@@ -1831,8 +1805,8 @@ function buildTradeCard(t, isOpen) {
   if(t.exitOutcome==='Thesis played out')              tags.push(`<span class="tag tp">◎ Thesis exit</span>`);
   if(t.exitOutcome==='Panic exit')                     tags.push(`<span class="tag tr">⚡ Panic</span>`);
   if(t.confluenceScore>=3)                             tags.push(`<span class="tag tp">🎯 Full confluence</span>`);
-  if(rp>=10)                                           tags.push(`<span class="tag tr">🚨 ${rp}% portfolio</span>`);
-  
+  if(rp>=30)                                           tags.push(`<span class="tag tr">🚨 ${rp}% portfolio</span>`);
+  else if(rp>2)                                        tags.push(`<span class="tag ty">⚠ Oversized ${rp}%</span>`);
 
   const adjustHistory = (t.adjustments||[]).map(a=>
     `<div style="font-size:11px;color:var(--text3);padding:3px 0;border-bottom:1px dashed var(--border)">${a.type||'adj'} · ${a.qty||''} ${a.price?'@ $'+a.price:''} ${a.note?'— '+a.note:''} <span style="color:var(--text3)">${fmtDS(a.date||0)}</span></div>`
@@ -1842,7 +1816,7 @@ function buildTradeCard(t, isOpen) {
     <div style="flex:1;height:5px;background:#2c2c2e;border-radius:3px;overflow:hidden">
       <div style="height:100%;border-radius:3px;width:${rw}%;background:${rc};transition:width .65s cubic-bezier(.4,0,.2,1)"></div>
     </div>
-    <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=10?'⚠ ':''}${rp||'—'}% at risk</div>
+    <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=30?'🚨 ':rp>2?'⚠ ':''}${rp||'—'}% at risk</div>
   </div>` : '';
 
   const actions = isOpen ? `<div class="drawer-actions">
@@ -1851,11 +1825,10 @@ function buildTradeCard(t, isOpen) {
     <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
   </div>` : `<div class="drawer-actions">
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#272b31;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--danger-bd);background:var(--danger-dim);color:var(--danger);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();deleteTrade(${t.id})">✕ Delete</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit Trade</button>
   </div>`;
 
-  return `<div class="trade-card" data-trade-id="${t.id}">
+  return `<div class="trade-card">
     <div class="trade-header" onclick="toggleDrawer(${t.id})">
       <div>
         <div class="t-ticker">${t.ticker}</div>
@@ -2206,33 +2179,16 @@ function openEditModal(tradeId) {
   const t = trades.find(x => x.id === tradeId);
   if (!t) return;
   activeEditId = tradeId;
-  const isClosed = t.status === 'closed';
-  document.getElementById('edit-sub').textContent = `${t.ticker} · ${t.structure||''} · ${fmtDS(t.entryDate)} · ${isClosed ? 'CLOSED' : 'OPEN'}`;
-  document.getElementById('ed-ticker').value       = t.ticker || '';
-  document.getElementById('ed-price').value        = t.entryPrice || '';
-  document.getElementById('ed-qty').value          = t.qty || '';
-  document.getElementById('ed-struct').value       = t.structure || '';
-  document.getElementById('ed-thesis').value       = t.thesis || '';
-  document.getElementById('ed-inval').value        = t.invalidation || '';
-  document.getElementById('ed-risk').value         = t.riskDollars || '';
-  document.getElementById('ed-pnl').value          = t.pnl || '';
-  document.getElementById('ed-lesson').value       = t.lesson || '';
-  // Exit fields — only for closed trades
-  const exitSection = document.getElementById('ed-exit-section');
-  exitSection.style.display = isClosed ? 'block' : 'none';
-  if (isClosed) {
-    document.getElementById('ed-exit-price').value   = t.exitPrice || '';
-    document.getElementById('ed-exit-outcome').value = t.exitOutcome || '';
-    if (t.exitDate) {
-      const d = new Date(t.exitDate);
-      const yyyy = d.getFullYear();
-      const mm   = String(d.getMonth()+1).padStart(2,'0');
-      const dd   = String(d.getDate()).padStart(2,'0');
-      document.getElementById('ed-exit-date').value = `${yyyy}-${mm}-${dd}`;
-    } else {
-      document.getElementById('ed-exit-date').value = '';
-    }
-  }
+  document.getElementById('edit-sub').textContent = `${t.ticker} · ${t.structure||''} · ${fmtDS(t.entryDate)}`;
+  document.getElementById('ed-ticker').value  = t.ticker || '';
+  document.getElementById('ed-price').value   = t.entryPrice || '';
+  document.getElementById('ed-qty').value     = t.qty || '';
+  document.getElementById('ed-struct').value  = t.structure || '';
+  document.getElementById('ed-thesis').value  = t.thesis || '';
+  document.getElementById('ed-inval').value   = t.invalidation || '';
+  document.getElementById('ed-risk').value    = t.riskDollars || '';
+  document.getElementById('ed-pnl').value     = t.pnl || '';
+  document.getElementById('ed-lesson').value  = t.lesson || '';
   document.getElementById('edit-overlay').classList.add('show');
   document.getElementById('edit-modal').classList.add('show');
 }
@@ -2246,15 +2202,15 @@ function closeEditModal() {
 function submitEdit() {
   const t = trades.find(x => x.id === activeEditId);
   if (!t) return;
-  const ticker   = document.getElementById('ed-ticker').value.trim().toUpperCase();
-  const price    = document.getElementById('ed-price').value.trim();
-  const qty      = document.getElementById('ed-qty').value.trim();
-  const struct   = document.getElementById('ed-struct').value;
-  const thesis   = document.getElementById('ed-thesis').value.trim();
-  const inval    = document.getElementById('ed-inval').value.trim();
-  const riskD    = parseFloat(document.getElementById('ed-risk').value) || t.riskDollars || 0;
-  const pnlStr   = document.getElementById('ed-pnl').value.trim();
-  const lesson   = document.getElementById('ed-lesson').value.trim();
+  const ticker  = document.getElementById('ed-ticker').value.trim().toUpperCase();
+  const price   = document.getElementById('ed-price').value.trim();
+  const qty     = document.getElementById('ed-qty').value.trim();
+  const struct  = document.getElementById('ed-struct').value;
+  const thesis  = document.getElementById('ed-thesis').value.trim();
+  const inval   = document.getElementById('ed-inval').value.trim();
+  const riskD   = parseFloat(document.getElementById('ed-risk').value) || t.riskDollars || 0;
+  const pnlStr  = document.getElementById('ed-pnl').value.trim();
+  const lesson  = document.getElementById('ed-lesson').value.trim();
   if (ticker) t.ticker = ticker;
   if (price)  t.entryPrice = price;
   if (qty)    t.qty = qty;
@@ -2264,53 +2220,15 @@ function submitEdit() {
   t.riskDollars = riskD;
   t.riskPct = (startingBalance||t.accountSize) > 0
     ? parseFloat((riskD / (startingBalance||t.accountSize) * 100).toFixed(2)) : t.riskPct;
-  if (pnlStr) { t.pnl = pnlStr; t.pnlNum = parseP(pnlStr); }
-  if (lesson) t.lesson = lesson;
-  // Save exit fields for closed trades
-  if (t.status === 'closed') {
-    const exitPrice   = document.getElementById('ed-exit-price').value.trim();
-    const exitOutcome = document.getElementById('ed-exit-outcome').value;
-    const exitDateVal = document.getElementById('ed-exit-date').value;
-    if (exitPrice)   t.exitPrice   = exitPrice;
-    if (exitOutcome) t.exitOutcome = exitOutcome;
-    if (exitDateVal) t.exitDate    = new Date(exitDateVal).getTime();
+  if (pnlStr && t.status === 'closed') {
+    t.pnl = pnlStr;
+    t.pnlNum = parseP(pnlStr);
   }
+  if (lesson) t.lesson = lesson;
   save();
   closeEditModal();
-  renderLog(); renderExit(); renderChart(); renderCalendar();
+  renderLog(); renderExit(); renderChart();
   toast(`${t.ticker} updated ✓`);
-}
-
-// ══════════════════════════════════════════════════════
-//  DELETE TRADE
-// ══════════════════════════════════════════════════════
-function deleteTrade(tradeId) {
-  const t = trades.find(x => x.id === tradeId);
-  if (!t) return;
-  // Inline confirmation — no confirm() dialog
-  const card = document.querySelector(`[data-trade-id="${tradeId}"]`);
-  if (card) {
-    // Check if confirmation row already showing
-    const existing = card.querySelector('.delete-confirm-row');
-    if (existing) { existing.remove(); return; }
-    const row = document.createElement('div');
-    row.className = 'delete-confirm-row';
-    row.style.cssText = 'padding:10px 16px;background:var(--danger-dim);border-top:1px solid var(--danger-bd);display:flex;align-items:center;justify-content:space-between;gap:10px';
-    row.innerHTML = `
-      <span style="font-size:13px;color:var(--danger);font-weight:600">Delete ${t.ticker}? This cannot be undone.</span>
-      <div style="display:flex;gap:8px;flex-shrink:0">
-        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:8px;border:none;background:var(--danger);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">Delete</button>
-        <button onclick="this.closest('.delete-confirm-row').remove()" style="padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#272b31;color:var(--t2);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">Cancel</button>
-      </div>`;
-    card.appendChild(row);
-  }
-}
-
-function confirmDeleteTrade(tradeId) {
-  trades = trades.filter(x => x.id !== tradeId);
-  save();
-  renderLog(); renderExit(); renderChart(); renderCalendar();
-  toast('Trade deleted');
 }
 
 // ══════════════════════════════════════════════════════
@@ -2505,12 +2423,12 @@ function renderPat() {
   if(wr3.length===0){ri.textContent='Log trades with risk sizing to see patterns.';}
   else{
     const avg=(wr3.reduce((s,t)=>s+t.riskPct,0)/wr3.length).toFixed(1);
-    const over=wr3.filter(t=>t.riskPct>10).length;
-    const extreme=wr3.filter(t=>t.riskPct>=10).length;
-    const overC=closed.filter(t=>t.riskPct>10);
+    const over=wr3.filter(t=>t.riskPct>2).length;
+    const extreme=wr3.filter(t=>t.riskPct>=30).length;
+    const overC=closed.filter(t=>t.riskPct>2);
     const overW=overC.filter(t=>t.pnlNum>0).length;
-    let txt=`Average risk per trade: ${avg}% of account\nOversized trades (>10%): ${over} of ${wr3.length}`;
-    if(extreme>0) txt+=`\nOversized (≥10%): ${extreme} trade${extreme>1?'s':''}`;
+    let txt=`Average risk per trade: ${avg}% of account\nOversized trades (>2%): ${over} of ${wr3.length}`;
+    if(extreme>0) txt+=`\nConcentration risk (≥30%): ${extreme} trade${extreme>1?'s':''}`;
     if(overC.length>0)txt+=`\nOversized win rate: ${Math.round(overW/overC.length*100)}%`;
     if(overC.length>=3)txt+=overW/overC.length<0.5?'\n→ Oversizing is hurting you. Reduce size.':'\n→ Sizing holds up, but concentration risk remains.';
     ri.textContent=txt;
