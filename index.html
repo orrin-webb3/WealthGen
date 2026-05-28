@@ -78,9 +78,9 @@ body{
   font-family:var(--font);
   min-height:100vh;
   background:
-    radial-gradient(ellipse 110% 60% at 50% 0%, rgba(30,40,60,.55) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(20,35,55,.35) 0%, transparent 60%),
-    linear-gradient(160deg, #1a1e26 0%, #1e2229 30%, #1c2028 60%, #1a1e24 100%);
+    radial-gradient(ellipse 110% 60% at 50% 0%, rgba(40,60,90,.55) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(30,50,80,.35) 0%, transparent 60%),
+    linear-gradient(160deg, #1e2835 0%, #232f42 30%, #1f2b3e 60%, #1c2538 100%);
   background-attachment:fixed;
   color:#ffffff;
   -webkit-font-smoothing:antialiased;
@@ -550,7 +550,10 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   flex-shrink:0;margin-top:-1px;
   transition:color .12s;-webkit-tap-highlight-color:transparent;
 }
-.cb.done{color:var(--green)}
+.cb.done{
+  color:var(--b400);
+  text-shadow:0 0 8px rgba(59,130,246,.9),0 0 18px rgba(59,130,246,.5),0 0 32px rgba(59,130,246,.25);
+}
 
 /* ── Misc ── */
 hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
@@ -773,13 +776,19 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
         <div class="pill" data-v="Tier 3 — Income" onclick="sp(this,'tier-g')">Tier 3 — Income</div>
       </div>
     </div>
-    <div class="fg"><label class="fl">Pre-flight checks</label>
+    <div class="fg"><label class="fl">Trading Laws — Pre-Flight</label>
+      <div class="fh">All 10 must be checked before continuing</div>
       <div id="checklist">
-        <div class="ci"><span class="cb" onclick="tc(this)">○</span>Not chasing — price isn't up &gt;15% today</div>
-        <div class="ci"><span class="cb" onclick="tc(this)">○</span>Not revenge — not trying to recover losses fast</div>
-        <div class="ci"><span class="cb" onclick="tc(this)">○</span>Invalidation level will be defined before execution</div>
-        <div class="ci"><span class="cb" onclick="tc(this)">○</span>I am scaling into this trade with a starter position</div>
-        <div class="ci"><span class="cb" onclick="tc(this)">○</span>Haven't traded more than 2× this week</div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 1 — Timeframe:</strong> I have identified the setup timeframe and will manage it on that same timeframe only</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 2 — VRVP:</strong> Price is in a LVN (fast move) and R:R is at least 1.5 to the nearest HVN target</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 3 — TD Sequential:</strong> Count is 1–5 — count 6, 7, 8 or 9 in my direction = no entry</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 4 — TraderXO:</strong> Signal is valid — Bull signal above 25 EMA, or firing from the 20 band, not the 80 band</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 5 — RSI:</strong> RSI is below 72 — above 72 is a hard veto regardless of any other signal</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 6 — Grade &amp; Size:</strong> A-grade = full size · B-grade = half size · C-grade = paper only · 401K max $15K</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 7 — Stop Loss:</strong> My stop level is defined and will be set immediately at entry — never to be widened</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 8 — Daily Limit:</strong> I have not taken 2 losses today — if I have, I am done for the session</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 9 — Market Context:</strong> SPY is not in a confirmed downtrend on this setup timeframe</span></div>
+        <div class="ci"><span class="cb" onclick="tc(this)">○</span><span><strong>Law 10 — Journal Gate:</strong> This entry is complete — no journal, no trade. The journal IS the win.</span></div>
       </div>
     </div>
     <button class="btn btn-p" onclick="es(2)">Continue →</button>
@@ -1156,7 +1165,175 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   <button class="btn btn-p" onclick="submitEdit()">Save Changes</button>
 </div>
 
+<!-- ═══ LAWS ═══ -->
+<div id="view-laws" class="view">
+  <div class="pg-title">Trading Laws</div>
+  <div class="pg-sub">The ruleset. Review before every session.</div>
+
+  <!-- Account Structure -->
+  <div class="trade-card" style="padding:16px;margin-bottom:8px">
+    <div class="section-badge" style="margin-bottom:10px">Account Structure</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Schwab Roth 401K</div>
+        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Stocks · ETFs · No options · No leveraged ETFs · Regular hours only · Max $15K/position</div>
+      </div>
+      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">IBKR Rollover IRA</div>
+        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Momentum stocks · Options 30+ DTE A-grade · Extended hours · More aggressive</div>
+      </div>
+      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Public.com Brokerage</div>
+        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Options ONLY — no shares</div>
+      </div>
+      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Public.com Roth IRA</div>
+        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Momentum stocks ONLY — no options</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Four Signals -->
+  <div class="trade-card" style="padding:16px;margin-bottom:8px">
+    <div class="section-badge" style="margin-bottom:10px">The Four Signals — In Order of Authority</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">1</div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">VRVP</div><div style="font-size:12px;color:#8a96a8">Defines where price moves fast (LVN) or slow (HVN) — always read this first</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">2</div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">TD Sequential</div><div style="font-size:12px;color:#8a96a8">Defines when a move starts or ends — counts 1–5 enter, counts 6–9 do not enter</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">3</div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">TraderXO 12/25 EMA</div><div style="font-size:12px;color:#8a96a8">Triggers entry direction — above 25 EMA = full conviction, below 25 EMA = half size</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">4</div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">RSI 14</div><div style="font-size:12px;color:#8a96a8">Confirms momentum — above 72 = hard veto, below 40 on bull signal = adds conviction</div></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:10px 12px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:12px;color:#93c5fd;font-weight:600;text-align:center">3 of 4 must agree to trade &nbsp;·&nbsp; All 4 = A-grade &nbsp;·&nbsp; Fewer than 3 = no trade</div>
+  </div>
+
+  <!-- Laws 1–15 -->
+  <div class="trade-card" style="padding:0;margin-bottom:8px;overflow:hidden">
+    <div style="padding:14px 16px 10px;border-bottom:1px solid rgba(255,255,255,.05)">
+      <div class="section-badge">Laws 1 – 15</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 1 — Timeframe Discipline</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">The timeframe you identify the setup on is the timeframe you manage the trade on. A 3D setup is never managed like a day trade. A 5M setup is never held overnight.</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">No exceptions.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 2 — VRVP Placement</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Is price in a LVN (fast move) or HVN (chop)? Where is the nearest HVN target? Is R:R at least 1.5? POC is the strongest magnet — price gravitates here from both directions.</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">If you cannot answer all three questions, there is no trade.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 3 — TD Sequential</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Count 1–4 = enter full size &nbsp;·&nbsp; Count 5 = enter half size &nbsp;·&nbsp; Count 6–8 = do not enter &nbsp;·&nbsp; Count 9 = exhaustion, reversal setups only</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Never enter a new position in the direction of a count 6, 7, 8, or 9.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 4 — TraderXO Signal Rules</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Bull + above 25 EMA = valid long, full conviction &nbsp;·&nbsp; Bull + below 25 EMA = half size &nbsp;·&nbsp; Signal from 20 band = highest quality oversold entry &nbsp;·&nbsp; Signal from 50 band = valid, lower conviction &nbsp;·&nbsp; Signal near 80 band = do not enter</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 5 — RSI Rules</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Below 40 on Bull signal = oversold, adds conviction &nbsp;·&nbsp; 40–65 = valid entry zone &nbsp;·&nbsp; Above 72 = hard veto, no long entries regardless of other signals &nbsp;·&nbsp; RSI diverging from price = exit longs immediately</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 6 — Position Sizing by Grade</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">A-grade (all 4 signals) = full size &nbsp;·&nbsp; B-grade (3 of 4) = half size &nbsp;·&nbsp; C-grade (2 of 4) = paper trade only</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Roth 401K hard ceiling: $15,000 max cost basis per position. No exceptions.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 7 — Stop Loss</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Set at entry immediately &nbsp;·&nbsp; Never widened once set &nbsp;·&nbsp; Only trail tighter as price moves in your favor &nbsp;·&nbsp; Position moves against thesis: hold to stop or exit — adding is never permitted</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 8 — Daily Limits</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Max 2 trades per session on the daily tier &nbsp;·&nbsp; Max 3 active positions across all tiers &nbsp;·&nbsp; 2 losses in one session = done for the day</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">No exceptions.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 9 — Market Context</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Never take a bullish trade on an individual stock when SPY is in a confirmed downtrend on the same timeframe as your setup.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 10 — Pre-Trade Journal Gate</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">No journal entry, no trade. Answer all 6 before touching the order screen: tier &nbsp;·&nbsp; signals &nbsp;·&nbsp; VRVP placement &nbsp;·&nbsp; entry/stop/target &nbsp;·&nbsp; R:R (1.5 min) &nbsp;·&nbsp; invalidation trigger</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">The completed journal entry IS the win. A no-trade day with a completed review is a winning day.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 11 — TradingView Alerts</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Alerts notify you to look, never to buy. Alert fires → open chart on correct timeframe → run all four signals → open journal → complete all six questions → then and only then consider entry.</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Never place a trade the moment an alert fires on mobile.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 12 — Account-Specific Rules</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">401K: shares and ETFs only, regular hours 9:30–4PM EST, no averaging down, hold duration stated in journal before entry, swing trades max 10 days. IBKR IRA: options 30+ DTE A-grade, ETF options 15+ DTE B-grade, extended hours with limit orders only.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 13 — Execution Device</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">All trade executions on laptop only. No mobile. No iPad. A trade idea from a mobile session must be re-evaluated cold on laptop before any order is placed.</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Lower friction devices produce impulsive entries — this is a structural rule, not a preference.</div>
+    </div>
+
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 14 — Chart Pattern Recognition</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Identify named candlestick patterns, chart patterns, and supply/demand zones on every chart. Candlestick: Hammer, Engulfing, Doji variants, Morning/Evening Star, Kicker, Three White Soldiers/Black Crows. Chart: Flag, Cup and Handle, Double Top/Bottom, Head and Shoulders, Triangles, Wedges. S/D zones: Rally-Base-Drop, Drop-Base-Rally, Rally-Base-Rally, Drop-Base-Drop.</div>
+      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">If no named pattern is detected, call that out explicitly. Never leave pattern status ambiguous.</div>
+    </div>
+
+    <div style="padding:12px 16px">
+      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 15 — Extended Hours Awareness</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Pre-market (4AM–9:30AM) and after-hours (4PM–8PM) moves of 20–30% happen on thin volume and can gap past any stop. Never hold a leveraged position into a known earnings event. Use Bullflow as early warning. 401K = regular hours only. IBKR IRA = limit orders only in extended hours.</div>
+    </div>
+  </div>
+
+  <!-- Veto List -->
+  <div style="background:rgba(255,69,58,.05);border:1px solid rgba(255,69,58,.18);border-radius:12px;padding:14px 16px;margin-bottom:8px">
+    <div style="font-size:11px;font-weight:700;color:#ff453a;margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase">Veto List — Any One Cancels the Trade</div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>RSI above 72 for a long entry</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>TD Sequential count 6, 7, 8, or 9 in your trade direction</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>TraderXO signal firing near the 80 band</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Price inside a HVN with no clear runway to target</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>SPY in a confirmed downtrend on your setup timeframe</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Journal entry not completed</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>2 losses already taken today</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Leveraged ETF in the Roth 401K — permanent ban</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Position sizing above $15,000 in the Roth 401K</div>
+      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Execution attempted on mobile or iPad</div>
+    </div>
+  </div>
+
+  <!-- The One Rule -->
+  <div style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:12px;padding:18px 16px;text-align:center;margin-bottom:8px">
+    <div style="font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;margin-bottom:6px">The One Rule</div>
+    <div style="font-size:14px;color:#93c5fd;font-style:italic;line-height:1.5">No confluence. No journal. No trade.<br>When in doubt, the answer is no.</div>
+  </div>
+</div>
+
 <div class="bnav">
+  <button class="nb" id="nav-laws" onclick="sv('laws')"><span class="nb-icon">⚖</span><span class="nb-lbl">Laws</span></button>
   <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon">▣</span><span class="nb-lbl">Portfolio</span></button>
   <button class="nb" id="nav-entry" onclick="sv('entry')"><span class="nb-icon">＋</span><span class="nb-lbl">Entry</span></button>
   <button class="nb" id="nav-exit" onclick="sv('exit')"><span class="nb-icon">✓</span><span class="nb-lbl">Exit</span></button>
@@ -1452,6 +1629,7 @@ function sv(name) {
   if (name==='exit')     renderExit();
   if (name==='patterns') { renderPat(); updateStorageInfo(); }
   if (name==='entry')    resetEntry();
+  if (name==='laws')     {} // static content, no render needed
 }
 function goTo(n) { sv(n); }
 
@@ -1637,7 +1815,7 @@ function es(step) {
       toast('Fill ticker, direction, timeframe and tier'); return;
     }
     const checks = document.querySelectorAll('.cb.done');
-    if (checks.length < 5) { toast('Complete all 5 pre-flight checks first'); return; }
+    if (checks.length < 10) { toast(`Check all 10 Trading Laws first (${checks.length}/10 done)`); return; }
   }
   document.getElementById('es'+curStep).style.display='none';
   curStep=step;
