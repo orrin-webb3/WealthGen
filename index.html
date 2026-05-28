@@ -3,596 +3,554 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7F5F0">
 <title>WealthGen Journal</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 /* ══════════════════════════════════════════════════════
-   WEALTHGEN JOURNAL — ROBINHOOD-INSPIRED DESIGN SYSTEM
-   Dark graphite · Blue accent · Psychologically neutral
+   WEALTHGEN JOURNAL — WARM MINIMAL / PAPER AESTHETIC
+   Moleskine × Bloomberg · Calm · Precise · Analog
    ══════════════════════════════════════════════════════ */
 :root {
   --font:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
 
-  /* ── Base surfaces — dark steel ── */
-  --bg:#1c1f23;
-  --s1:#21252a;
-  --s2:#272b31;
-  --s3:#2e333a;
-  --s4:#363b43;
-  --s5:#3e444d;
+  /* ── Paper surfaces ── */
+  --bg:#F7F5F0;
+  --card:#EFECE5;
+  --inset:#E5E1D8;
+  --rule:#D8D4CC;
 
-  /* ── Blue accent palette ── */
-  --b900:#0a1628;--b800:#0d2040;--b700:#0f3460;
-  --b600:#1a4a8a;--b500:#2563b0;--b400:#3b82f6;
-  --b300:#60a5fa;--b200:#93c5fd;--b100:#dbeafe;
-  --b050:#eff6ff;
+  /* ── Ink ── */
+  --ink:#141414;
+  --ink2:#4A4A48;
+  --ink3:#8A8880;
+  --ink4:#B0B4B8;
 
-  /* ── Semantic — psychologically neutral ── */
-  /* Gain: bright blue-green (not red/green emotional triggers) */
-  --gain:#00c2ff;
-  --gain-dim:rgba(0,194,255,.10);
-  --gain-bd:rgba(0,194,255,.25);
-  /* Loss: muted blue-gray (not red anger trigger) */
-  --loss:#7ca5c8;
-  --loss-dim:rgba(124,165,200,.10);
-  --loss-bd:rgba(124,165,200,.25);
-  /* Alert: amber */
-  --warn:#f59e0b;
-  --warn-dim:rgba(245,158,11,.10);
-  --warn-bd:rgba(245,158,11,.25);
-  /* Danger: used only for hard blocks */
-  --danger:#ff453a;
-  --danger-dim:rgba(255,69,58,.10);
-  --danger-bd:rgba(255,69,58,.28);
-  /* Positive action (not trade P&L) */
-  --green:#00d47e;
-  --green-dim:rgba(0,212,126,.10);
-  --green-bd:rgba(0,212,126,.25);
+  /* ── Ice blue — restraint required ── */
+  --ice-fill:#D6E8F0;
+  --ice-bd:#A8CAD9;
+  --ice-text:#5B97B2;
 
-  /* ── Borders ── */
-  --bd:rgba(255,255,255,.06);
-  --bd2:rgba(59,130,246,.20);
-  --bd3:rgba(59,130,246,.40);
+  /* ── Semantic ── */
+  --gain:#2D6A4F;
+  --gain-bg:#EAF4EE;
+  --gain-bd:#B7D9C5;
+  --loss:#8B2E2E;
+  --loss-bg:#F5EAEA;
+  --loss-bd:#D9B7B7;
+  --warn:#7A5C1E;
+  --warn-bg:#F5F0E6;
+  --warn-bd:#D9C9A0;
+  --danger:#8B2E2E;
+  --danger-dim:#F5EAEA;
+  --danger-bd:#D9B7B7;
+  --green:#2D6A4F;
+  --green-dim:#EAF4EE;
+  --green-bd:#B7D9C5;
 
-  /* ── Text ── */
-  --t1:#ffffff;
-  --t2:#8a8a8e;
-  --t3:#3a3a3c;
-
-  /* ── Grid ── */
-  --r:12px;--rs:8px;
-  --gap:4px;
+  /* ── Spacing & shape ── */
+  --r:8px;--rs:6px;
 }
 
 /* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{
   -webkit-text-size-adjust:100%;
-  background:#1c1f23;
-  color-scheme:dark;
+  background:#F7F5F0;
+  color-scheme:light;
 }
 body{
   font-family:var(--font);
+  font-weight:400;
   min-height:100vh;
-  background:
-    radial-gradient(ellipse 110% 60% at 50% 0%, rgba(40,60,90,.55) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(30,50,80,.35) 0%, transparent 60%),
-    linear-gradient(160deg, #1e2835 0%, #232f42 30%, #1f2b3e 60%, #1c2538 100%);
-  background-attachment:fixed;
-  color:#ffffff;
+  background:#F7F5F0;
+  color:#141414;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  color-scheme:dark;
+  color-scheme:light;
   overflow-x:hidden;
 }
 
 /* ── Topbar ── */
 .topbar{
   position:sticky;top:0;z-index:200;
-  height:52px;
-  background:rgba(26,30,38,.92);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  height:48px;
+  background:#EFECE5;
+  border-bottom:0.5px solid #D8D4CC;
   display:flex;align-items:center;
   padding:0 20px;gap:10px;
 }
 .logo-mark{
-  width:30px;height:30px;border-radius:8px;
-  background:var(--b400);
+  width:28px;height:28px;border-radius:6px;
+  background:#141414;
   display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:800;color:#fff;
-  letter-spacing:-.5px;
+  font-size:12px;font-weight:500;color:#F7F5F0;
+  letter-spacing:-.3px;
 }
-.logo-name{font-size:16px;font-weight:700;letter-spacing:-.4px;color:#fff}
-.logo-sub{font-size:12px;color:var(--t2);font-weight:400}
+.logo-name{font-size:15px;font-weight:500;letter-spacing:-.3px;color:#141414}
+.logo-sub{font-size:11px;color:#8A8880;font-weight:400}
 .topbar-clock{margin-left:auto;text-align:right}
-.clock-time{font-size:13px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
-.clock-date{font-size:11px;color:var(--t2);margin-top:1px}
+.clock-time{font-size:12px;font-weight:500;color:#141414;font-variant-numeric:tabular-nums}
+.clock-date{font-size:10px;color:#8A8880;margin-top:1px}
 
 /* ── Bottom nav ── */
 .bnav{
   position:fixed;bottom:0;left:0;right:0;z-index:200;
-  height:60px;
-  background:rgba(26,30,38,.95);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-top:1px solid rgba(255,255,255,.06);
+  height:56px;
+  background:#EFECE5;
+  border-top:0.5px solid #D8D4CC;
   display:flex;justify-content:space-around;align-items:center;
   padding-bottom:env(safe-area-inset-bottom,0);
 }
 .nb{
   display:flex;flex-direction:column;align-items:center;gap:3px;
   cursor:pointer;border:none;background:none;
-  color:var(--t3);padding:6px 16px;
-  transition:color .15s;-webkit-tap-highlight-color:transparent;
+  color:#8A8880;padding:6px 14px;
+  transition:color .12s;-webkit-tap-highlight-color:transparent;
+  border-top:2px solid transparent;
+  margin-top:-2px;
 }
-.nb.on{color:var(--b400)}
-.nb-icon{font-size:20px;line-height:1}
-.nb-lbl{font-size:10px;font-weight:600;letter-spacing:.01em}
+.nb.on{color:#141414;border-top-color:#A8CAD9}
+.nb-icon{font-size:18px;line-height:1}
+.nb-lbl{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── Layout ── */
-.app{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
-.view{display:none;animation:fadeUp .2s ease}.view.on{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.app{max-width:1200px;margin:0 auto;padding:16px 16px 72px}
+.view{display:none;animation:fadeUp .18s ease}.view.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .port-layout{display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start}
 .port-left,.port-right{min-width:0}
 
 /* ── Typography ── */
-.pg-title{
-  font-size:28px;font-weight:800;letter-spacing:-.8px;
-  margin-bottom:2px;color:#fff;
-}
-.pg-sub{font-size:13px;color:var(--t2);margin-bottom:16px;font-weight:400}
+.pg-title{font-size:18px;font-weight:500;letter-spacing:-.3px;margin-bottom:2px;color:#141414}
+.pg-sub{font-size:13px;color:#8A8880;margin-bottom:16px;font-weight:400}
 .section-badge{
   display:inline-flex;align-items:center;gap:4px;
-  background:rgba(59,130,246,.08);
-  border:1px solid var(--bd2);
-  border-radius:20px;padding:3px 12px;
-  font-size:11px;font-weight:600;letter-spacing:.04em;
-  text-transform:uppercase;color:var(--b300);
+  background:transparent;border:none;padding:0;
+  font-size:10px;font-weight:500;letter-spacing:.10em;
+  text-transform:uppercase;color:#8A8880;
   margin-bottom:8px;
 }
 
 /* ── Hero ── */
 .hero{
   border-radius:var(--r);
-  background:#21252a;
-  border:1px solid rgba(255,255,255,.07);
+  background:#EFECE5;
+  border:0.5px solid #D8D4CC;
   padding:20px;margin-bottom:12px;
-  position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(59,130,246,.3),transparent);
 }
 .hero-lbl{
-  font-size:11px;font-weight:600;letter-spacing:.06em;
-  color:var(--t2);margin-bottom:4px;text-transform:uppercase;
+  font-size:10px;font-weight:500;letter-spacing:.10em;
+  color:#8A8880;margin-bottom:6px;text-transform:uppercase;
 }
 .hero-amt{
-  font-size:34px;font-weight:800;letter-spacing:-1.5px;
-  line-height:1;color:#fff;
+  font-size:32px;font-weight:500;letter-spacing:-1px;
+  line-height:1;color:#141414;
 }
-.hero-amt.pos{color:var(--gain)}
-.hero-amt.neg{color:var(--loss)}
-.hero-amt.zero{color:var(--t2)}
+.hero-amt.pos{color:#2D6A4F}
+.hero-amt.neg{color:#8B2E2E}
+.hero-amt.zero{color:#8A8880}
 .hero-row{
   display:grid;grid-template-columns:repeat(3,1fr);
   margin-top:16px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.06);
+  border-top:0.5px solid #D8D4CC;
 }
-.hero-stat-val{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.3px}
-.hero-stat-lbl{font-size:11px;color:var(--t2);margin-top:2px;font-weight:400}
+.hero-stat-val{font-size:14px;font-weight:500;color:#141414;letter-spacing:-.2px}
+.hero-stat-lbl{font-size:10px;color:#8A8880;margin-top:2px;font-weight:400;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── Cards ── */
 .trade-card{
-  background:#21252a;
+  background:#EFECE5;
   border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);
+  border:0.5px solid #D8D4CC;
   margin-bottom:8px;overflow:hidden;
-  transition:border-color .15s;
+  transition:border-color .12s;
 }
-.trade-card:hover{border-color:var(--bd2)}
+.trade-card:hover{border-color:#B0B4B8}
 .trade-header{
-  padding:14px 16px;display:flex;align-items:flex-start;
+  padding:13px 16px;display:flex;align-items:flex-start;
   justify-content:space-between;cursor:pointer;
   user-select:none;-webkit-tap-highlight-color:transparent;
 }
-.trade-header:active{background:rgba(255,255,255,.03)}
-.t-ticker{font-size:15px;font-weight:700;letter-spacing:-.2px;color:#fff}
-.t-sub{font-size:12px;color:var(--t2);margin-top:2px;font-weight:400}
+.trade-header:active{background:#E5E1D8}
+.t-ticker{font-size:14px;font-weight:500;letter-spacing:-.1px;color:#141414}
+.t-sub{font-size:12px;color:#8A8880;margin-top:2px;font-weight:400}
 .t-right{text-align:right;flex-shrink:0;margin-left:12px}
-.t-pnl{font-size:14px;font-weight:700}
-.t-pnl.pos{color:var(--gain)}
-.t-pnl.neg{color:var(--loss)}
-.t-pnl.open{color:var(--b300)}
-.t-detail{font-size:12px;color:var(--t2);margin-top:2px}
-.t-chevron{font-size:11px;color:var(--t3);margin-top:4px;transition:transform .18s}
+.t-pnl{font-size:13px;font-weight:500}
+.t-pnl.pos{color:#2D6A4F}
+.t-pnl.neg{color:#8B2E2E}
+.t-pnl.open{color:#5B97B2}
+.t-detail{font-size:11px;color:#8A8880;margin-top:2px}
+.t-chevron{font-size:10px;color:#B0B4B8;margin-top:4px;transition:transform .18s}
 .t-chevron.open{transform:rotate(180deg)}
 
+/* ── Risk bar ── */
+.risk-bar-row{padding:0 16px 12px;display:flex;align-items:center;gap:10px}
+.risk-bg{flex:1;height:2px;background:#E5E1D8;border-radius:1px;overflow:hidden}
+.risk-fill{height:100%;border-radius:1px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.risk-lbl{font-size:10px;color:#8A8880;white-space:nowrap;letter-spacing:.04em}
+
 /* ── Trade drawer ── */
-.trade-drawer{display:none;border-top:1px solid rgba(255,255,255,.05);background:#1a1e26}
+.trade-drawer{display:none;border-top:0.5px solid #D8D4CC;background:#E5E1D8}
 .trade-drawer.open{display:block;animation:fadeUp .15s ease}
 .drawer-body{padding:12px 16px 16px}
 .drawer-section{margin-bottom:10px}
-.drawer-label{
-  font-size:10px;font-weight:600;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--t3);margin-bottom:3px;
-}
-.drawer-value{font-size:13px;color:var(--t2);line-height:1.5}
-.drawer-thesis{
-  border-left:2px solid var(--b600);
-  padding-left:10px;font-size:13px;color:var(--t2);line-height:1.5;
-}
-.drawer-lesson{
-  border-left:2px solid var(--b400);
-  padding-left:10px;font-size:13px;color:var(--b200);
-  line-height:1.5;font-style:italic;
-}
+.drawer-label{font-size:10px;font-weight:500;letter-spacing:.10em;text-transform:uppercase;color:#8A8880;margin-bottom:3px}
+.drawer-value{font-size:13px;color:#4A4A48;line-height:1.5}
+.drawer-thesis{border-left:2px solid #D8D4CC;padding-left:10px;font-size:13px;color:#4A4A48;line-height:1.5}
+.drawer-lesson{border-left:2px solid #A8CAD9;padding-left:10px;font-size:13px;color:#5B97B2;line-height:1.5;font-style:italic}
 .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.drawer-stat{background:#272b31;border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.05)}
-.drawer-stat-val{font-size:14px;font-weight:700;color:#fff}
-.drawer-stat-lbl{font-size:11px;color:var(--t2);margin-top:1px}
+.drawer-stat{background:#EFECE5;border-radius:var(--rs);padding:9px 11px;border:0.5px solid #D8D4CC}
+.drawer-stat-val{font-size:14px;font-weight:500;color:#141414}
+.drawer-stat-lbl{font-size:11px;color:#8A8880;margin-top:1px}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
-.tg{background:var(--green-dim);color:var(--green)}
-.tr{background:var(--danger-dim);color:var(--danger)}
-.ty{background:var(--warn-dim);color:var(--warn)}
-.tp{background:rgba(59,130,246,.10);color:var(--b300)}
-.drawer-actions{display:flex;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)}
+.tag{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:.02em}
+.tg{background:#EAF4EE;color:#2D6A4F;border:0.5px solid #B7D9C5}
+.tr{background:#F5EAEA;color:#8B2E2E;border:0.5px solid #D9B7B7}
+.ty{background:#F5F0E6;color:#7A5C1E;border:0.5px solid #D9C9A0}
+.tp{background:#D6E8F0;color:#5B97B2;border:0.5px solid #A8CAD9}
+.drawer-actions{display:flex;gap:6px;margin-top:12px;padding-top:12px;border-top:0.5px solid #D8D4CC}
 .drawer-btn{
-  flex:1;padding:9px 10px;border-radius:8px;border:none;
-  font-family:var(--font);font-size:12px;font-weight:600;
-  cursor:pointer;transition:opacity .15s;
+  flex:1;padding:8px 10px;border-radius:var(--rs);
+  font-family:var(--font);font-size:12px;font-weight:500;
+  cursor:pointer;transition:opacity .12s;letter-spacing:.02em;
 }
-.dba-add{background:var(--b400);color:#fff}
-.dba-reduce{background:rgba(245,158,11,.12);color:var(--warn);border:1px solid var(--warn-bd)}
-.dba-close{background:var(--green-dim);color:var(--green);border:1px solid var(--green-bd)}
+.dba-add{background:#141414;color:#F7F5F0;border:none}
+.dba-reduce{background:transparent;color:#7A5C1E;border:0.5px solid #D9C9A0}
+.dba-close{background:transparent;color:#2D6A4F;border:0.5px solid #B7D9C5}
 
 /* ── Modals ── */
 .modal-overlay{
   position:fixed;inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(20,20,20,.35);
   z-index:400;display:none;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
 .modal-overlay.show{display:block}
 .modal{
   position:fixed;bottom:0;left:0;right:0;z-index:401;
-  background:#21252a;
-  border-radius:14px 14px 0 0;
-  border-top:1px solid rgba(255,255,255,.05);
-  padding:24px 20px calc(env(safe-area-inset-bottom,0px) + 24px);
+  background:#EFECE5;
+  border-radius:10px 10px 0 0;
+  border-top:0.5px solid #D8D4CC;
+  padding:22px 20px calc(env(safe-area-inset-bottom,0px) + 24px);
   max-height:90vh;overflow-y:auto;
-  display:none;transform:translateY(16px);opacity:0;
-  transition:transform .28s cubic-bezier(.4,0,.2,1),opacity .2s;
+  display:none;transform:translateY(12px);opacity:0;
+  transition:transform .25s cubic-bezier(.4,0,.2,1),opacity .18s;
 }
 .modal.show{display:block;transform:translateY(0);opacity:1}
-.modal-title{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.4px;margin-bottom:4px}
-.modal-sub{font-size:13px;color:var(--t2);margin-bottom:20px}
+.modal-title{font-size:16px;font-weight:500;color:#141414;letter-spacing:-.2px;margin-bottom:3px}
+.modal-sub{font-size:12px;color:#8A8880;margin-bottom:18px}
 .modal-close{
-  position:absolute;top:18px;right:18px;
-  width:28px;height:28px;border-radius:50%;
-  border:none;background:#2e333a;color:var(--t2);
+  position:absolute;top:16px;right:16px;
+  width:26px;height:26px;border-radius:50%;
+  border:0.5px solid #D8D4CC;background:#E5E1D8;color:#8A8880;
   cursor:pointer;display:flex;align-items:center;
-  justify-content:center;font-size:15px;font-family:var(--font);
+  justify-content:center;font-size:14px;font-family:var(--font);
 }
 
 /* ── Charts ── */
 .chart-card{
-  background:#21252a;border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);
+  background:#EFECE5;border-radius:var(--r);
+  border:0.5px solid #D8D4CC;
   padding:16px;margin-bottom:8px;
 }
 .chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.chart-title{font-size:13px;font-weight:600;color:#fff;letter-spacing:-.2px}
+.chart-title{font-size:11px;font-weight:500;color:#8A8880;letter-spacing:.10em;text-transform:uppercase}
 .chart-toggle{
   display:flex;
-  background:#2e333a;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:8px;overflow:hidden;padding:2px;gap:2px;
+  background:#E5E1D8;
+  border:0.5px solid #D8D4CC;
+  border-radius:var(--rs);overflow:hidden;padding:2px;gap:2px;
 }
 .chart-toggle-btn{
-  padding:4px 14px;font-size:12px;font-weight:600;
+  padding:3px 12px;font-size:11px;font-weight:500;
   cursor:pointer;border:none;background:transparent;
-  color:var(--t2);font-family:var(--font);
-  border-radius:6px;transition:all .15s;
+  color:#8A8880;font-family:var(--font);
+  border-radius:4px;transition:all .12s;letter-spacing:.04em;
 }
-.chart-toggle-btn.on{background:var(--b400);color:#fff}
+.chart-toggle-btn.on{background:#141414;color:#F7F5F0}
 .chart-wrap{position:relative;height:160px}
 canvas#pnlChart{width:100%!important;height:160px!important}
 .chart-empty{
   display:flex;align-items:center;justify-content:center;
-  height:100%;color:var(--t3);font-size:13px;
-  border:1px dashed rgba(255,255,255,.07);
-  border-radius:8px;background:#1c1f23;
+  height:100%;color:#B0B4B8;font-size:12px;
+  border:0.5px dashed #D8D4CC;
+  border-radius:var(--rs);background:#E5E1D8;
 }
 
 /* ── Calendar ── */
 .cal-card{
-  background:#21252a;border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.07);padding:16px;
+  background:#EFECE5;border-radius:var(--r);
+  border:0.5px solid #D8D4CC;padding:16px;
 }
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.cal-month{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.cal-month{font-size:13px;font-weight:500;color:#141414;letter-spacing:-.1px}
 .cal-nav-btn{
-  width:28px;height:28px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.08);
-  background:#2e333a;color:#fff;font-size:13px;
+  width:26px;height:26px;border-radius:50%;
+  border:0.5px solid #D8D4CC;
+  background:#E5E1D8;color:#4A4A48;font-size:12px;
   cursor:pointer;display:flex;align-items:center;
-  justify-content:center;transition:background .15s;
+  justify-content:center;transition:background .12s;
 }
-.cal-nav-btn:hover{background:#363b43}
+.cal-nav-btn:hover{background:#D8D4CC}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
-.cal-dow{font-size:10px;font-weight:600;text-align:center;color:var(--t3);padding:4px 0;letter-spacing:.04em}
+.cal-dow{font-size:9px;font-weight:500;text-align:center;color:#B0B4B8;padding:4px 0;letter-spacing:.08em;text-transform:uppercase}
 .cal-day{
-  min-height:40px;border-radius:6px;padding:4px;
-  transition:background .12s;border:1px solid transparent;position:relative;
+  min-height:38px;border-radius:4px;padding:4px;
+  transition:background .1s;border:0.5px solid transparent;position:relative;
 }
-.cal-day.other-month{opacity:.2}
-.cal-day.today{border-color:var(--b400);background:rgba(59,130,246,.08)}
+.cal-day.other-month{opacity:.3}
+.cal-day.today{border-color:#A8CAD9;background:#D6E8F0}
 .cal-day.has-trades{cursor:pointer}
-.cal-day.has-trades:hover{background:#272b31}
-.cal-day-num{font-size:11px;font-weight:600;color:var(--t2);line-height:1}
-.cal-day.today .cal-day-num{color:var(--b400);font-weight:700}
+.cal-day.has-trades:hover{background:#E5E1D8}
+.cal-day-num{font-size:10px;font-weight:500;color:#8A8880;line-height:1}
+.cal-day.today .cal-day-num{color:#5B97B2;font-weight:500}
 .cal-dot-row{display:flex;gap:2px;flex-wrap:wrap;margin-top:3px}
-.cal-dot{width:5px;height:5px;border-radius:50%}
-.cal-dot.win{background:var(--gain)}
-.cal-dot.loss{background:var(--loss)}
-.cal-dot.open{background:var(--b400)}
-.cal-pnl{font-size:9px;font-weight:700;margin-top:2px;letter-spacing:-.2px}
-.cal-pnl.pos{color:var(--gain)}.cal-pnl.neg{color:var(--loss)}
+.cal-dot{width:4px;height:4px;border-radius:50%}
+.cal-dot.win{background:#2D6A4F}
+.cal-dot.loss{background:#8B2E2E}
+.cal-dot.open{background:#5B97B2}
+.cal-pnl{font-size:9px;font-weight:500;margin-top:2px;letter-spacing:-.1px}
+.cal-pnl.pos{color:#2D6A4F}.cal-pnl.neg{color:#8B2E2E}
 .cal-popup{
   position:fixed;top:50%;left:50%;
   transform:translate(-50%,-50%);
-  background:#21252a;border-radius:var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  padding:20px;width:320px;
+  background:#EFECE5;border-radius:var(--r);
+  border:0.5px solid #D8D4CC;
+  padding:18px;width:320px;
   max-width:calc(100vw - 32px);z-index:500;
-  box-shadow:0 24px 48px rgba(0,0,0,.8);
   display:none;max-height:70vh;overflow-y:auto;
 }
-.cal-popup.show{display:block;animation:fadeUp .18s ease}
+.cal-popup.show{display:block;animation:fadeUp .16s ease}
 .cal-popup-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.65);
+  position:fixed;inset:0;background:rgba(20,20,20,.3);
   z-index:499;display:none;
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
 }
 .cal-popup-overlay.show{display:block}
-.cal-popup-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.3px}
+.cal-popup-title{font-size:13px;font-weight:500;color:#141414;margin-bottom:12px;letter-spacing:-.1px}
 .cal-popup-close{
-  position:absolute;top:14px;right:14px;
-  width:26px;height:26px;border-radius:50%;
-  border:none;background:#2e333a;color:var(--t2);
+  position:absolute;top:12px;right:12px;
+  width:24px;height:24px;border-radius:50%;
+  border:0.5px solid #D8D4CC;background:#E5E1D8;color:#8A8880;
   cursor:pointer;display:flex;align-items:center;
-  justify-content:center;font-size:13px;font-family:var(--font);
+  justify-content:center;font-size:12px;font-family:var(--font);
 }
 .cal-trade-item{
-  padding:10px 12px;background:#272b31;
-  border-radius:8px;border:1px solid rgba(255,255,255,.06);
-  margin-bottom:8px;
+  padding:9px 11px;background:#E5E1D8;
+  border-radius:var(--rs);border:0.5px solid #D8D4CC;
+  margin-bottom:6px;
 }
 
 /* ── Forms ── */
 .fg{margin-bottom:16px}
-.fl{font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;display:block;letter-spacing:-.1px}
-.fh{font-size:12px;color:var(--t2);margin-bottom:6px;font-weight:400}
-input[type=text],input[type=number],textarea,select{
+.fl{font-size:12px;font-weight:500;color:#141414;margin-bottom:4px;display:block;letter-spacing:.02em}
+.fh{font-size:12px;color:#8A8880;margin-bottom:6px;font-weight:400}
+input[type=text],input[type=number],input[type=date],textarea,select{
   width:100%;
-  background:#272b31;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:8px;
-  padding:12px 14px;
-  color:#fff;
+  background:#E5E1D8;
+  border:0.5px solid #D8D4CC;
+  border-radius:var(--rs);
+  padding:10px 12px;
+  color:#141414;
   font-family:var(--font);
-  font-size:15px;
+  font-size:13px;
   font-weight:400;
   outline:none;
   -webkit-appearance:none;
-  transition:border-color .15s,background .15s;
+  transition:border-color .12s,background .12s;
   resize:none;
 }
 input:focus,textarea:focus,select:focus{
-  border-color:var(--b400);
-  background:#2e333a;
-  box-shadow:0 0 0 3px rgba(59,130,246,.12);
+  border-color:#A8CAD9;
+  background:#EFECE5;
+  box-shadow:0 0 0 2px rgba(168,202,217,.20);
 }
-input::placeholder,textarea::placeholder{color:var(--t3)}
-textarea{min-height:72px;line-height:1.5}
-select option{background:#2e333a;color:#fff}
+input::placeholder,textarea::placeholder{color:#B0B4B8}
+textarea{min-height:68px;line-height:1.5}
+select option{background:#EFECE5;color:#141414}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
 /* ── Pills ── */
-.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
 .pill{
-  padding:8px 14px;border-radius:8px;
-  border:1px solid rgba(255,255,255,.08);
-  background:#272b31;color:var(--t2);
-  font-size:13px;font-weight:500;
+  padding:7px 13px;border-radius:var(--rs);
+  border:0.5px solid #D8D4CC;
+  background:#E5E1D8;color:#8A8880;
+  font-size:12px;font-weight:400;
   cursor:pointer;user-select:none;
   text-align:center;line-height:1.3;
   transition:all .1s;-webkit-tap-highlight-color:transparent;
   font-family:var(--font);
 }
-.pill:hover{border-color:var(--bd2);color:#fff}
+.pill:hover{border-color:#B0B4B8;color:#141414}
 .pill.on{
-  border-color:var(--b400);
-  background:rgba(59,130,246,.12);
-  color:var(--b300);font-weight:600;
+  border-color:#A8CAD9;
+  background:#D6E8F0;
+  color:#5B97B2;font-weight:500;
 }
-.pill.on-r{border-color:var(--danger);background:var(--danger-dim);color:var(--danger);font-weight:600}
+.pill.on-r{border-color:#D9B7B7;background:#F5EAEA;color:#8B2E2E;font-weight:500}
 
 /* ── Slider ── */
 .sw{display:flex;align-items:center;gap:12px}
 input[type=range]{
   flex:1;-webkit-appearance:none;
-  height:4px;border-radius:2px;outline:none;padding:0;border:none;
-  background:linear-gradient(to right,var(--b400) 50%,#2a2a2a 50%);
+  height:2px;border-radius:1px;outline:none;padding:0;border:none;
+  background:linear-gradient(to right,#141414 50%,#E5E1D8 50%);
 }
 input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;width:20px;height:20px;
-  border-radius:50%;background:var(--b400);
-  box-shadow:0 2px 8px rgba(59,130,246,.40);
-  cursor:pointer;transition:transform .1s;
+  -webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:#141414;
+  border:2px solid #F7F5F0;
+  box-shadow:0 0 0 1px #D8D4CC;
+  cursor:pointer;
 }
-input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
-.sv{font-size:18px;font-weight:700;color:var(--b300);min-width:24px;text-align:right}
-.sl{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);margin-top:4px}
+.sv{font-size:16px;font-weight:500;color:#141414;min-width:24px;text-align:right}
+.sl{display:flex;justify-content:space-between;font-size:10px;color:#B0B4B8;margin-top:4px;letter-spacing:.04em}
 
 /* ── Buttons ── */
 .btn{
-  width:100%;padding:14px;border-radius:10px;border:none;
-  font-family:var(--font);font-size:15px;font-weight:600;
-  cursor:pointer;letter-spacing:-.1px;
-  transition:opacity .15s,transform .08s;
+  width:100%;padding:12px;border-radius:var(--rs);
+  font-family:var(--font);font-size:13px;font-weight:500;
+  cursor:pointer;letter-spacing:.02em;
+  transition:opacity .12s,transform .08s;
   -webkit-tap-highlight-color:transparent;
 }
-.btn-p{background:var(--b400);color:#fff}
-.btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.98)}
+.btn-p{background:#141414;color:#F7F5F0;border:none}
+.btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.99)}
 .btn-s{
-  background:#272b31;color:var(--b300);
-  border:1px solid rgba(255,255,255,.08);
+  background:transparent;color:#141414;
+  border:0.5px solid #D8D4CC;
 }
-.btn-s:hover{background:#2e333a;border-color:var(--bd2)}
-.btn-d{background:var(--danger);color:#fff}
+.btn-s:hover{background:#E5E1D8}
+.btn-d{background:#8B2E2E;color:#F7F5F0;border:none}
 .btn-row{display:flex;gap:8px;margin-top:8px}
 .btn-row .btn{flex:1}
 
 /* ── Step nav ── */
-.prog{height:2px;background:#2e333a;border-radius:1px;overflow:hidden;margin-bottom:8px}
-.prog-f{height:100%;background:var(--b400);border-radius:1px;transition:width .35s cubic-bezier(.4,0,.2,1)}
-.step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.prog{height:1px;background:#E5E1D8;border-radius:1px;overflow:hidden;margin-bottom:10px}
+.prog-f{height:100%;background:#141414;border-radius:1px;transition:width .3s cubic-bezier(.4,0,.2,1)}
+.step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .step-dots{display:flex;gap:6px}
-.dot{height:3px;width:28px;border-radius:2px;background:#2e333a;transition:background .2s;cursor:pointer}
-.dot.done{background:var(--b400)}.dot.now{background:var(--b300)}
+.dot{height:2px;width:28px;border-radius:1px;background:#E5E1D8;transition:background .2s;cursor:pointer}
+.dot.done{background:#141414}.dot.now{background:#8A8880}
 .back-btn{
-  font-size:12px;font-weight:600;color:var(--t2);
+  font-size:12px;font-weight:500;color:#8A8880;
   background:none;border:none;cursor:pointer;
-  padding:4px 8px;border-radius:6px;
+  padding:4px 8px;border-radius:4px;
   font-family:var(--font);display:flex;align-items:center;gap:4px;
+  letter-spacing:.02em;
 }
-.back-btn:hover{color:var(--b300)}
+.back-btn:hover{color:#141414}
 .back-btn:disabled{opacity:0;pointer-events:none}
 
 /* ── Alerts ── */
-.alert{border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.5;margin-bottom:14px}
-.al-p{background:rgba(59,130,246,.08);border:1px solid var(--bd2);color:var(--b200)}
-.al-r{background:var(--danger-dim);border:1px solid var(--danger-bd);color:var(--danger);display:none}
+.alert{border-radius:var(--rs);padding:10px 13px;font-size:12px;line-height:1.5;margin-bottom:13px}
+.al-p{background:#D6E8F0;border:0.5px solid #A8CAD9;color:#5B97B2}
+.al-r{background:#F5EAEA;border:0.5px solid #D9B7B7;color:#8B2E2E;display:none}
 .al-r.show{display:block;animation:fadeUp .2s ease}
-.al-g{background:var(--green-dim);border:1px solid var(--green-bd);color:var(--green)}
-.al-y{background:var(--warn-dim);border:1px solid var(--warn-bd);color:var(--warn)}
+.al-g{background:#EAF4EE;border:0.5px solid #B7D9C5;color:#2D6A4F}
+.al-y{background:#F5F0E6;border:0.5px solid #D9C9A0;color:#7A5C1E}
 
 /* ── Hard block ── */
 .hblock{
-  text-align:center;padding:32px 20px;
-  background:var(--danger-dim);border:1px solid var(--danger-bd);
+  text-align:center;padding:28px 18px;
+  background:#F5EAEA;border:0.5px solid #D9B7B7;
   border-radius:var(--r);display:none;
 }
-.hblock.show{display:block;animation:fadeUp .22s ease}
-.hb-icon{font-size:44px;margin-bottom:12px}
-.hb-title{font-size:20px;font-weight:700;color:var(--danger);letter-spacing:-.4px;margin-bottom:8px}
-.hb-text{font-size:14px;color:rgba(255,69,58,.75);line-height:1.6}
+.hblock.show{display:block;animation:fadeUp .2s ease}
+.hb-icon{font-size:36px;margin-bottom:10px}
+.hb-title{font-size:16px;font-weight:500;color:#8B2E2E;letter-spacing:-.2px;margin-bottom:8px}
+.hb-text{font-size:13px;color:#A05050;line-height:1.6}
 
 /* ── Confluence card ── */
 .conf-card{
   border-radius:var(--r);
-  background:#21252a;
-  border:1px solid var(--bd2);
-  padding:20px;text-align:center;margin-bottom:16px;
-  position:relative;overflow:hidden;
+  background:#EFECE5;
+  border:0.5px solid #D8D4CC;
+  padding:18px;text-align:center;margin-bottom:14px;
 }
-.conf-card::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(59,130,246,.4),transparent);
-}
-.conf-num{font-size:56px;font-weight:900;letter-spacing:-4px;line-height:1}
-.conf-denom{font-size:22px;color:rgba(255,255,255,.2);font-weight:300}
-.conf-lbl{font-size:12px;color:var(--t2);margin-top:6px;font-weight:400}
+.conf-num{font-size:52px;font-weight:400;letter-spacing:-3px;line-height:1;color:#141414}
+.conf-denom{font-size:20px;color:#B0B4B8;font-weight:400}
+.conf-lbl{font-size:11px;color:#8A8880;margin-top:6px;font-weight:400;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── Stat cards ── */
-.sg{display:grid;gap:8px;margin-bottom:8px}
+.sg{display:grid;gap:6px;margin-bottom:8px}
 .sg2{grid-template-columns:1fr 1fr}.sg3{grid-template-columns:repeat(3,1fr)}
 .stat{
-  background:#21252a;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r);padding:14px 12px;
+  background:#EFECE5;
+  border:0.5px solid #D8D4CC;
+  border-radius:var(--r);padding:13px 12px;
 }
-.sv2{font-size:20px;font-weight:800;letter-spacing:-.6px;line-height:1;margin-bottom:3px}
-.sv2.pos{color:var(--gain)}.sv2.neg{color:var(--loss)}
-.sv2.pur{
-  background:linear-gradient(135deg,var(--b400),var(--b200));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.sl2{font-size:11px;color:var(--t2);font-weight:400}
+.sv2{font-size:18px;font-weight:500;letter-spacing:-.5px;line-height:1;margin-bottom:3px;color:#141414}
+.sv2.pos{color:#2D6A4F}.sv2.neg{color:#8B2E2E}
+.sv2.pur{color:#5B97B2}
+.sl2{font-size:10px;color:#8A8880;font-weight:400;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── Behavior bars ── */
 .br{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.bl{font-size:12px;color:var(--t2);width:100px;flex-shrink:0}
-.bb{flex:1;height:4px;background:#2e333a;border-radius:2px;overflow:hidden}
-.bf{height:100%;border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1)}
-.bc{font-size:12px;font-weight:600;color:var(--t2);width:18px;text-align:right}
+.bl{font-size:12px;color:#8A8880;width:100px;flex-shrink:0}
+.bb{flex:1;height:2px;background:#E5E1D8;border-radius:1px;overflow:hidden}
+.bf{height:100%;border-radius:1px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.bc{font-size:12px;font-weight:500;color:#8A8880;width:18px;text-align:right}
 
 /* ── Checklist ── */
 .ci{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);
-  font-size:14px;color:var(--t2);line-height:1.4;font-weight:400;
+  display:flex;align-items:flex-start;gap:10px;
+  padding:9px 0;border-bottom:0.5px solid #D8D4CC;
+  font-size:13px;color:#4A4A48;line-height:1.45;font-weight:400;
 }
 .ci:last-child{border-bottom:none}
 .cb{
-  font-size:20px;color:var(--t3);cursor:pointer;
+  font-size:18px;color:#B0B4B8;cursor:pointer;
   flex-shrink:0;margin-top:-1px;
-  transition:color .12s;-webkit-tap-highlight-color:transparent;
+  transition:color .12s,text-shadow .12s;
+  -webkit-tap-highlight-color:transparent;
 }
 .cb.done{
-  color:var(--b400);
-  text-shadow:0 0 8px rgba(59,130,246,.9),0 0 18px rgba(59,130,246,.5),0 0 32px rgba(59,130,246,.25);
+  color:#5B97B2;
+  text-shadow:0 0 6px rgba(91,151,178,.55),0 0 14px rgba(91,151,178,.25);
 }
 
 /* ── Misc ── */
-hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
+hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 .empty{
   text-align:center;padding:32px 16px;
-  color:var(--t3);font-size:13px;
-  border:1px dashed rgba(255,255,255,.06);
-  border-radius:var(--r);background:#1c1f23;
+  color:#B0B4B8;font-size:13px;
+  border:0.5px dashed #D8D4CC;
+  border-radius:var(--r);background:#EFECE5;
 }
-.ei{font-size:28px;margin-bottom:8px;opacity:.3}
+.ei{font-size:26px;margin-bottom:8px;opacity:.4}
 .toast{
-  position:fixed;bottom:72px;left:50%;
-  transform:translateX(-50%) translateY(12px);
-  background:var(--b400);
-  color:#fff;padding:10px 20px;border-radius:8px;
-  font-size:13px;font-weight:600;
-  opacity:0;transition:all .2s;
+  position:fixed;bottom:66px;left:50%;
+  transform:translateX(-50%) translateY(10px);
+  background:#141414;
+  color:#F7F5F0;padding:9px 18px;border-radius:var(--rs);
+  font-size:12px;font-weight:500;
+  opacity:0;transition:all .18s;
   z-index:999;pointer-events:none;white-space:nowrap;
-  box-shadow:0 8px 24px rgba(59,130,246,.35);
+  letter-spacing:.02em;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .ibox{
-  background:#21252a;border:1px solid rgba(255,255,255,.07);
-  border-radius:8px;padding:14px;
-  font-size:13px;color:var(--t2);
-  line-height:1.75;white-space:pre-line;font-weight:400;
+  background:#EFECE5;border:0.5px solid #D8D4CC;
+  border-radius:var(--rs);padding:13px;
+  font-size:12px;color:#8A8880;
+  line-height:1.7;white-space:pre-line;font-weight:400;
 }
 
 /* ── Sizing display ── */
 #s4-acct-display{
-  background:rgba(59,130,246,.08);
-  border:1px solid var(--bd2);
-  border-radius:8px;padding:10px 14px;
+  background:#D6E8F0;
+  border:0.5px solid #A8CAD9;
+  border-radius:var(--rs);padding:9px 13px;
   margin-bottom:8px;
   display:flex;justify-content:space-between;align-items:center;
 }
 
 @media(max-width:900px){.port-layout{grid-template-columns:1fr}.port-right{order:-1}}
-@media(max-width:480px){.pg-title{font-size:24px}.hero-amt{font-size:28px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.pg-title{font-size:16px}.hero-amt{font-size:26px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -620,11 +578,11 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div class="hero-lbl" style="margin-bottom:0">Account Balance</div>
-            <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:rgba(59,130,246,.10);border:1px solid rgba(59,130,246,.25);border-radius:8px;color:var(--b300);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--font)">Edit</button>
+            <button onclick="toggleBalEdit()" id="bal-edit-btn" style="background:transparent;border:0.5px solid #D8D4CC;border-radius:6px;color:#8A8880;font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--font)">Edit</button>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div class="hero-lbl" style="margin-bottom:0" id="goal-month-lbl">Monthly Goal</div>
-            <button onclick="toggleGoalEdit()" id="goal-edit-btn" style="background:rgba(59,130,246,.10);border:1px solid rgba(59,130,246,.25);border-radius:8px;color:var(--b300);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--font)">Edit</button>
+            <button onclick="toggleGoalEdit()" id="goal-edit-btn" style="background:transparent;border:0.5px solid #D8D4CC;border-radius:6px;color:#8A8880;font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;font-family:var(--font)">Edit</button>
           </div>
         </div>
         <!-- Main numbers row -->
@@ -632,17 +590,17 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
           <div>
             <div class="hero-amt zero" id="hero-balance" style="font-size:28px">Set balance</div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;min-height:18px">
-              <div id="hero-pnl-inline" style="display:none;font-size:12px;font-weight:700;padding:1px 8px;border-radius:20px;background:rgba(59,130,246,.12)"></div>
-              <div id="hero-pnl-label" style="font-size:11px;color:rgba(255,255,255,.35);display:none">P&amp;L</div>
+              <div id="hero-pnl-inline" style="display:none;font-size:12px;font-weight:700;padding:1px 8px;border-radius:20px;background:#D6E8F0"></div>
+              <div id="hero-pnl-label" style="font-size:11px;color:#8A8880;display:none">P&amp;L</div>
             </div>
           </div>
-          <div style="border-left:1px solid rgba(255,255,255,.05);padding-left:12px">
+          <div style="border-left:0.5px solid #D8D4CC;padding-left:12px">
             <div style="display:flex;align-items:baseline;gap:8px">
               <div class="hero-amt zero" id="goal-display" style="font-size:28px">—</div>
               <!-- $ / % toggle -->
-              <div style="display:flex;border:1px solid rgba(255,255,255,.25);border-radius:20px;overflow:hidden;flex-shrink:0">
-                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:var(--b400);color:#fff;font-family:var(--font)">$</button>
-                <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t3);font-family:var(--font)">%</button>
+              <div style="display:flex;border:0.5px solid #D8D4CC;border-radius:4px;overflow:hidden;flex-shrink:0">
+                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:#141414;color:#F7F5F0;font-family:var(--font)">$</button>
+                <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:#8A8880;font-family:var(--font)">%</button>
               </div>
             </div>
             <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px" id="goal-progress-label">Set a monthly target</div>
@@ -650,17 +608,17 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
         </div>
         <!-- Inline edit rows -->
         <div id="bal-edit-row" style="display:none;margin-top:10px;gap:8px;align-items:center">
-          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:#272b31;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
-          <button onclick="saveBalInput()" style="background:var(--b400);border:none;border-radius:8px;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:#E5E1D8;border:0.5px solid #A8CAD9;border-radius:6px;padding:8px 12px;color:#141414;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
+          <button onclick="saveBalInput()" style="background:#141414;border:none;border-radius:6px;color:#F7F5F0;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
           <button onclick="toggleBalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <div id="goal-edit-row" style="display:none;margin-top:8px;gap:8px;align-items:center">
-          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:#272b31;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:8px 12px;color:#fff;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
-          <button onclick="saveGoalInput()" style="background:var(--b400);border:none;border-radius:8px;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:#E5E1D8;border:0.5px solid #A8CAD9;border-radius:6px;padding:8px 12px;color:#141414;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
+          <button onclick="saveGoalInput()" style="background:#141414;border:none;border-radius:6px;color:#F7F5F0;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
           <button onclick="toggleGoalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <!-- Progress bar -->
-        <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)">
+        <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:0.5px solid #D8D4CC">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
             <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5)">Monthly Progress</div>
             <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.8)" id="goal-pct-label"></div>
@@ -676,7 +634,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
           <div><div class="hero-stat-val" id="hero-wr">—</div><div class="hero-stat-lbl">Win Rate</div></div>
         </div>
       </div>
-      <div class="section-badge" style="color:var(--b300);margin-top:6px;">◈ Open Positions</div>
+      <div class="section-badge" style="color:#8A8880;margin-top:6px;">◈ Open Positions</div>
       <div id="open-list"></div>
     </div>
     <div class="port-right">
@@ -745,7 +703,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
     <div class="fg">
       <label class="fl">What are you trading?</label>
       <div class="g3" style="margin-bottom:8px">
-        <input type="text" id="e-ticker" placeholder="TICKER" style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;text-align:center;letter-spacing:.04em;font-weight:700" oninput="this.value=this.value.toUpperCase()">
+        <input type="text" id="e-ticker" placeholder="TICKER" style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#141414;text-align:center;letter-spacing:.06em;font-weight:500" oninput="this.value=this.value.toUpperCase()">
         <input type="number" id="e-price" placeholder="Entry $" oninput="calcRisk()" style="text-align:center">
         <input type="text" id="e-qty" placeholder="Qty / Shares" style="text-align:center">
       </div>
@@ -858,7 +816,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
       <div class="fh">Pulling from your account balance on the Portfolio page.</div>
       <div id="s4-acct-display" style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.20);border-radius:var(--rs);padding:10px 14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:13px;color:var(--text2)">Account Balance</span>
-        <span style="font-size:15px;font-weight:700;color:var(--b300);font-family:var(--font)" id="s4-acct-val">—</span>
+        <span style="font-size:14px;font-weight:500;color:#5B97B2;font-family:var(--font)" id="s4-acct-val">—</span>
       </div>
       <div class="g2" style="margin-bottom:8px">
         <div>
@@ -870,7 +828,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
           <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:#242426;color:var(--b300);font-weight:700">
         </div>
       </div>
-      <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#272b31;border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:4px"></div>
+      <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#E5E1D8;border-radius:6px;border:0.5px solid #D8D4CC;margin-bottom:4px"></div>
       <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 10% of your account. Consider entering in increments — build the position as the thesis confirms.</div>
     </div>
     <div class="fg"><label class="fl">Emotional state — be honest</label>
@@ -976,7 +934,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
           <div class="sv2" id="st-streak">—</div>
           <div class="sl2" id="st-streak-lbl">—</div>
         </div>
-        <div style="width:1px;height:32px;background:rgba(255,255,255,.05)"></div>
+        <div style="width:0.5px;height:32px;background:#D8D4CC"></div>
         <div>
           <div style="font-size:11px;color:var(--text2)">Best: <span id="st-best-streak" style="font-weight:700;color:var(--success)">—</span> W</div>
           <div style="font-size:11px;color:var(--text2);margin-top:2px">Worst: <span id="st-worst-streak" style="font-weight:700;color:var(--danger)">—</span> L</div>
@@ -993,19 +951,19 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   <!-- Daily trade limit guardrail -->
   <div class="section-badge" style="margin-bottom:8px">Daily Trade Guardrail</div>
   <div class="trade-card" style="padding:14px 16px;margin-bottom:8px">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--text)">Max trades today</div>
         <div style="font-size:12px;color:var(--text2);margin-top:2px" id="daily-limit-status">—</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px">
         <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
-        <div style="font-size:22px;font-weight:800;color:var(--b300);min-width:28px;text-align:center;font-family:var(--font)" id="daily-limit-val">2</div>
+        <div style="font-size:22px;font-weight:800;color:#141414;min-width:28px;text-align:center;font-family:var(--font)" id="daily-limit-val">2</div>
         <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
       </div>
     </div>
     <div style="height:5px;background:#2c2c2e;border-radius:3px;overflow:hidden">
-      <div id="daily-limit-bar" style="height:100%;border-radius:3px;background:var(--success);width:0%;transition:width .5s ease"></div>
+      <div id="daily-limit-bar" style="height:100%;border-radius:1px;background:var(--success);width:0%;transition:width .5s ease"></div>
     </div>
   </div>
   <hr>
@@ -1111,7 +1069,7 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   <div class="modal-title">Edit Trade</div>
   <div class="modal-sub" id="edit-sub"></div>
   <div class="g3" style="margin-bottom:12px">
-    <div><div class="fh" style="margin-bottom:4px">Ticker</div><input type="text" id="ed-ticker" style="font-weight:700;text-transform:uppercase;color:#fff"></div>
+    <div><div class="fh" style="margin-bottom:4px">Ticker</div><input type="text" id="ed-ticker" style="font-weight:500;text-transform:uppercase;color:#141414"></div>
     <div><div class="fh" style="margin-bottom:4px">Entry $</div><input type="number" id="ed-price"></div>
     <div><div class="fh" style="margin-bottom:4px">Qty</div><input type="text" id="ed-qty"></div>
   </div>
@@ -1138,8 +1096,8 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   </div>
   <!-- Closed trade exit fields — shown only when editing a closed trade -->
   <div id="ed-exit-section" style="display:none">
-    <hr style="margin:4px 0 14px">
-    <div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--b300);margin-bottom:12px">Exit Details</div>
+    <hr style="margin:10px 0 12px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.10em;text-transform:uppercase;color:#8A8880;margin-bottom:12px">Exit Details</div>
     <div class="g2" style="margin-bottom:12px">
       <div><div class="fh" style="margin-bottom:4px">Exit Price</div><input type="number" id="ed-exit-price" placeholder="e.g. 24.50"></div>
       <div><div class="fh" style="margin-bottom:4px">Exit Date</div><input type="date" id="ed-exit-date"></div>
@@ -1174,21 +1132,21 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
   <div class="trade-card" style="padding:16px;margin-bottom:8px">
     <div class="section-badge" style="margin-bottom:10px">Account Structure</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Schwab Roth 401K</div>
-        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Stocks · ETFs · No options · No leveraged ETFs · Regular hours only · Max $15K/position</div>
+      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Schwab Roth 401K</div>
+        <div style="font-size:11px;color:#8A8880;line-height:1.5">Stocks · ETFs · No options · No leveraged ETFs · Regular hours only · Max $15K/position</div>
       </div>
-      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">IBKR Rollover IRA</div>
-        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Momentum stocks · Options 30+ DTE A-grade · Extended hours · More aggressive</div>
+      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">IBKR Rollover IRA</div>
+        <div style="font-size:11px;color:#8A8880;line-height:1.5">Momentum stocks · Options 30+ DTE A-grade · Extended hours · More aggressive</div>
       </div>
-      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Public.com Brokerage</div>
-        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Options ONLY — no shares</div>
+      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Public.com Brokerage</div>
+        <div style="font-size:11px;color:#8A8880;line-height:1.5">Options ONLY — no shares</div>
       </div>
-      <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px">Public.com Roth IRA</div>
-        <div style="font-size:11px;color:#8a96a8;line-height:1.5">Momentum stocks ONLY — no options</div>
+      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Public.com Roth IRA</div>
+        <div style="font-size:11px;color:#8A8880;line-height:1.5">Momentum stocks ONLY — no options</div>
       </div>
     </div>
   </div>
@@ -1198,137 +1156,137 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:16px 0}
     <div class="section-badge" style="margin-bottom:10px">The Four Signals — In Order of Authority</div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">1</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">VRVP</div><div style="font-size:12px;color:#8a96a8">Defines where price moves fast (LVN) or slow (HVN) — always read this first</div></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">1</div>
+        <div><div style="font-size:13px;font-weight:500;color:#141414">VRVP</div><div style="font-size:12px;color:#8A8880">Defines where price moves fast (LVN) or slow (HVN) — always read this first</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">2</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">TD Sequential</div><div style="font-size:12px;color:#8a96a8">Defines when a move starts or ends — counts 1–5 enter, counts 6–9 do not enter</div></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">2</div>
+        <div><div style="font-size:13px;font-weight:500;color:#141414">TD Sequential</div><div style="font-size:12px;color:#8A8880">Defines when a move starts or ends — counts 1–5 enter, counts 6–9 do not enter</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">3</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">TraderXO 12/25 EMA</div><div style="font-size:12px;color:#8a96a8">Triggers entry direction — above 25 EMA = full conviction, below 25 EMA = half size</div></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">3</div>
+        <div><div style="font-size:13px;font-weight:500;color:#141414">TraderXO 12/25 EMA</div><div style="font-size:12px;color:#8A8880">Triggers entry direction — above 25 EMA = full conviction, below 25 EMA = half size</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:26px;height:26px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">4</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">RSI 14</div><div style="font-size:12px;color:#8a96a8">Confirms momentum — above 72 = hard veto, below 40 on bull signal = adds conviction</div></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">4</div>
+        <div><div style="font-size:13px;font-weight:500;color:#141414">RSI 14</div><div style="font-size:12px;color:#8A8880">Confirms momentum — above 72 = hard veto, below 40 on bull signal = adds conviction</div></div>
       </div>
     </div>
-    <div style="margin-top:12px;padding:10px 12px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:12px;color:#93c5fd;font-weight:600;text-align:center">3 of 4 must agree to trade &nbsp;·&nbsp; All 4 = A-grade &nbsp;·&nbsp; Fewer than 3 = no trade</div>
+    <div style="margin-top:12px;padding:10px 12px;background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:6px;font-size:11px;color:#5B97B2;font-weight:500;text-align:center;letter-spacing:.04em">3 of 4 must agree to trade &nbsp;·&nbsp; All 4 = A-grade &nbsp;·&nbsp; Fewer than 3 = no trade</div>
   </div>
 
   <!-- Laws 1–15 -->
   <div class="trade-card" style="padding:0;margin-bottom:8px;overflow:hidden">
-    <div style="padding:14px 16px 10px;border-bottom:1px solid rgba(255,255,255,.05)">
+    <div style="padding:12px 16px 10px;border-bottom:0.5px solid #D8D4CC">
       <div class="section-badge">Laws 1 – 15</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 1 — Timeframe Discipline</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">The timeframe you identify the setup on is the timeframe you manage the trade on. A 3D setup is never managed like a day trade. A 5M setup is never held overnight.</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">No exceptions.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 1 — Timeframe Discipline</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">The timeframe you identify the setup on is the timeframe you manage the trade on. A 3D setup is never managed like a day trade. A 5M setup is never held overnight.</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">No exceptions.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 2 — VRVP Placement</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Is price in a LVN (fast move) or HVN (chop)? Where is the nearest HVN target? Is R:R at least 1.5? POC is the strongest magnet — price gravitates here from both directions.</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">If you cannot answer all three questions, there is no trade.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 2 — VRVP Placement</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Is price in a LVN (fast move) or HVN (chop)? Where is the nearest HVN target? Is R:R at least 1.5? POC is the strongest magnet — price gravitates here from both directions.</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">If you cannot answer all three questions, there is no trade.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 3 — TD Sequential</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Count 1–4 = enter full size &nbsp;·&nbsp; Count 5 = enter half size &nbsp;·&nbsp; Count 6–8 = do not enter &nbsp;·&nbsp; Count 9 = exhaustion, reversal setups only</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Never enter a new position in the direction of a count 6, 7, 8, or 9.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 3 — TD Sequential</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Count 1–4 = enter full size &nbsp;·&nbsp; Count 5 = enter half size &nbsp;·&nbsp; Count 6–8 = do not enter &nbsp;·&nbsp; Count 9 = exhaustion, reversal setups only</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Never enter a new position in the direction of a count 6, 7, 8, or 9.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 4 — TraderXO Signal Rules</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Bull + above 25 EMA = valid long, full conviction &nbsp;·&nbsp; Bull + below 25 EMA = half size &nbsp;·&nbsp; Signal from 20 band = highest quality oversold entry &nbsp;·&nbsp; Signal from 50 band = valid, lower conviction &nbsp;·&nbsp; Signal near 80 band = do not enter</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 4 — TraderXO Signal Rules</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Bull + above 25 EMA = valid long, full conviction &nbsp;·&nbsp; Bull + below 25 EMA = half size &nbsp;·&nbsp; Signal from 20 band = highest quality oversold entry &nbsp;·&nbsp; Signal from 50 band = valid, lower conviction &nbsp;·&nbsp; Signal near 80 band = do not enter</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 5 — RSI Rules</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Below 40 on Bull signal = oversold, adds conviction &nbsp;·&nbsp; 40–65 = valid entry zone &nbsp;·&nbsp; Above 72 = hard veto, no long entries regardless of other signals &nbsp;·&nbsp; RSI diverging from price = exit longs immediately</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 5 — RSI Rules</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Below 40 on Bull signal = oversold, adds conviction &nbsp;·&nbsp; 40–65 = valid entry zone &nbsp;·&nbsp; Above 72 = hard veto, no long entries regardless of other signals &nbsp;·&nbsp; RSI diverging from price = exit longs immediately</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 6 — Position Sizing by Grade</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">A-grade (all 4 signals) = full size &nbsp;·&nbsp; B-grade (3 of 4) = half size &nbsp;·&nbsp; C-grade (2 of 4) = paper trade only</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Roth 401K hard ceiling: $15,000 max cost basis per position. No exceptions.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 6 — Position Sizing by Grade</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">A-grade (all 4 signals) = full size &nbsp;·&nbsp; B-grade (3 of 4) = half size &nbsp;·&nbsp; C-grade (2 of 4) = paper trade only</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Roth 401K hard ceiling: $15,000 max cost basis per position. No exceptions.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 7 — Stop Loss</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Set at entry immediately &nbsp;·&nbsp; Never widened once set &nbsp;·&nbsp; Only trail tighter as price moves in your favor &nbsp;·&nbsp; Position moves against thesis: hold to stop or exit — adding is never permitted</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 7 — Stop Loss</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Set at entry immediately &nbsp;·&nbsp; Never widened once set &nbsp;·&nbsp; Only trail tighter as price moves in your favor &nbsp;·&nbsp; Position moves against thesis: hold to stop or exit — adding is never permitted</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 8 — Daily Limits</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Max 2 trades per session on the daily tier &nbsp;·&nbsp; Max 3 active positions across all tiers &nbsp;·&nbsp; 2 losses in one session = done for the day</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">No exceptions.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 8 — Daily Limits</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Max 2 trades per session on the daily tier &nbsp;·&nbsp; Max 3 active positions across all tiers &nbsp;·&nbsp; 2 losses in one session = done for the day</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">No exceptions.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 9 — Market Context</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Never take a bullish trade on an individual stock when SPY is in a confirmed downtrend on the same timeframe as your setup.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 9 — Market Context</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Never take a bullish trade on an individual stock when SPY is in a confirmed downtrend on the same timeframe as your setup.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 10 — Pre-Trade Journal Gate</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">No journal entry, no trade. Answer all 6 before touching the order screen: tier &nbsp;·&nbsp; signals &nbsp;·&nbsp; VRVP placement &nbsp;·&nbsp; entry/stop/target &nbsp;·&nbsp; R:R (1.5 min) &nbsp;·&nbsp; invalidation trigger</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">The completed journal entry IS the win. A no-trade day with a completed review is a winning day.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 10 — Pre-Trade Journal Gate</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">No journal entry, no trade. Answer all 6 before touching the order screen: tier &nbsp;·&nbsp; signals &nbsp;·&nbsp; VRVP placement &nbsp;·&nbsp; entry/stop/target &nbsp;·&nbsp; R:R (1.5 min) &nbsp;·&nbsp; invalidation trigger</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">The completed journal entry IS the win. A no-trade day with a completed review is a winning day.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 11 — TradingView Alerts</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Alerts notify you to look, never to buy. Alert fires → open chart on correct timeframe → run all four signals → open journal → complete all six questions → then and only then consider entry.</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Never place a trade the moment an alert fires on mobile.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 11 — TradingView Alerts</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Alerts notify you to look, never to buy. Alert fires → open chart on correct timeframe → run all four signals → open journal → complete all six questions → then and only then consider entry.</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Never place a trade the moment an alert fires on mobile.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 12 — Account-Specific Rules</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">401K: shares and ETFs only, regular hours 9:30–4PM EST, no averaging down, hold duration stated in journal before entry, swing trades max 10 days. IBKR IRA: options 30+ DTE A-grade, ETF options 15+ DTE B-grade, extended hours with limit orders only.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 12 — Account-Specific Rules</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">401K: shares and ETFs only, regular hours 9:30–4PM EST, no averaging down, hold duration stated in journal before entry, swing trades max 10 days. IBKR IRA: options 30+ DTE A-grade, ETF options 15+ DTE B-grade, extended hours with limit orders only.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 13 — Execution Device</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">All trade executions on laptop only. No mobile. No iPad. A trade idea from a mobile session must be re-evaluated cold on laptop before any order is placed.</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">Lower friction devices produce impulsive entries — this is a structural rule, not a preference.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 13 — Execution Device</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">All trade executions on laptop only. No mobile. No iPad. A trade idea from a mobile session must be re-evaluated cold on laptop before any order is placed.</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Lower friction devices produce impulsive entries — this is a structural rule, not a preference.</div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04)">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 14 — Chart Pattern Recognition</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Identify named candlestick patterns, chart patterns, and supply/demand zones on every chart. Candlestick: Hammer, Engulfing, Doji variants, Morning/Evening Star, Kicker, Three White Soldiers/Black Crows. Chart: Flag, Cup and Handle, Double Top/Bottom, Head and Shoulders, Triangles, Wedges. S/D zones: Rally-Base-Drop, Drop-Base-Rally, Rally-Base-Rally, Drop-Base-Drop.</div>
-      <div style="font-size:11px;color:#8a96a8;margin-top:4px;font-style:italic">If no named pattern is detected, call that out explicitly. Never leave pattern status ambiguous.</div>
+    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 14 — Chart Pattern Recognition</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Identify named candlestick patterns, chart patterns, and supply/demand zones on every chart. Candlestick: Hammer, Engulfing, Doji variants, Morning/Evening Star, Kicker, Three White Soldiers/Black Crows. Chart: Flag, Cup and Handle, Double Top/Bottom, Head and Shoulders, Triangles, Wedges. S/D zones: Rally-Base-Drop, Drop-Base-Rally, Rally-Base-Rally, Drop-Base-Drop.</div>
+      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">If no named pattern is detected, call that out explicitly. Never leave pattern status ambiguous.</div>
     </div>
 
     <div style="padding:12px 16px">
-      <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:4px">Law 15 — Extended Hours Awareness</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.6">Pre-market (4AM–9:30AM) and after-hours (4PM–8PM) moves of 20–30% happen on thin volume and can gap past any stop. Never hold a leveraged position into a known earnings event. Use Bullflow as early warning. 401K = regular hours only. IBKR IRA = limit orders only in extended hours.</div>
+      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 15 — Extended Hours Awareness</div>
+      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Pre-market (4AM–9:30AM) and after-hours (4PM–8PM) moves of 20–30% happen on thin volume and can gap past any stop. Never hold a leveraged position into a known earnings event. Use Bullflow as early warning. 401K = regular hours only. IBKR IRA = limit orders only in extended hours.</div>
     </div>
   </div>
 
   <!-- Veto List -->
-  <div style="background:rgba(255,69,58,.05);border:1px solid rgba(255,69,58,.18);border-radius:12px;padding:14px 16px;margin-bottom:8px">
-    <div style="font-size:11px;font-weight:700;color:#ff453a;margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase">Veto List — Any One Cancels the Trade</div>
+  <div style="background:#F5EAEA;border:0.5px solid #D9B7B7;border-radius:12px;padding:14px 16px;margin-bottom:8px">
+    <div style="font-size:10px;font-weight:500;color:#8B2E2E;margin-bottom:8px;letter-spacing:.10em;text-transform:uppercase">Veto List — Any One Cancels the Trade</div>
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>RSI above 72 for a long entry</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>TD Sequential count 6, 7, 8, or 9 in your trade direction</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>TraderXO signal firing near the 80 band</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Price inside a HVN with no clear runway to target</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>SPY in a confirmed downtrend on your setup timeframe</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Journal entry not completed</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>2 losses already taken today</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Leveraged ETF in the Roth 401K — permanent ban</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Position sizing above $15,000 in the Roth 401K</div>
-      <div style="font-size:13px;color:rgba(255,150,140,.85);display:flex;gap:10px"><span style="color:#ff453a;flex-shrink:0;font-weight:700">✕</span>Execution attempted on mobile or iPad</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>RSI above 72 for a long entry</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>TD Sequential count 6, 7, 8, or 9 in your trade direction</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>TraderXO signal firing near the 80 band</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Price inside a HVN with no clear runway to target</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>SPY in a confirmed downtrend on your setup timeframe</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Journal entry not completed</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>2 losses already taken today</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Leveraged ETF in the Roth 401K — permanent ban</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Position sizing above $15,000 in the Roth 401K</div>
+      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Execution attempted on mobile or iPad</div>
     </div>
   </div>
 
   <!-- The One Rule -->
-  <div style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:12px;padding:18px 16px;text-align:center;margin-bottom:8px">
-    <div style="font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;margin-bottom:6px">The One Rule</div>
-    <div style="font-size:14px;color:#93c5fd;font-style:italic;line-height:1.5">No confluence. No journal. No trade.<br>When in doubt, the answer is no.</div>
+  <div style="background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:var(--r);padding:16px;text-align:center;margin-bottom:8px">
+    <div style="font-size:14px;font-weight:500;color:#141414;letter-spacing:-.1px;margin-bottom:5px">The One Rule</div>
+    <div style="font-size:13px;color:#5B97B2;font-style:italic;line-height:1.55">No confluence. No journal. No trade.<br>When in doubt, the answer is no.</div>
   </div>
 </div>
 
@@ -1498,9 +1456,9 @@ function saveGoalInput() {
 
 function setGoalMode(mode) {
   goalMode = mode;
-  document.getElementById('goal-toggle-dollar').style.background = mode === 'dollar' ? 'var(--b400)' : 'transparent';
+  document.getElementById('goal-toggle-dollar').style.background = mode === 'dollar' ? '#141414' : 'transparent';
   document.getElementById('goal-toggle-dollar').style.color      = mode === 'dollar' ? '#fff' : 'var(--t3)';
-  document.getElementById('goal-toggle-pct').style.background    = mode === 'pct'    ? 'var(--b400)' : 'transparent';
+  document.getElementById('goal-toggle-pct').style.background    = mode === 'pct'    ? '#141414' : 'transparent';
   document.getElementById('goal-toggle-pct').style.color         = mode === 'pct'    ? '#fff' : 'var(--t3)';
   renderGoal();
 }
@@ -1545,10 +1503,10 @@ function renderGoal(monthPnl) {
   const pct = Math.min(100, Math.round(progress * 100));
   setTimeout(() => { bar.style.width = pct + '%'; }, 80);
   bar.style.background = pct >= 100
-    ? 'var(--b300)'  // gold when complete
+    ? '#A8CAD9'  // gold when complete
     : pnl < 0
-      ? 'var(--loss)' // red when negative
-      : 'var(--gain)'; // green when progressing
+      ? '#D9B7B7' // red when negative
+      : '#B7D9C5'; // green when progressing
 
   // Progress text
   const remaining = goal - Math.max(0, pnl);
@@ -1661,7 +1619,7 @@ function calcRisk() {
     s4val.textContent = a > 0
       ? '$' + a.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})
       : 'Not set — tap Edit Balance on Portfolio';
-    s4val.style.color = a > 0 ? 'var(--b300)' : 'var(--warn)';
+    s4val.style.color = a > 0 ? '#A8CAD9' : 'var(--warn)';
   }
 
   if (a > 0 && r > 0) {
@@ -2029,8 +1987,8 @@ function buildTradeCard(t, isOpen) {
     <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
   </div>` : `<div class="drawer-actions">
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#272b31;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid var(--danger-bd);background:var(--danger-dim);color:var(--danger);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();deleteTrade(${t.id})">✕ Delete</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #D8D4CC;background:#E5E1D8;color:#4A4A48;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #D9B7B7;background:#F5EAEA;color:#8B2E2E;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();deleteTrade(${t.id})">✕ Delete</button>
   </div>`;
 
   return `<div class="trade-card" data-trade-id="${t.id}">
@@ -2104,7 +2062,7 @@ function renderLog() {
       pnlInline.style.display = 'inline-block';
       pnlLabel.style.display  = 'inline';
       pnlInline.textContent   = fmtM(totalPnl);
-      pnlInline.style.color   = totalPnl > 0 ? '#a7f3d0' : '#fca5a5';
+      pnlInline.style.color   = totalPnl > 0 ? '#2D6A4F' : '#8B2E2E';
     } else {
       pnlInline.style.display = 'none';
       pnlLabel.style.display  = 'none';
@@ -2165,18 +2123,18 @@ function renderChart() {
   });
   const data=chartMode==='dollar'?dollarData:pctData;
   const isPos=data[data.length-1]>=0;
-  const lc=isPos?'#00c2ff':'#7ca5c8';
-  const fc=isPos?'rgba(0,194,255,.08)':'rgba(124,165,200,.08)';
+  const lc=isPos?'#2D6A4F':'#8B2E2E';
+  const fc=isPos?'rgba(45,106,79,.07)':'rgba(139,46,46,.07)';
   if (pnlChartInstance) pnlChartInstance.destroy();
   pnlChartInstance=new Chart(canvas.getContext('2d'),{
     type:'line',
     data:{labels,datasets:[{data,borderColor:lc,backgroundColor:fc,borderWidth:2,pointRadius:data.length>20?0:4,pointHoverRadius:6,pointBackgroundColor:lc,fill:true,tension:.3}]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:400},
-      plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(30,10,60,.9)',titleColor:'#c4b5fd',bodyColor:'#fff',borderColor:'rgba(124,58,237,.3)',borderWidth:1,padding:10,
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#141414',titleColor:'#F7F5F0',bodyColor:'#EFECE5',borderWidth:0,padding:10,
         callbacks:{label:ctx=>{const v=ctx.raw;return chartMode==='dollar'?` ${v>=0?'+':''}$${Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2})}`:` ${v>=0?'+':''}${v.toFixed(2)}%`;}}}},
       scales:{
-        x:{grid:{color:'rgba(59,130,246,.05)'},ticks:{color:'#3a3a3c',font:{size:10},maxTicksLimit:8}},
-        y:{grid:{color:'rgba(59,130,246,.06)'},ticks:{color:'#3a3a3c',font:{size:10},callback:v=>chartMode==='dollar'?`$${v>=0?'':'-'}${Math.abs(v).toLocaleString()}`:`${v}%`}}
+        x:{grid:{color:'rgba(20,20,20,.04)'},ticks:{color:'#8A8880',font:{size:10},maxTicksLimit:8}},
+        y:{grid:{color:'rgba(20,20,20,.04)'},ticks:{color:'#8A8880',font:{size:10},callback:v=>chartMode==='dollar'?`$${v>=0?'':'-'}${Math.abs(v).toLocaleString()}`:`${v}%`}}
       }}
   });
   renderDrawdown(closed);
@@ -2209,12 +2167,12 @@ function renderDrawdown(closed) {
   if (ddChartInstance) ddChartInstance.destroy();
   ddChartInstance = new Chart(canvas.getContext('2d'),{
     type:'line',
-    data:{labels,datasets:[{data:ddData,borderColor:'#7ca5c8',backgroundColor:'rgba(124,165,200,.10)',borderWidth:1.5,pointRadius:0,fill:true,tension:.2}]},
+    data:{labels,datasets:[{data:ddData,borderColor:'#8B2E2E',backgroundColor:'rgba(139,46,46,.06)',borderWidth:1.5,pointRadius:0,fill:true,tension:.2}]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:300},
       plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(30,10,60,.9)',titleColor:'#fca5a5',bodyColor:'#fff',callbacks:{label:ctx=>` ${ctx.raw.toFixed(2)}%`}}},
       scales:{
         x:{display:false},
-        y:{grid:{color:'rgba(220,38,38,.08)'},ticks:{color:'#7ca5c8',font:{size:9},callback:v=>`${v}%`},max:0}
+        y:{grid:{color:'rgba(220,38,38,.08)'},ticks:{color:'#8A8880',font:{size:9},callback:v=>`${v}%`},max:0}
       }}
   });
 }
@@ -2281,17 +2239,17 @@ function openCalPopup(key,dayNum) {
     const pS=pN!==null?fmtM(pN):'';
     return `<div class="cal-trade-item">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div><div style="font-size:15px;font-weight:700;color:#fff">${t.ticker}</div>
+        <div><div style="font-size:14px;font-weight:500;color:#141414">${t.ticker}</div>
         <div style="font-size:12px;color:var(--text2);margin-top:2px">${t.structure||'—'} · ${t.direction||'—'}</div>
         <div style="font-size:12px;color:var(--text2)">${t.status==='closed'?'Closed':'Opened'}: ${fmtD(t.status==='closed'?(t.exitDate||t.entryDate):t.entryDate)}</div></div>
         <div style="text-align:right">${t.status==='open'
-          ?`<span style="font-size:11px;color:var(--b300);font-weight:700;background:rgba(59,130,246,.10);padding:2px 8px;border-radius:6px">OPEN</span>`
+          ?`<span style="font-size:11px;color:#5B97B2;font-weight:500;background:#D6E8F0;padding:2px 8px;border-radius:4px;border:0.5px solid #A8CAD9">OPEN</span>`
           :`<span style="font-size:13px;font-weight:700;color:${pN>=0?'var(--success)':'var(--danger)'}">${pS}</span>`}
         </div>
       </div>
       ${t.exitOutcome?`<div style="font-size:12px;color:var(--text2);margin-top:6px">Outcome: ${t.exitOutcome}</div>`:''}
-      ${t.lesson?`<div style="font-size:12px;color:var(--b200);margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
-      ${t.thesis?`<div style="font-size:11px;color:var(--text3);margin-top:4px;border-left:2px solid rgba(59,130,246,.25);padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
+      ${t.lesson?`<div style="font-size:12px;color:#5B97B2;margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
+      ${t.thesis?`<div style="font-size:11px;color:var(--text3);margin-top:4px;border-left:2px solid #D8D4CC;padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
     </div>`;
   }).join('') || '<div style="color:var(--text3);font-size:13px">No trades this day.</div>';
   document.getElementById('cal-overlay').classList.add('show');
@@ -2473,12 +2431,12 @@ function deleteTrade(tradeId) {
     if (existing) { existing.remove(); return; }
     const row = document.createElement('div');
     row.className = 'delete-confirm-row';
-    row.style.cssText = 'padding:10px 16px;background:var(--danger-dim);border-top:1px solid var(--danger-bd);display:flex;align-items:center;justify-content:space-between;gap:10px';
+    row.style.cssText = 'padding:10px 16px;background:#F5EAEA;border-top:0.5px solid #D9B7B7;display:flex;align-items:center;justify-content:space-between;gap:10px';
     row.innerHTML = `
       <span style="font-size:13px;color:var(--danger);font-weight:600">Delete ${t.ticker}? This cannot be undone.</span>
       <div style="display:flex;gap:8px;flex-shrink:0">
-        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:8px;border:none;background:var(--danger);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">Delete</button>
-        <button onclick="this.closest('.delete-confirm-row').remove()" style="padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#272b31;color:var(--t2);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">Cancel</button>
+        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:6px;border:none;background:#8B2E2E;color:#F7F5F0;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font)">Delete</button>
+        <button onclick="this.closest('.delete-confirm-row').remove()" style="padding:6px 14px;border-radius:6px;border:0.5px solid #D8D4CC;background:#E5E1D8;color:#8A8880;font-size:12px;font-weight:400;cursor:pointer;font-family:var(--font)">Cancel</button>
       </div>`;
     card.appendChild(row);
   }
@@ -2596,7 +2554,7 @@ function renderPat() {
 
   const pieLabels = ['Calm/Confident','Revenge','FOMO','Frustrated','Impatient','Bored'];
   const pieData   = [calmCt, revenge, fomo, frustrated, impatient, bored];
-  const pieColors = ['#00c2ff','#ff453a','#f59e0b','#3b82f6','#60a5fa','#4b5563'];
+  const pieColors = ['#2D6A4F','#8B2E2E','#7A5C1E','#5B97B2','#8A8880','#B0B4B8'];
   const pieTotal  = pieData.reduce((s,v)=>s+v,0);
 
   const canvas = document.getElementById('flagChart');
@@ -2612,7 +2570,7 @@ function renderPat() {
       type: 'doughnut',
       data: {
         labels: pieLabels,
-        datasets: [{ data: pieData, backgroundColor: pieColors, borderWidth: 2, borderColor: '#000000' }]
+        datasets: [{ data: pieData, backgroundColor: pieColors, borderWidth: 2, borderColor: '#F7F5F0' }]
       },
       options: {
         responsive: true, maintainAspectRatio: false, cutout: '62%',
@@ -2731,17 +2689,13 @@ function renderDailyLimit() {
   el.textContent = lim;
   if (bar) {
     bar.style.width = pct + '%';
-    bar.style.background = count >= lim
-      ? 'var(--danger)'
-      : count >= lim - 1
-        ? 'var(--warn)'
-        : 'var(--success)';
+    bar.style.background = count >= lim ? '#8B2E2E' : count >= lim - 1 ? '#7A5C1E' : '#2D6A4F';
   }
   if (status) {
     if (count === 0)      status.textContent = `No trades logged today`;
     else if (count < lim) status.textContent = `${count} of ${lim} trades used today — ${lim - count} remaining`;
     else                  status.textContent = `🚨 Daily limit reached (${count}/${lim}) — step away`;
-    status.style.color = count >= lim ? 'var(--danger)' : count >= lim - 1 ? 'var(--warn)' : 'var(--text2)';
+    status.style.color = count >= lim ? '#8B2E2E' : count >= lim - 1 ? '#7A5C1E' : '#8A8880';
   }
 }
 
