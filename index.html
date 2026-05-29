@@ -116,7 +116,8 @@ body{
 }
 .nb.on{color:#141414;background:#D6E8F0;border-left-color:#A8CAD9}
 .nb:hover:not(.on){background:#E5E1D8;color:#4A4A48}
-.nb-icon{font-size:22px;line-height:1}
+.nb-icon{font-size:22px;line-height:1;font-variant-numeric:tabular-nums}
+.nb-icon.dollar{font-size:24px;font-weight:300;letter-spacing:-.5px}
 .nb-lbl{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:center}
 
 /* ── Layout ── */
@@ -639,10 +640,10 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
         <!-- Progress bar -->
         <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:0.5px solid #D8D4CC">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5)">Monthly Progress</div>
-            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.8)" id="goal-pct-label"></div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8A8880">Monthly Progress</div>
+            <div style="font-size:11px;font-weight:500;color:#141414" id="goal-pct-label"></div>
           </div>
-          <div style="height:6px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden">
+          <div style="height:4px;background:#E5E1D8;border-radius:2px;overflow:hidden">
             <div id="goal-bar" style="height:100%;border-radius:3px;background:linear-gradient(90deg,#a7f3d0,#34d399);width:0%;transition:width .8s cubic-bezier(.4,0,.2,1)"></div>
           </div>
         </div>
@@ -814,10 +815,10 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
   <!-- Step 3: Confluence score display + thesis -->
   <div id="es3" style="display:none">
     <div class="conf-card">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px">Confluence Score</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A8880;margin-bottom:7px">Confluence Score</div>
       <div class="conf-num"><span id="cs" style="color:#fca5a5">0</span><span class="conf-denom"> / 3</span></div>
       <div class="conf-lbl" id="cl">No signals recorded</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:8px" id="conf-breakdown"></div>
+      <div style="font-size:11px;color:#8A8880;margin-top:8px" id="conf-breakdown"></div>
     </div>
     <div class="fg"><label class="fl">Thesis — one specific condition</label>
       <textarea id="e-thesis" placeholder="e.g. 'TD 9 exhaustion + RSI 28 at $43 support — mean reversion to $52'"></textarea>
@@ -1144,13 +1145,13 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 
 <!-- ═══ LAWS ═══ -->
 <div id="view-laws" class="view" style="overflow:hidden;width:100%;box-sizing:border-box">
-  <div class="pg-title">Trading Laws</div>
-  <div class="pg-sub">Tap any card to reveal the rule.</div>
+  <div class="pg-title" style="text-align:center">Trading Laws</div>
+  <div class="pg-sub" style="text-align:center">Tap any card to reveal the rule.</div>
 
   <!-- Flip card CSS injected here -->
   <style>
-  .law-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;width:100%;box-sizing:border-box}
-  .law-card{height:110px;cursor:pointer;perspective:600px;-webkit-tap-highlight-color:transparent}
+  .law-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px;width:100%;box-sizing:border-box;overflow:hidden}
+  .law-card{height:110px;cursor:pointer;perspective:600px;-webkit-tap-highlight-color:transparent;min-width:0;overflow:hidden}
   .law-card-inner{
     position:relative;width:100%;height:100%;
     transform-style:preserve-3d;
@@ -1341,7 +1342,7 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 
 <div class="bnav">
   <button class="nb" id="nav-laws" onclick="sv('laws')"><span class="nb-icon">⚖</span><span class="nb-lbl">Laws</span></button>
-  <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon">📈</span><span class="nb-lbl">Portfolio</span></button>
+  <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon dollar">$</span><span class="nb-lbl">Portfolio</span></button>
   <button class="nb" id="nav-entry" onclick="sv('entry')"><span class="nb-icon">＋</span><span class="nb-lbl">Entry</span></button>
   <button class="nb" id="nav-exit" onclick="sv('exit')"><span class="nb-icon">✓</span><span class="nb-lbl">Exit</span></button>
   <button class="nb" id="nav-patterns" onclick="sv('patterns')"><span class="nb-icon">◎</span><span class="nb-lbl">Patterns</span></button>
