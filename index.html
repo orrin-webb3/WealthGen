@@ -71,22 +71,24 @@ body{
   -moz-osx-font-smoothing:grayscale;
   color-scheme:light;
   overflow-x:hidden;
+  padding-left:72px;
+  box-sizing:border-box;
 }
 
 /* ── Topbar ── */
 .topbar{
-  position:sticky;top:0;z-index:200;
+  position:sticky;top:0;z-index:198;
   height:48px;
   background:#EFECE5;
   border-bottom:0.5px solid #D8D4CC;
   display:flex;align-items:center;
-  padding:0 20px;gap:10px;
+  padding:0 20px;
 }
 .logo-mark{
   width:28px;height:28px;border-radius:6px;
-  background:#141414;
+  background:#D6E8F0;
   display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:500;color:#F7F5F0;
+  font-size:12px;font-weight:500;color:#141414;
   letter-spacing:-.3px;
 }
 .logo-name{font-size:15px;font-weight:500;letter-spacing:-.3px;color:#141414}
@@ -95,29 +97,30 @@ body{
 .clock-time{font-size:12px;font-weight:500;color:#141414;font-variant-numeric:tabular-nums}
 .clock-date{font-size:10px;color:#8A8880;margin-top:1px}
 
-/* ── Bottom nav ── */
+/* ── Side nav ── */
 .bnav{
-  position:fixed;bottom:0;left:0;right:0;z-index:200;
-  height:56px;
+  position:fixed;top:0;left:0;bottom:0;z-index:199;
+  width:72px;
   background:#EFECE5;
-  border-top:0.5px solid #D8D4CC;
-  display:flex;justify-content:space-around;align-items:center;
-  padding-bottom:env(safe-area-inset-bottom,0);
+  border-right:0.5px solid #D8D4CC;
+  display:flex;flex-direction:column;align-items:center;
+  padding:64px 0 24px;gap:4px;
 }
 .nb{
-  display:flex;flex-direction:column;align-items:center;gap:3px;
+  display:flex;flex-direction:column;align-items:center;gap:5px;
   cursor:pointer;border:none;background:none;
-  color:#8A8880;padding:6px 14px;
-  transition:color .12s;-webkit-tap-highlight-color:transparent;
-  border-top:2px solid transparent;
-  margin-top:-2px;
+  color:#8A8880;
+  width:56px;padding:10px 6px;border-radius:8px;
+  transition:all .12s;-webkit-tap-highlight-color:transparent;
+  border-left:2px solid transparent;
 }
-.nb.on{color:#141414;border-top-color:#A8CAD9}
-.nb-icon{font-size:18px;line-height:1}
-.nb-lbl{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.nb.on{color:#141414;background:#D6E8F0;border-left-color:#A8CAD9}
+.nb:hover:not(.on){background:#E5E1D8;color:#4A4A48}
+.nb-icon{font-size:22px;line-height:1}
+.nb-lbl{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:center}
 
 /* ── Layout ── */
-.app{max-width:1200px;margin:0 auto;padding:16px 16px 72px}
+.app{padding:16px 20px 24px;box-sizing:border-box}
 .view{display:none;animation:fadeUp .18s ease}.view.on{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .port-layout{display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start}
@@ -181,7 +184,7 @@ body{
 .t-pnl{font-size:13px;font-weight:500}
 .t-pnl.pos{color:#2D6A4F}
 .t-pnl.neg{color:#8B2E2E}
-.t-pnl.open{color:#5B97B2}
+.t-pnl.open{color:#3A7A96}
 .t-detail{font-size:11px;color:#8A8880;margin-top:2px}
 .t-chevron{font-size:10px;color:#B0B4B8;margin-top:4px;transition:transform .18s}
 .t-chevron.open{transform:rotate(180deg)}
@@ -200,7 +203,7 @@ body{
 .drawer-label{font-size:10px;font-weight:500;letter-spacing:.10em;text-transform:uppercase;color:#8A8880;margin-bottom:3px}
 .drawer-value{font-size:13px;color:#4A4A48;line-height:1.5}
 .drawer-thesis{border-left:2px solid #D8D4CC;padding-left:10px;font-size:13px;color:#4A4A48;line-height:1.5}
-.drawer-lesson{border-left:2px solid #A8CAD9;padding-left:10px;font-size:13px;color:#5B97B2;line-height:1.5;font-style:italic}
+.drawer-lesson{border-left:2px solid #A8CAD9;padding-left:10px;font-size:13px;color:#3A7A96;line-height:1.5;font-style:italic}
 .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
 .drawer-stat{background:#EFECE5;border-radius:var(--rs);padding:9px 11px;border:0.5px solid #D8D4CC}
 .drawer-stat-val{font-size:14px;font-weight:500;color:#141414}
@@ -210,14 +213,14 @@ body{
 .tg{background:#EAF4EE;color:#2D6A4F;border:0.5px solid #B7D9C5}
 .tr{background:#F5EAEA;color:#8B2E2E;border:0.5px solid #D9B7B7}
 .ty{background:#F5F0E6;color:#7A5C1E;border:0.5px solid #D9C9A0}
-.tp{background:#D6E8F0;color:#5B97B2;border:0.5px solid #A8CAD9}
+.tp{background:#D6E8F0;color:#3A7A96;border:0.5px solid #A8CAD9}
 .drawer-actions{display:flex;gap:6px;margin-top:12px;padding-top:12px;border-top:0.5px solid #D8D4CC}
 .drawer-btn{
   flex:1;padding:8px 10px;border-radius:var(--rs);
   font-family:var(--font);font-size:12px;font-weight:500;
   cursor:pointer;transition:opacity .12s;letter-spacing:.02em;
 }
-.dba-add{background:#141414;color:#F7F5F0;border:none}
+.dba-add{background:#D6E8F0;color:#141414;border:0.5px solid #A8CAD9}
 .dba-reduce{background:transparent;color:#7A5C1E;border:0.5px solid #D9C9A0}
 .dba-close{background:transparent;color:#2D6A4F;border:0.5px solid #B7D9C5}
 
@@ -269,7 +272,7 @@ body{
   color:#8A8880;font-family:var(--font);
   border-radius:4px;transition:all .12s;letter-spacing:.04em;
 }
-.chart-toggle-btn.on{background:#141414;color:#F7F5F0}
+.chart-toggle-btn.on{background:#D6E8F0;color:#141414;border:0.5px solid #A8CAD9}
 .chart-wrap{position:relative;height:160px}
 canvas#pnlChart{width:100%!important;height:160px!important}
 .chart-empty{
@@ -305,7 +308,7 @@ canvas#pnlChart{width:100%!important;height:160px!important}
 .cal-day.has-trades{cursor:pointer}
 .cal-day.has-trades:hover{background:#E5E1D8}
 .cal-day-num{font-size:10px;font-weight:500;color:#8A8880;line-height:1}
-.cal-day.today .cal-day-num{color:#5B97B2;font-weight:500}
+.cal-day.today .cal-day-num{color:#3A7A96;font-weight:500}
 .cal-dot-row{display:flex;gap:2px;flex-wrap:wrap;margin-top:3px}
 .cal-dot{width:4px;height:4px;border-radius:50%}
 .cal-dot.win{background:#2D6A4F}
@@ -388,7 +391,7 @@ select option{background:#EFECE5;color:#141414}
 .pill.on{
   border-color:#A8CAD9;
   background:#D6E8F0;
-  color:#5B97B2;font-weight:500;
+  color:#3A7A96;font-weight:500;
 }
 .pill.on-r{border-color:#D9B7B7;background:#F5EAEA;color:#8B2E2E;font-weight:500}
 
@@ -397,13 +400,13 @@ select option{background:#EFECE5;color:#141414}
 input[type=range]{
   flex:1;-webkit-appearance:none;
   height:2px;border-radius:1px;outline:none;padding:0;border:none;
-  background:linear-gradient(to right,#141414 50%,#E5E1D8 50%);
+  background:linear-gradient(to right,#A8CAD9 50%,#E5E1D8 50%);
 }
 input[type=range]::-webkit-slider-thumb{
   -webkit-appearance:none;width:18px;height:18px;
-  border-radius:50%;background:#141414;
+  border-radius:50%;background:#A8CAD9;
   border:2px solid #F7F5F0;
-  box-shadow:0 0 0 1px #D8D4CC;
+  box-shadow:0 0 0 1px #A8CAD9;
   cursor:pointer;
 }
 .sv{font-size:16px;font-weight:500;color:#141414;min-width:24px;text-align:right}
@@ -417,7 +420,7 @@ input[type=range]::-webkit-slider-thumb{
   transition:opacity .12s,transform .08s;
   -webkit-tap-highlight-color:transparent;
 }
-.btn-p{background:#141414;color:#F7F5F0;border:none}
+.btn-p{background:#D6E8F0;color:#141414;border:0.5px solid #A8CAD9}
 .btn-p:hover{opacity:.88}.btn-p:active{transform:scale(.99)}
 .btn-s{
   background:transparent;color:#141414;
@@ -430,11 +433,11 @@ input[type=range]::-webkit-slider-thumb{
 
 /* ── Step nav ── */
 .prog{height:1px;background:#E5E1D8;border-radius:1px;overflow:hidden;margin-bottom:10px}
-.prog-f{height:100%;background:#141414;border-radius:1px;transition:width .3s cubic-bezier(.4,0,.2,1)}
+.prog-f{height:100%;background:#A8CAD9;border-radius:1px;transition:width .3s cubic-bezier(.4,0,.2,1)}
 .step-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .step-dots{display:flex;gap:6px}
 .dot{height:2px;width:28px;border-radius:1px;background:#E5E1D8;transition:background .2s;cursor:pointer}
-.dot.done{background:#141414}.dot.now{background:#8A8880}
+.dot.done{background:#A8CAD9}.dot.now{background:#D6E8F0}
 .back-btn{
   font-size:12px;font-weight:500;color:#8A8880;
   background:none;border:none;cursor:pointer;
@@ -509,8 +512,8 @@ input[type=range]::-webkit-slider-thumb{
   -webkit-tap-highlight-color:transparent;
 }
 .cb.done{
-  color:#5B97B2;
-  text-shadow:0 0 6px rgba(91,151,178,.55),0 0 14px rgba(91,151,178,.25);
+  color:#3A7A96;
+  text-shadow:0 0 6px rgba(168,202,217,.70),0 0 14px rgba(168,202,217,.35);
 }
 
 /* ── Misc ── */
@@ -525,8 +528,9 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 .toast{
   position:fixed;bottom:66px;left:50%;
   transform:translateX(-50%) translateY(10px);
-  background:#141414;
-  color:#F7F5F0;padding:9px 18px;border-radius:var(--rs);
+  background:#D6E8F0;
+  border:0.5px solid #A8CAD9;
+  color:#141414;padding:9px 18px;border-radius:var(--rs);
   font-size:12px;font-weight:500;
   opacity:0;transition:all .18s;
   z-index:999;pointer-events:none;white-space:nowrap;
@@ -550,6 +554,21 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 }
 
 @media(max-width:900px){.port-layout{grid-template-columns:1fr}.port-right{order:-1}}
+@media(max-width:640px){
+  body{padding-left:0}
+  .bnav{
+    top:auto;bottom:0;left:0;right:0;width:auto;height:56px;
+    flex-direction:row;padding:0 0 env(safe-area-inset-bottom,0);
+    border-right:none;border-top:0.5px solid #D8D4CC;
+    gap:0;
+  }
+  .nb{flex:1;border-radius:0;border-left:none;border-top:2px solid transparent;padding:6px 4px;width:auto}
+  .nb.on{border-left-color:transparent;border-top-color:#A8CAD9}
+  .nb-icon{font-size:18px}
+  .nb-lbl{font-size:9px}
+  .app{padding:16px 16px 72px}
+  .topbar{padding:0 16px}
+}
 @media(max-width:480px){.pg-title{font-size:16px}.hero-amt{font-size:26px}.sg3{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -599,23 +618,23 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
               <div class="hero-amt zero" id="goal-display" style="font-size:28px">—</div>
               <!-- $ / % toggle -->
               <div style="display:flex;border:0.5px solid #D8D4CC;border-radius:4px;overflow:hidden;flex-shrink:0">
-                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:#141414;color:#F7F5F0;font-family:var(--font)">$</button>
+                <button id="goal-toggle-dollar" onclick="setGoalMode('dollar')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:#D6E8F0;color:#141414;border:0.5px solid #A8CAD9;font-family:var(--font)">$</button>
                 <button id="goal-toggle-pct" onclick="setGoalMode('pct')" style="padding:2px 9px;font-size:10px;font-weight:700;cursor:pointer;border:none;background:transparent;color:#8A8880;font-family:var(--font)">%</button>
               </div>
             </div>
-            <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px" id="goal-progress-label">Set a monthly target</div>
+            <div style="font-size:11px;color:#4A4A48;margin-top:4px" id="goal-progress-label">Set a monthly target</div>
           </div>
         </div>
         <!-- Inline edit rows -->
         <div id="bal-edit-row" style="display:none;margin-top:10px;gap:8px;align-items:center">
           <input type="number" id="bal-input" placeholder="e.g. 11200" style="flex:1;background:#E5E1D8;border:0.5px solid #A8CAD9;border-radius:6px;padding:8px 12px;color:#141414;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveBalInput()">
-          <button onclick="saveBalInput()" style="background:#141414;border:none;border-radius:6px;color:#F7F5F0;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
-          <button onclick="toggleBalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
+          <button onclick="saveBalInput()" style="background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:6px;color:#141414;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleBalEdit()" style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:10px;color:#8A8880;font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <div id="goal-edit-row" style="display:none;margin-top:8px;gap:8px;align-items:center">
           <input type="number" id="goal-input" placeholder="e.g. 1500" style="flex:1;background:#E5E1D8;border:0.5px solid #A8CAD9;border-radius:6px;padding:8px 12px;color:#141414;font-family:var(--font);font-size:14px;font-weight:600;outline:none;width:auto" onkeydown="if(event.key==='Enter')saveGoalInput()">
-          <button onclick="saveGoalInput()" style="background:#141414;border:none;border-radius:6px;color:#F7F5F0;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
-          <button onclick="toggleGoalEdit()" style="background:#2c2c2e;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
+          <button onclick="saveGoalInput()" style="background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:6px;color:#141414;font-family:var(--font);font-size:13px;font-weight:700;padding:8px 14px;cursor:pointer;white-space:nowrap">Save</button>
+          <button onclick="toggleGoalEdit()" style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:10px;color:#8A8880;font-family:var(--font);font-size:13px;font-weight:600;padding:8px 10px;cursor:pointer">✕</button>
         </div>
         <!-- Progress bar -->
         <div id="goal-bar-wrap" style="display:none;margin-top:14px;padding-top:12px;border-top:0.5px solid #D8D4CC">
@@ -654,7 +673,7 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
       <div class="chart-card" style="margin-bottom:10px">
         <div class="chart-header">
           <div class="chart-title">Drawdown</div>
-          <div style="font-size:11px;color:var(--text3)" id="dd-max-label"></div>
+          <div style="font-size:11px;color:#B0B4B8" id="dd-max-label"></div>
         </div>
         <div style="position:relative;height:100px">
           <div class="chart-empty" id="dd-empty" style="height:80px">Close trades to see drawdown</div>
@@ -815,8 +834,8 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
       <label class="fl">Risk & Position Size</label>
       <div class="fh">Pulling from your account balance on the Portfolio page.</div>
       <div id="s4-acct-display" style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.20);border-radius:var(--rs);padding:10px 14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
-        <span style="font-size:13px;color:var(--text2)">Account Balance</span>
-        <span style="font-size:14px;font-weight:500;color:#5B97B2;font-family:var(--font)" id="s4-acct-val">—</span>
+        <span style="font-size:13px;color:#8A8880">Account Balance</span>
+        <span style="font-size:14px;font-weight:500;color:#141414;font-family:var(--font)" id="s4-acct-val">—</span>
       </div>
       <div class="g2" style="margin-bottom:8px">
         <div>
@@ -825,10 +844,10 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
         </div>
         <div>
           <div class="fh" style="margin-bottom:4px">% of Account</div>
-          <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:#242426;color:var(--b300);font-weight:700">
+          <input type="text" id="e-risk-pct" placeholder="auto" readonly style="background:#D6E8F0;color:#3A7A96;font-weight:500;border-color:#A8CAD9">
         </div>
       </div>
-      <div id="s4-pos-val" style="display:none;font-size:12px;color:var(--text2);padding:8px 12px;background:#E5E1D8;border-radius:6px;border:0.5px solid #D8D4CC;margin-bottom:4px"></div>
+      <div id="s4-pos-val" style="display:none;font-size:12px;color:#8A8880;padding:8px 12px;background:#E5E1D8;border-radius:6px;border:0.5px solid #D8D4CC;margin-bottom:4px"></div>
       <div id="risk-warn-extreme" class="alert al-y" style="display:none">📐 <strong>Scale-in signal:</strong> Over 10% of your account. Consider entering in increments — build the position as the thesis confirms.</div>
     </div>
     <div class="fg"><label class="fl">Emotional state — be honest</label>
@@ -878,7 +897,7 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
         <input type="text" id="exit-price" placeholder="Exit price $" oninput="calcExitPnl()">
         <input type="text" id="exit-pnl" placeholder="P&L e.g. +$320">
       </div>
-      <div id="pnl-calc" style="font-size:12px;color:var(--text2);margin-top:6px;display:none"></div>
+      <div id="pnl-calc" style="font-size:12px;color:#8A8880;margin-top:6px;display:none"></div>
     </div>
     <div class="fg"><label class="fl">One honest lesson</label><div class="fh">This is where your edge compounds</div>
       <textarea id="exit-lesson" placeholder="e.g. 'IV crush killed the premium — spread would have been better'"></textarea>
@@ -911,24 +930,24 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
     <div class="stat" style="text-align:center">
       <div class="sv2" id="st-pf">—</div>
       <div class="sl2">Profit Factor</div>
-      <div style="font-size:10px;color:var(--text3);margin-top:3px">wins÷losses</div>
+      <div style="font-size:10px;color:#B0B4B8;margin-top:3px">wins÷losses</div>
     </div>
     <div class="stat" style="text-align:center">
       <div class="sv2" id="st-exp">—</div>
       <div class="sl2">Expectancy</div>
-      <div style="font-size:10px;color:var(--text3);margin-top:3px">avg $ per trade</div>
+      <div style="font-size:10px;color:#B0B4B8;margin-top:3px">avg $ per trade</div>
     </div>
     <div class="stat" style="text-align:center">
       <div class="sv2" id="st-avgday">—</div>
       <div class="sl2">Avg Day</div>
-      <div style="font-size:10px;color:var(--text3);margin-top:3px">closed P&L/day</div>
+      <div style="font-size:10px;color:#B0B4B8;margin-top:3px">closed P&L/day</div>
     </div>
   </div>
 
   <!-- Row 3: streaks + day extremes -->
   <div class="sg sg2" style="margin-bottom:8px">
     <div class="stat" style="text-align:center">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Current Streak</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#B0B4B8;margin-bottom:6px">Current Streak</div>
       <div style="display:flex;align-items:center;justify-content:center;gap:10px">
         <div>
           <div class="sv2" id="st-streak">—</div>
@@ -936,15 +955,15 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
         </div>
         <div style="width:0.5px;height:32px;background:#D8D4CC"></div>
         <div>
-          <div style="font-size:11px;color:var(--text2)">Best: <span id="st-best-streak" style="font-weight:700;color:var(--success)">—</span> W</div>
-          <div style="font-size:11px;color:var(--text2);margin-top:2px">Worst: <span id="st-worst-streak" style="font-weight:700;color:var(--danger)">—</span> L</div>
+          <div style="font-size:11px;color:#8A8880">Best: <span id="st-best-streak" style="font-weight:700;color:#2D6A4F">—</span> W</div>
+          <div style="font-size:11px;color:#8A8880;margin-top:2px">Worst: <span id="st-worst-streak" style="font-weight:700;color:#8B2E2E">—</span> L</div>
         </div>
       </div>
     </div>
     <div class="stat" style="text-align:center">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Day Extremes</div>
-      <div style="font-size:12px;color:var(--text2)">Best: <span id="st-best-day" style="font-weight:700;color:var(--success)">—</span></div>
-      <div style="font-size:12px;color:var(--text2);margin-top:4px">Worst: <span id="st-worst-day" style="font-weight:700;color:var(--danger)">—</span></div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#B0B4B8;margin-bottom:6px">Day Extremes</div>
+      <div style="font-size:12px;color:#8A8880">Best: <span id="st-best-day" style="font-weight:700;color:#2D6A4F">—</span></div>
+      <div style="font-size:12px;color:#8A8880;margin-top:4px">Worst: <span id="st-worst-day" style="font-weight:700;color:#8B2E2E">—</span></div>
     </div>
   </div>
 
@@ -953,17 +972,17 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
   <div class="trade-card" style="padding:14px 16px;margin-bottom:8px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
       <div>
-        <div style="font-size:14px;font-weight:700;color:var(--text)">Max trades today</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:2px" id="daily-limit-status">—</div>
+        <div style="font-size:13px;font-weight:500;color:#141414">Max trades today</div>
+        <div style="font-size:12px;color:#8A8880;margin-top:2px" id="daily-limit-status">—</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px">
-        <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
-        <div style="font-size:22px;font-weight:800;color:#141414;min-width:28px;text-align:center;font-family:var(--font)" id="daily-limit-val">2</div>
-        <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
+        <button onclick="adjDailyLimit(-1)" style="width:28px;height:28px;border-radius:50%;border:0.5px solid #A8CAD9;background:#D6E8F0;color:#3A7A96;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+        <div style="font-size:22px;font-weight:500;color:#3A7A96;min-width:28px;text-align:center;font-family:var(--font)" id="daily-limit-val">2</div>
+        <button onclick="adjDailyLimit(1)" style="width:28px;height:28px;border-radius:50%;border:0.5px solid #A8CAD9;background:#D6E8F0;color:#3A7A96;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
       </div>
     </div>
-    <div style="height:5px;background:#2c2c2e;border-radius:3px;overflow:hidden">
-      <div id="daily-limit-bar" style="height:100%;border-radius:1px;background:var(--success);width:0%;transition:width .5s ease"></div>
+    <div style="height:3px;background:#E5E1D8;border-radius:2px;overflow:hidden">
+      <div id="daily-limit-bar" style="height:100%;border-radius:2px;background:#A8CAD9;width:0%;transition:width .5s ease"></div>
     </div>
   </div>
   <hr>
@@ -976,7 +995,7 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
       <div style="position:relative;height:160px"><canvas id="flagChart"></canvas></div>
       <div id="flag-legend" style="font-size:12px;line-height:2"></div>
     </div>
-    <div id="flag-empty" style="display:none;text-align:center;padding:24px;color:var(--text3);font-size:13px">Log trades to see behavioral breakdown</div>
+    <div id="flag-empty" style="display:none;text-align:center;padding:24px;color:#B0B4B8;font-size:13px">Log trades to see behavioral breakdown</div>
   </div>
   <hr>
   <div class="section-badge" style="margin-bottom:8px">Stocks vs Options</div>
@@ -984,12 +1003,12 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
     <div class="stat">
       <div class="sv2 pur" id="so-stocks-wr">—</div>
       <div class="sl2">Stocks Win Rate</div>
-      <div style="font-size:11px;color:var(--text3);margin-top:4px" id="so-stocks-ct"></div>
+      <div style="font-size:11px;color:#B0B4B8;margin-top:4px" id="so-stocks-ct"></div>
     </div>
     <div class="stat">
       <div class="sv2 pur" id="so-opts-wr">—</div>
       <div class="sl2">Options Win Rate</div>
-      <div style="font-size:11px;color:var(--text3);margin-top:4px" id="so-opts-ct"></div>
+      <div style="font-size:11px;color:#B0B4B8;margin-top:4px" id="so-opts-ct"></div>
     </div>
   </div>
   <div class="ibox" id="so-insight" style="margin-bottom:0">Log closed trades to compare stock vs options performance.</div>
@@ -1007,15 +1026,15 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
     <label class="btn btn-s" style="padding:11px 14px;font-size:13px;text-align:center;cursor:pointer">⬆ Import Backup<input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)"></label>
   </div>
   <div id="clear-confirm" style="display:none;background:var(--danger-dim);border:1px solid var(--danger-bd);border-radius:var(--rs);padding:14px 16px;margin-bottom:10px">
-    <div style="font-size:13px;font-weight:700;color:var(--danger);margin-bottom:4px">⚠️ Clear all trade data?</div>
-    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">This permanently deletes all trades and cannot be undone. Export a backup first if needed.</div>
+    <div style="font-size:13px;font-weight:700;color:#8B2E2E;margin-bottom:4px">⚠️ Clear all trade data?</div>
+    <div style="font-size:12px;color:#8A8880;margin-bottom:12px">This permanently deletes all trades and cannot be undone. Export a backup first if needed.</div>
     <div style="display:flex;gap:8px">
       <button class="btn btn-d" style="padding:10px 0;font-size:13px" onclick="confirmClearData()">Yes, delete everything</button>
       <button class="btn btn-s" style="padding:10px 0;font-size:13px" onclick="document.getElementById('clear-confirm').style.display='none'">Cancel</button>
     </div>
   </div>
   <div style="display:flex;justify-content:flex-end">
-    <button class="btn btn-s" style="width:auto;padding:10px 20px;font-size:13px;color:var(--danger);border-color:var(--danger-bd)" onclick="document.getElementById('clear-confirm').style.display='block'">Clear All Data</button>
+    <button class="btn btn-s" style="width:auto;padding:10px 20px;font-size:13px;color:#8B2E2E;border-color:var(--danger-bd)" onclick="document.getElementById('clear-confirm').style.display='block'">Clear All Data</button>
   </div>
 </div>
 
@@ -1053,7 +1072,7 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
   <div class="fg">
     <label class="fl">Updated Risk ($)</label>
     <input type="number" id="adj-risk" placeholder="New total risk $" oninput="calcAdjRisk()">
-    <div id="adj-risk-pct" style="font-size:12px;color:var(--text2);margin-top:5px"></div>
+    <div id="adj-risk-pct" style="font-size:12px;color:#8A8880;margin-top:5px"></div>
   </div>
   <div class="fg">
     <label class="fl">Note (optional)</label>
@@ -1124,175 +1143,205 @@ hr{border:none;border-top:0.5px solid #D8D4CC;margin:16px 0}
 </div>
 
 <!-- ═══ LAWS ═══ -->
-<div id="view-laws" class="view">
+<div id="view-laws" class="view" style="overflow:hidden;width:100%;box-sizing:border-box">
   <div class="pg-title">Trading Laws</div>
-  <div class="pg-sub">The ruleset. Review before every session.</div>
+  <div class="pg-sub">Tap any card to reveal the rule.</div>
 
-  <!-- Account Structure -->
-  <div class="trade-card" style="padding:16px;margin-bottom:8px">
-    <div class="section-badge" style="margin-bottom:10px">Account Structure</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Schwab Roth 401K</div>
-        <div style="font-size:11px;color:#8A8880;line-height:1.5">Stocks · ETFs · No options · No leveraged ETFs · Regular hours only · Max $15K/position</div>
+  <!-- Flip card CSS injected here -->
+  <style>
+  .law-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;width:100%;box-sizing:border-box}
+  .law-card{height:110px;cursor:pointer;perspective:600px;-webkit-tap-highlight-color:transparent}
+  .law-card-inner{
+    position:relative;width:100%;height:100%;
+    transform-style:preserve-3d;
+    transition:transform .45s cubic-bezier(.4,0,.2,1);
+  }
+  .law-card.flipped .law-card-inner{transform:rotateY(180deg)}
+  .law-front,.law-back{
+    position:absolute;inset:0;
+    border-radius:8px;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    display:flex;flex-direction:column;
+    justify-content:center;padding:12px;
+    border:0.5px solid #D8D4CC;
+  }
+  .law-front{
+    background:#EFECE5;
+    align-items:center;text-align:center;
+  }
+  .law-back{
+    background:#D6E8F0;
+    border-color:#A8CAD9;
+    transform:rotateY(180deg);
+    justify-content:flex-start;
+    overflow:hidden;
+  }
+  .law-num{
+    font-size:10px;font-weight:500;letter-spacing:.10em;
+    text-transform:uppercase;color:#8A8880;margin-bottom:5px;
+  }
+  .law-title{font-size:12px;font-weight:500;color:#141414;line-height:1.3;text-align:center}
+  .law-tap{font-size:9px;color:#B0B4B8;margin-top:6px;letter-spacing:.06em;text-transform:uppercase}
+  .law-back-title{
+    font-size:10px;font-weight:500;letter-spacing:.08em;
+    text-transform:uppercase;color:#3A7A96;margin-bottom:5px;
+  }
+  .law-back-body{font-size:11px;color:#141414;line-height:1.55;overflow:hidden}
+  .law-back-note{font-size:10px;color:#3A7A96;margin-top:5px;font-style:italic;line-height:1.4}
+  </style>
+
+  <div class="law-grid">
+
+    <!-- Law 1 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 1</div><div class="law-title">Timeframe Discipline</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 1 — Timeframe</div><div class="law-back-body">The timeframe you identify the setup on is the timeframe you manage the trade on. 3D setup is never managed like a day trade. 5M setup is never held overnight.</div><div class="law-back-note">No exceptions.</div></div>
       </div>
-      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">IBKR Rollover IRA</div>
-        <div style="font-size:11px;color:#8A8880;line-height:1.5">Momentum stocks · Options 30+ DTE A-grade · Extended hours · More aggressive</div>
-      </div>
-      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Public.com Brokerage</div>
-        <div style="font-size:11px;color:#8A8880;line-height:1.5">Options ONLY — no shares</div>
-      </div>
-      <div style="background:#E5E1D8;border:0.5px solid #D8D4CC;border-radius:8px;padding:10px 12px">
-        <div style="font-size:12px;font-weight:500;color:#141414;margin-bottom:3px">Public.com Roth IRA</div>
-        <div style="font-size:11px;color:#8A8880;line-height:1.5">Momentum stocks ONLY — no options</div>
+    </div>
+
+    <!-- Law 2 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 2</div><div class="law-title">VRVP Placement</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 2 — VRVP</div><div class="law-back-body">LVN = fast move highway. HVN = chop, wait for break. POC = strongest magnet. R:R must be 1.5 to nearest HVN target.</div><div class="law-back-note">Can't answer all 3? No trade.</div></div>
       </div>
     </div>
-  </div>
 
-  <!-- Four Signals -->
-  <div class="trade-card" style="padding:16px;margin-bottom:8px">
-    <div class="section-badge" style="margin-bottom:10px">The Four Signals — In Order of Authority</div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">1</div>
-        <div><div style="font-size:13px;font-weight:500;color:#141414">VRVP</div><div style="font-size:12px;color:#8A8880">Defines where price moves fast (LVN) or slow (HVN) — always read this first</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">2</div>
-        <div><div style="font-size:13px;font-weight:500;color:#141414">TD Sequential</div><div style="font-size:12px;color:#8A8880">Defines when a move starts or ends — counts 1–5 enter, counts 6–9 do not enter</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">3</div>
-        <div><div style="font-size:13px;font-weight:500;color:#141414">TraderXO 12/25 EMA</div><div style="font-size:12px;color:#8A8880">Triggers entry direction — above 25 EMA = full conviction, below 25 EMA = half size</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:22px;height:22px;border-radius:50%;background:#141414;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">4</div>
-        <div><div style="font-size:13px;font-weight:500;color:#141414">RSI 14</div><div style="font-size:12px;color:#8A8880">Confirms momentum — above 72 = hard veto, below 40 on bull signal = adds conviction</div></div>
+    <!-- Law 3 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 3</div><div class="law-title">TD Sequential</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 3 — TD Sequential</div><div class="law-back-body">Count 1–4 = full size. Count 5 = half size. Count 6–8 = no entry. Count 9 = exhaustion only.</div><div class="law-back-note">Never enter in direction of count 6, 7, 8, or 9.</div></div>
       </div>
     </div>
-    <div style="margin-top:12px;padding:10px 12px;background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:6px;font-size:11px;color:#5B97B2;font-weight:500;text-align:center;letter-spacing:.04em">3 of 4 must agree to trade &nbsp;·&nbsp; All 4 = A-grade &nbsp;·&nbsp; Fewer than 3 = no trade</div>
-  </div>
 
-  <!-- Laws 1–15 -->
-  <div class="trade-card" style="padding:0;margin-bottom:8px;overflow:hidden">
-    <div style="padding:12px 16px 10px;border-bottom:0.5px solid #D8D4CC">
-      <div class="section-badge">Laws 1 – 15</div>
+    <!-- Law 4 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 4</div><div class="law-title">TraderXO Signal</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 4 — TraderXO</div><div class="law-back-body">Bull + above 25 EMA = full conviction. Below 25 EMA = half size. From 20 band = highest quality. Near 80 band = do not enter.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 1 — Timeframe Discipline</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">The timeframe you identify the setup on is the timeframe you manage the trade on. A 3D setup is never managed like a day trade. A 5M setup is never held overnight.</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">No exceptions.</div>
+    <!-- Law 5 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 5</div><div class="law-title">RSI Rules</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 5 — RSI</div><div class="law-back-body">Below 40 = oversold, adds conviction. 40–65 = valid zone. Above 72 = hard veto. RSI diverging from price = exit longs immediately.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 2 — VRVP Placement</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Is price in a LVN (fast move) or HVN (chop)? Where is the nearest HVN target? Is R:R at least 1.5? POC is the strongest magnet — price gravitates here from both directions.</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">If you cannot answer all three questions, there is no trade.</div>
+    <!-- Law 6 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 6</div><div class="law-title">Position Sizing</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 6 — Sizing</div><div class="law-back-body">A-grade = full size. B-grade = half size. C-grade = paper only.</div><div class="law-back-note">401K ceiling: $15,000 max cost basis. No exceptions.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 3 — TD Sequential</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Count 1–4 = enter full size &nbsp;·&nbsp; Count 5 = enter half size &nbsp;·&nbsp; Count 6–8 = do not enter &nbsp;·&nbsp; Count 9 = exhaustion, reversal setups only</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Never enter a new position in the direction of a count 6, 7, 8, or 9.</div>
+    <!-- Law 7 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 7</div><div class="law-title">Stop Loss</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 7 — Stop</div><div class="law-back-body">Set immediately at entry. Never widened. Only trail tighter. Position moves against thesis: hold to stop or exit — adding is never permitted.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 4 — TraderXO Signal Rules</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Bull + above 25 EMA = valid long, full conviction &nbsp;·&nbsp; Bull + below 25 EMA = half size &nbsp;·&nbsp; Signal from 20 band = highest quality oversold entry &nbsp;·&nbsp; Signal from 50 band = valid, lower conviction &nbsp;·&nbsp; Signal near 80 band = do not enter</div>
+    <!-- Law 8 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 8</div><div class="law-title">Daily Limits</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 8 — Limits</div><div class="law-back-body">Max 2 trades/session on daily tier. Max 3 active positions across all tiers. 2 losses = done for the day.</div><div class="law-back-note">No exceptions.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 5 — RSI Rules</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Below 40 on Bull signal = oversold, adds conviction &nbsp;·&nbsp; 40–65 = valid entry zone &nbsp;·&nbsp; Above 72 = hard veto, no long entries regardless of other signals &nbsp;·&nbsp; RSI diverging from price = exit longs immediately</div>
+    <!-- Law 9 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 9</div><div class="law-title">Market Context</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 9 — Context</div><div class="law-back-body">Never take a bullish trade on a stock when SPY is in a confirmed downtrend on the same timeframe as your setup.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 6 — Position Sizing by Grade</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">A-grade (all 4 signals) = full size &nbsp;·&nbsp; B-grade (3 of 4) = half size &nbsp;·&nbsp; C-grade (2 of 4) = paper trade only</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Roth 401K hard ceiling: $15,000 max cost basis per position. No exceptions.</div>
+    <!-- Law 10 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 10</div><div class="law-title">Journal Gate</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 10 — Journal</div><div class="law-back-body">No journal entry, no trade. Answer: tier · signals · VRVP · entry/stop/target · R:R · invalidation.</div><div class="law-back-note">The completed entry IS the win.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 7 — Stop Loss</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Set at entry immediately &nbsp;·&nbsp; Never widened once set &nbsp;·&nbsp; Only trail tighter as price moves in your favor &nbsp;·&nbsp; Position moves against thesis: hold to stop or exit — adding is never permitted</div>
+    <!-- Law 11 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 11</div><div class="law-title">TradingView Alerts</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 11 — Alerts</div><div class="law-back-body">Alerts notify you to look, never to buy. Alert fires → chart → run laws → journal → all 6 questions → then consider entry.</div><div class="law-back-note">Never trade the moment an alert fires on mobile.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 8 — Daily Limits</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Max 2 trades per session on the daily tier &nbsp;·&nbsp; Max 3 active positions across all tiers &nbsp;·&nbsp; 2 losses in one session = done for the day</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">No exceptions.</div>
+    <!-- Law 12 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 12</div><div class="law-title">Account Rules</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 12 — Accounts</div><div class="law-back-body">401K: stocks/ETFs only, regular hours, no averaging down, hold duration in journal. IBKR: options 30+ DTE A-grade, ETF options 15+ DTE B-grade.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 9 — Market Context</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Never take a bullish trade on an individual stock when SPY is in a confirmed downtrend on the same timeframe as your setup.</div>
+    <!-- Law 13 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 13</div><div class="law-title">Execution Device</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 13 — Device</div><div class="law-back-body">All executions on laptop only. No mobile. No iPad. Mobile trade ideas must be re-evaluated cold on laptop before any order.</div><div class="law-back-note">Structural rule, not a preference.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 10 — Pre-Trade Journal Gate</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">No journal entry, no trade. Answer all 6 before touching the order screen: tier &nbsp;·&nbsp; signals &nbsp;·&nbsp; VRVP placement &nbsp;·&nbsp; entry/stop/target &nbsp;·&nbsp; R:R (1.5 min) &nbsp;·&nbsp; invalidation trigger</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">The completed journal entry IS the win. A no-trade day with a completed review is a winning day.</div>
+    <!-- Law 14 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 14</div><div class="law-title">Chart Patterns</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 14 — Patterns</div><div class="law-back-body">Identify candlestick patterns, chart patterns, and S/D zones on every chart. If no named pattern, say so explicitly.</div><div class="law-back-note">Never leave pattern status ambiguous.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 11 — TradingView Alerts</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Alerts notify you to look, never to buy. Alert fires → open chart on correct timeframe → run all four signals → open journal → complete all six questions → then and only then consider entry.</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Never place a trade the moment an alert fires on mobile.</div>
+    <!-- Law 15 -->
+    <div class="law-card" onclick="this.classList.toggle('flipped')">
+      <div class="law-card-inner">
+        <div class="law-front"><div class="law-num">Law 15</div><div class="law-title">Extended Hours</div><div class="law-tap">tap to reveal</div></div>
+        <div class="law-back"><div class="law-back-title">Law 15 — Ext. Hours</div><div class="law-back-body">Never hold leveraged positions into earnings. 401K = regular hours only. IBKR = limit orders only extended hours.</div><div class="law-back-note">Thin volume can gap past any stop.</div></div>
+      </div>
     </div>
 
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 12 — Account-Specific Rules</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">401K: shares and ETFs only, regular hours 9:30–4PM EST, no averaging down, hold duration stated in journal before entry, swing trades max 10 days. IBKR IRA: options 30+ DTE A-grade, ETF options 15+ DTE B-grade, extended hours with limit orders only.</div>
-    </div>
-
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 13 — Execution Device</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">All trade executions on laptop only. No mobile. No iPad. A trade idea from a mobile session must be re-evaluated cold on laptop before any order is placed.</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">Lower friction devices produce impulsive entries — this is a structural rule, not a preference.</div>
-    </div>
-
-    <div style="padding:12px 16px;border-bottom:0.5px solid #D8D4CC">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 14 — Chart Pattern Recognition</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Identify named candlestick patterns, chart patterns, and supply/demand zones on every chart. Candlestick: Hammer, Engulfing, Doji variants, Morning/Evening Star, Kicker, Three White Soldiers/Black Crows. Chart: Flag, Cup and Handle, Double Top/Bottom, Head and Shoulders, Triangles, Wedges. S/D zones: Rally-Base-Drop, Drop-Base-Rally, Rally-Base-Rally, Drop-Base-Drop.</div>
-      <div style="font-size:11px;color:#8A8880;margin-top:4px;font-style:italic">If no named pattern is detected, call that out explicitly. Never leave pattern status ambiguous.</div>
-    </div>
-
-    <div style="padding:12px 16px">
-      <div style="font-size:12px;font-weight:500;color:#4A4A48;margin-bottom:4px;letter-spacing:.02em">Law 15 — Extended Hours Awareness</div>
-      <div style="font-size:13px;color:#4A4A48;line-height:1.65">Pre-market (4AM–9:30AM) and after-hours (4PM–8PM) moves of 20–30% happen on thin volume and can gap past any stop. Never hold a leveraged position into a known earnings event. Use Bullflow as early warning. 401K = regular hours only. IBKR IRA = limit orders only in extended hours.</div>
-    </div>
   </div>
 
   <!-- Veto List -->
-  <div style="background:#F5EAEA;border:0.5px solid #D9B7B7;border-radius:12px;padding:14px 16px;margin-bottom:8px">
+  <div style="background:#F5EAEA;border:0.5px solid #D9B7B7;border-radius:8px;padding:14px 16px;margin-bottom:8px">
     <div style="font-size:10px;font-weight:500;color:#8B2E2E;margin-bottom:8px;letter-spacing:.10em;text-transform:uppercase">Veto List — Any One Cancels the Trade</div>
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>RSI above 72 for a long entry</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>TD Sequential count 6, 7, 8, or 9 in your trade direction</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>TraderXO signal firing near the 80 band</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Price inside a HVN with no clear runway to target</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>SPY in a confirmed downtrend on your setup timeframe</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Journal entry not completed</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>2 losses already taken today</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Leveraged ETF in the Roth 401K — permanent ban</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Position sizing above $15,000 in the Roth 401K</div>
-      <div style="font-size:13px;color:#A05050;display:flex;gap:8px"><span style="color:#8B2E2E;flex-shrink:0;font-weight:500">✕</span>Execution attempted on mobile or iPad</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px">
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>RSI above 72</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>TD count 6, 7, 8, or 9</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>TraderXO near 80 band</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>Price in HVN, no runway</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>SPY confirmed downtrend</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>Journal not completed</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>2 losses taken today</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>Leveraged ETF in 401K</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>Position over $15K 401K</div>
+      <div style="font-size:12px;color:#A05050;display:flex;gap:6px"><span style="color:#8B2E2E;flex-shrink:0">✕</span>Execution on mobile/iPad</div>
     </div>
   </div>
 
   <!-- The One Rule -->
   <div style="background:#D6E8F0;border:0.5px solid #A8CAD9;border-radius:var(--r);padding:16px;text-align:center;margin-bottom:8px">
     <div style="font-size:14px;font-weight:500;color:#141414;letter-spacing:-.1px;margin-bottom:5px">The One Rule</div>
-    <div style="font-size:13px;color:#5B97B2;font-style:italic;line-height:1.55">No confluence. No journal. No trade.<br>When in doubt, the answer is no.</div>
+    <div style="font-size:13px;color:#3A7A96;font-style:italic;line-height:1.55">No confluence. No journal. No trade.<br>When in doubt, the answer is no.</div>
   </div>
 </div>
 
 <div class="bnav">
   <button class="nb" id="nav-laws" onclick="sv('laws')"><span class="nb-icon">⚖</span><span class="nb-lbl">Laws</span></button>
-  <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon">▣</span><span class="nb-lbl">Portfolio</span></button>
+  <button class="nb on" id="nav-log" onclick="sv('log')"><span class="nb-icon">📈</span><span class="nb-lbl">Portfolio</span></button>
   <button class="nb" id="nav-entry" onclick="sv('entry')"><span class="nb-icon">＋</span><span class="nb-lbl">Entry</span></button>
   <button class="nb" id="nav-exit" onclick="sv('exit')"><span class="nb-icon">✓</span><span class="nb-lbl">Exit</span></button>
   <button class="nb" id="nav-patterns" onclick="sv('patterns')"><span class="nb-icon">◎</span><span class="nb-lbl">Patterns</span></button>
@@ -1456,9 +1505,9 @@ function saveGoalInput() {
 
 function setGoalMode(mode) {
   goalMode = mode;
-  document.getElementById('goal-toggle-dollar').style.background = mode === 'dollar' ? '#141414' : 'transparent';
+  document.getElementById('goal-toggle-dollar').style.background = mode === 'dollar' ? '#D6E8F0' : 'transparent';
   document.getElementById('goal-toggle-dollar').style.color      = mode === 'dollar' ? '#fff' : 'var(--t3)';
-  document.getElementById('goal-toggle-pct').style.background    = mode === 'pct'    ? '#141414' : 'transparent';
+  document.getElementById('goal-toggle-pct').style.background    = mode === 'pct'    ? '#D6E8F0' : 'transparent';
   document.getElementById('goal-toggle-pct').style.color         = mode === 'pct'    ? '#fff' : 'var(--t3)';
   renderGoal();
 }
@@ -1484,6 +1533,7 @@ function renderGoal(monthPnl) {
     goalDisplay.textContent = '—';
     goalDisplay.className   = 'hero-amt zero';
     progressLabel.textContent = 'Set a target above';
+    progressLabel.style.color = '#4A4A48';
     barWrap.style.display = 'none';
     return;
   }
@@ -1511,11 +1561,13 @@ function renderGoal(monthPnl) {
   // Progress text
   const remaining = goal - Math.max(0, pnl);
   if (pnl <= 0) {
+    progressLabel.style.color = '#4A4A48';
     progressLabel.textContent = goalMode === 'dollar'
       ? `$0 of $${goal.toLocaleString()} — start trading`
       : `0% of ${base > 0 ? (goal/base*100).toFixed(1) : '?'}% target`;
     pctLabel.textContent = '0%';
   } else if (pct >= 100) {
+    progressLabel.style.color = '#2D6A4F';
     progressLabel.textContent = `🎯 Goal crushed! +${goalMode==='dollar'?fmtM(pnl):(base>0?(pnl/base*100).toFixed(1)+'%':'—')}`;
     pctLabel.textContent = pct + '%';
   } else {
@@ -1523,6 +1575,7 @@ function renderGoal(monthPnl) {
       ? `$${remaining.toLocaleString('en-US',{maximumFractionDigits:0})} to go`
       : base > 0 ? `${((remaining/base)*100).toFixed(1)}% to go` : '';
     progressLabel.textContent = remainStr;
+    progressLabel.style.color = '#4A4A48';
     pctLabel.textContent = pct + '%';
   }
 }
@@ -1971,23 +2024,23 @@ function buildTradeCard(t, isOpen) {
   
 
   const adjustHistory = (t.adjustments||[]).map(a=>
-    `<div style="font-size:11px;color:var(--text3);padding:3px 0;border-bottom:1px dashed var(--border)">${a.type||'adj'} · ${a.qty||''} ${a.price?'@ $'+a.price:''} ${a.note?'— '+a.note:''} <span style="color:var(--text3)">${fmtDS(a.date||0)}</span></div>`
+    `<div style="font-size:11px;color:#B0B4B8;padding:3px 0;border-bottom:0.5px dashed #D8D4CC">${a.type||'adj'} · ${a.qty||''} ${a.price?'@ $'+a.price:''} ${a.note?'— '+a.note:''} <span style="color:#B0B4B8">${fmtDS(a.date||0)}</span></div>`
   ).join('');
 
   const riskBar = isOpen ? `<div style="padding:0 16px 12px;display:flex;align-items:center;gap:10px">
-    <div style="flex:1;height:5px;background:#2c2c2e;border-radius:3px;overflow:hidden">
+    <div style="flex:1;height:5px;background:#E5E1D8;border-radius:3px;overflow:hidden">
       <div style="height:100%;border-radius:3px;width:${rw}%;background:${rc};transition:width .65s cubic-bezier(.4,0,.2,1)"></div>
     </div>
-    <div style="font-size:11px;color:var(--text3);white-space:nowrap">${rp>=10?'⚠ ':''}${rp||'—'}% at risk</div>
+    <div style="font-size:11px;color:#B0B4B8;white-space:nowrap">${rp>=10?'⚠ ':''}${rp||'—'}% at risk</div>
   </div>` : '';
 
   const actions = isOpen ? `<div class="drawer-actions">
     <button class="drawer-btn dba-add" onclick="event.stopPropagation();openAdjModal(${t.id},'add')">＋ Add</button>
     <button class="drawer-btn dba-reduce" onclick="event.stopPropagation();openAdjModal(${t.id},'reduce')">− Reduce</button>
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:1px solid rgba(59,130,246,.20);background:#242426;color:var(--b300);font-size:12px;font-weight:700;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #A8CAD9;background:#D6E8F0;color:#3A7A96;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn dba-close" onclick="event.stopPropagation();sv('exit')">✓ Close</button>
   </div>` : `<div class="drawer-actions">
-    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #D8D4CC;background:#E5E1D8;color:#4A4A48;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
+    <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #D8D4CC;background:#D6E8F0;color:#141414;border:0.5px solid #A8CAD9;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();openEditModal(${t.id})">✎ Edit</button>
     <button class="drawer-btn" style="flex:1;padding:9px 12px;border-radius:20px;border:0.5px solid #D9B7B7;background:#F5EAEA;color:#8B2E2E;font-size:12px;font-weight:500;cursor:pointer" onclick="event.stopPropagation();deleteTrade(${t.id})">✕ Delete</button>
   </div>`;
 
@@ -2130,7 +2183,7 @@ function renderChart() {
     type:'line',
     data:{labels,datasets:[{data,borderColor:lc,backgroundColor:fc,borderWidth:2,pointRadius:data.length>20?0:4,pointHoverRadius:6,pointBackgroundColor:lc,fill:true,tension:.3}]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:400},
-      plugins:{legend:{display:false},tooltip:{backgroundColor:'#141414',titleColor:'#F7F5F0',bodyColor:'#EFECE5',borderWidth:0,padding:10,
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#D6E8F0',titleColor:'#F7F5F0',bodyColor:'#EFECE5',borderWidth:0,padding:10,
         callbacks:{label:ctx=>{const v=ctx.raw;return chartMode==='dollar'?` ${v>=0?'+':''}$${Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2})}`:` ${v>=0?'+':''}${v.toFixed(2)}%`;}}}},
       scales:{
         x:{grid:{color:'rgba(20,20,20,.04)'},ticks:{color:'#8A8880',font:{size:10},maxTicksLimit:8}},
@@ -2216,7 +2269,7 @@ function renderCalendar() {
     const dayPnl=closedDay.reduce((s,t)=>s+t.pnlNum,0);
     const dots=dt.slice(0,4).map(t=>`<div class="cal-dot ${t.status==='open'?'open':t.pnlNum>=0?'win':'loss'}"></div>`).join('');
     const pnlStr=closedDay.length>0?`<div class="cal-pnl ${dayPnl>=0?'pos':'neg'}">${dayPnl>=0?'+':''}${Math.round(dayPnl)}</div>`:'';
-    const countBadge=dt.length>0?`<div style="position:absolute;top:3px;right:4px;font-size:9px;font-weight:700;color:var(--text3)">${dt.length}</div>`:'';
+    const countBadge=dt.length>0?`<div style="position:absolute;top:3px;right:4px;font-size:9px;font-weight:700;color:#B0B4B8">${dt.length}</div>`:'';
     const cls=['cal-day',isToday?'today':'',dt.length>0?'has-trades':''].filter(Boolean).join(' ');
     const onclick=dt.length>0?`onclick="openCalPopup('${key}',${d})"`:'';
     html+=`<div class="${cls}" ${onclick} style="position:relative">${countBadge}<div class="cal-day-num">${d}</div><div class="cal-dot-row">${dots}</div>${pnlStr}</div>`;
@@ -2240,18 +2293,18 @@ function openCalPopup(key,dayNum) {
     return `<div class="cal-trade-item">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
         <div><div style="font-size:14px;font-weight:500;color:#141414">${t.ticker}</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:2px">${t.structure||'—'} · ${t.direction||'—'}</div>
-        <div style="font-size:12px;color:var(--text2)">${t.status==='closed'?'Closed':'Opened'}: ${fmtD(t.status==='closed'?(t.exitDate||t.entryDate):t.entryDate)}</div></div>
+        <div style="font-size:12px;color:#8A8880;margin-top:2px">${t.structure||'—'} · ${t.direction||'—'}</div>
+        <div style="font-size:12px;color:#8A8880">${t.status==='closed'?'Closed':'Opened'}: ${fmtD(t.status==='closed'?(t.exitDate||t.entryDate):t.entryDate)}</div></div>
         <div style="text-align:right">${t.status==='open'
-          ?`<span style="font-size:11px;color:#5B97B2;font-weight:500;background:#D6E8F0;padding:2px 8px;border-radius:4px;border:0.5px solid #A8CAD9">OPEN</span>`
+          ?`<span style="font-size:11px;color:#3A7A96;font-weight:500;background:#D6E8F0;padding:2px 8px;border-radius:4px;border:0.5px solid #A8CAD9">OPEN</span>`
           :`<span style="font-size:13px;font-weight:700;color:${pN>=0?'var(--success)':'var(--danger)'}">${pS}</span>`}
         </div>
       </div>
-      ${t.exitOutcome?`<div style="font-size:12px;color:var(--text2);margin-top:6px">Outcome: ${t.exitOutcome}</div>`:''}
-      ${t.lesson?`<div style="font-size:12px;color:#5B97B2;margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
-      ${t.thesis?`<div style="font-size:11px;color:var(--text3);margin-top:4px;border-left:2px solid #D8D4CC;padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
+      ${t.exitOutcome?`<div style="font-size:12px;color:#8A8880;margin-top:6px">Outcome: ${t.exitOutcome}</div>`:''}
+      ${t.lesson?`<div style="font-size:12px;color:#3A7A96;margin-top:4px;font-style:italic">"${t.lesson}"</div>`:''}
+      ${t.thesis?`<div style="font-size:11px;color:#B0B4B8;margin-top:4px;border-left:2px solid #D8D4CC;padding-left:7px">${t.thesis.slice(0,120)}${t.thesis.length>120?'…':''}</div>`:''}
     </div>`;
-  }).join('') || '<div style="color:var(--text3);font-size:13px">No trades this day.</div>';
+  }).join('') || '<div style="color:#B0B4B8;font-size:13px">No trades this day.</div>';
   document.getElementById('cal-overlay').classList.add('show');
   document.getElementById('cal-popup').classList.add('show');
 }
@@ -2433,9 +2486,9 @@ function deleteTrade(tradeId) {
     row.className = 'delete-confirm-row';
     row.style.cssText = 'padding:10px 16px;background:#F5EAEA;border-top:0.5px solid #D9B7B7;display:flex;align-items:center;justify-content:space-between;gap:10px';
     row.innerHTML = `
-      <span style="font-size:13px;color:var(--danger);font-weight:600">Delete ${t.ticker}? This cannot be undone.</span>
+      <span style="font-size:13px;color:#8B2E2E;font-weight:600">Delete ${t.ticker}? This cannot be undone.</span>
       <div style="display:flex;gap:8px;flex-shrink:0">
-        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:6px;border:none;background:#8B2E2E;color:#F7F5F0;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font)">Delete</button>
+        <button onclick="confirmDeleteTrade(${tradeId})" style="padding:6px 16px;border-radius:6px;border:0.5px solid #D9B7B7;background:#F5EAEA;color:#8B2E2E;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font)">Delete</button>
         <button onclick="this.closest('.delete-confirm-row').remove()" style="padding:6px 14px;border-radius:6px;border:0.5px solid #D8D4CC;background:#E5E1D8;color:#8A8880;font-size:12px;font-weight:400;cursor:pointer;font-family:var(--font)">Cancel</button>
       </div>`;
     card.appendChild(row);
@@ -2584,12 +2637,12 @@ function renderPat() {
       }
     });
     legendEl.innerHTML = pieLabels.map((l,i) => pieData[i] > 0
-      ? `<div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${pieColors[i]};flex-shrink:0"></span><span style="color:var(--text2)">${l}: <strong style="color:var(--text)">${pieData[i]}</strong></span></div>`
+      ? `<div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${pieColors[i]};flex-shrink:0"></span><span style="color:#4A4A48">${l}: <strong style="color:#141414">${pieData[i]}</strong></span></div>`
       : ''
     ).join('');
     // Exit breakdown below legend
     if (panic > 0 || thesis > 0) {
-      legendEl.innerHTML += `<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--text3)">Exits: <span style="color:var(--success)">${thesis} thesis</span> · <span style="color:var(--danger)">${panic} panic</span></div>`;
+      legendEl.innerHTML += `<div style="margin-top:8px;padding-top:8px;border-top:0.5px solid #D8D4CC;font-size:11px;color:#B0B4B8">Exits: <span style="color:#2D6A4F">${thesis} thesis</span> · <span style="color:#8B2E2E">${panic} panic</span></div>`;
     }
   }
 
@@ -2689,7 +2742,7 @@ function renderDailyLimit() {
   el.textContent = lim;
   if (bar) {
     bar.style.width = pct + '%';
-    bar.style.background = count >= lim ? '#8B2E2E' : count >= lim - 1 ? '#7A5C1E' : '#2D6A4F';
+    bar.style.background = count >= lim ? '#8B2E2E' : count >= lim - 1 ? '#D9C9A0' : '#A8CAD9';
   }
   if (status) {
     if (count === 0)      status.textContent = `No trades logged today`;
